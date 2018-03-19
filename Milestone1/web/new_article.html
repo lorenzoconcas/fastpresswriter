@@ -15,8 +15,8 @@ and open the template in the editor.
         <nav class="navbar">
             <a class="navbar_logo" href="index.html"><img id="logo" alt="Fast Press Writer" src="logo.png"></a>   
             <a class="navbar_buttons" href="news.html">Notizie</a>
-            <a class="navbar_buttons" href="profile.html" id="selected_item">Profilo</a>
-            <a class="navbar_buttons" href="personal_articles.html">I Miei Articoli</a>
+            <a class="navbar_buttons" href="profile.html" >Profilo</a>
+            <a class="navbar_buttons" href="personal_articles.html"id="selected_item">I Miei Articoli</a>
             <img id="user_icon" alt="Utente" src="user_icon_undef.png"/>
             <a id="logout" href="index.html">Logout<br/>Lorenzo L. Concas</a>
         </nav>
@@ -57,34 +57,59 @@ and open the template in the editor.
                 </ul>           
         </aside> 
         
-         <div class="profile_section">
-            <h3>Il tuo profilo</h3>
-            <img src="user_icon_undef.png" alt="Immagine del profilo"/>
-            <div class="profile_section_buttons">
-                <label>Nome</label>
-                <input type="text"/>
+         <div class="personal_articles_section">
+            <h3>Scrivi un nuovo articolo</h3>
+            <div class="personal_articles_data">
+                <label>Titolo</label>
+                <input class="new_article_input" type="text"/>
                 <br/>
-                <label>Cognome</label>
-                <input type="text"/>
+                <label>Data</label>
+                <input class="new_article_input"  type="date"/>
                 <br/>
-                <label>Data Di Nascita</label>
-                <input type="date"/>
+                <label>Immagine</label>
+                <input class="new_article_input"  type="text"/>
                 <br/>
-                <label>Url Immagine</label>
-                <input type="text"/>
+                <label>Didascalia</label>
+                <input class="new_article_input"  type="date"/>
                 <br/>
-                <label>Password</label>
-                <input type="password"/>
+                <label>Testo</label>
                 <br/>
-                <label>Conferma</label>
-                <input type="password"/>
+                <textarea class="article_text"></textarea>
                 <br/>
-                <button class="confirm_button">Aggiorna</button>
             </div>
-            <button id="delete_profile" onClick="alert('Non ancora disponibile')">Elimina il mio profilo</button>
+            <br/>
+            <div class="new_article_categories_section">
+                <label>Categorie</label>
+                <br/>
+                <input type="checkbox">
+                <label>Politica</label>
+                
+                <br/>
+                <input type="checkbox">
+                <label>Croncaca</label>
+                
+                <br/>
+                <input type="checkbox">
+                <label>Esteri</label>
+                
+                <br/>
+                <input type="checkbox">
+                <label>Sport</label>
+                
+                <br/>
+                <input type="checkbox">
+                <label>Cultura</label>
+                
+                <br/>
+                <input type="checkbox">
+                <label>Economia</label>
+                
+            </div>
+           
+            <button class="confirm_button">Carica articolo</button>
         </div> 
         <footer class="footer">
-            <label class="footer_element">Copyright © 2018 Lorenzo L. Concas </label>
+            <label class="footer_element" >Copyright © 2018 Lorenzo L. Concas </label>
             <br/>
             <a href="http://moodle.unica.it/mod/page/view.php?id=15512" class="footer_element">Milestone 1 di FPW</a>
         </footer>

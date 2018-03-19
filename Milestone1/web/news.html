@@ -16,18 +16,18 @@ and open the template in the editor.
             <a class="navbar_logo" href="index.html"><img id="logo" alt="Fast Press Writer" src="logo.png"></a>   
             <a class="navbar_buttons" href="news.html" id="selected_item">Notizie</a>
             <a class="navbar_buttons" href="profile.html" >Profilo</a>
-            <a class="navbar_buttons" href="info.html">Informazioni</a>
+            <a class="navbar_buttons" href="personal_articles.html">I Miei Articoli</a>
             <img id="user_icon" alt="Utente" src="user_icon_undef.png"/>
             <a id="logout"  href="index.html">Logout<br/>Lorenzo L. Concas</a>
         </nav>
         <aside class="aside_search">
             <nav class="asides_title">
-                <label>Ricerca nel sito</label>
+                <label >Ricerca nel sito</label>
             </nav>
                 
                 <input id="searchbox" type="text"/>
                 <br/>
-                 <button id="searchbutton" >Cerca</button>
+                 <button id="searchbutton" class="confirm_button">Cerca</button>
         </aside>
         <aside class="aside_categories">
             <nav class="asides_title">
@@ -63,25 +63,87 @@ and open the template in the editor.
             <div class="news_item">
                 <img src="news.image.1.jpg" alt="qualcosa" width="240"/>
                 <p class="news_item_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit tincidunt dolor, a malesuada ipsum cursus eget. Curabitur at feugiat massa. Nunc a laoreet erat. Nam ultrices faucibus felis a porttitor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque euismod odio id tempus rhoncus. Aliquam mollis eget ligula a dictum.</p>
+                <a>Apri articolo</a>
+                <br/>
+                <label class="news_author">Autore: Egli</label>
+                <br/>
+                <label class="news_categories">Categorie : Sfondi, acqua</label>
+                <hr/>
+                <h6>Commenti</h6>
+                <div class="news_comment">
+                    
+                    <div class="current_comments">
+                        <img src="user_icon_undef.png" alt="Utente" width="24" height="24"/>
+                        <label>Professore</label>
+                        <br/>
+                        <label>Commento : Wowowow, 30 e lode!</label>
+                    </div>
+                    <div>
+                        <img src="user_icon_undef.png" alt="Utente" width="24" height="24"/>
+                        <label>Nome Utente</label>
+                        <br/>
+                        <textarea class="comment_box"></textarea>
+                        <br/>
+                        <button class="confirm_button">Commenta</button>
+                    </div>
+                </div>
             </div>
+            
+            
             <br/>
             <hr/>
+            
             <!--Articolo n2-->
             <label class="news_section_title">Sfondo Numero 2</label>
             <div class="news_item">
                 <img src="news.image.2.jpg" alt="qualcosa" width="240"/>
                 <p class="news_item_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit tincidunt dolor, a malesuada ipsum cursus eget. Curabitur at feugiat massa. Nunc a laoreet erat. Nam ultrices faucibus felis a porttitor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque euismod odio id tempus rhoncus. Aliquam mollis eget ligula a dictum.</p>
+                 <a>Apri articolo</a>
+                <br/>
+                <label class="news_author">Autore: Egli</label>
+                <br/>
+                <label class="news_categories">Categorie : Sfondi, acqua</label>
+                <hr/>
+                <h6>Commenti</h6>
+                <div class="news_comment">
+                    <img src="user_icon_undef.png" alt="Utente" width="24" height="24"/>
+                    <label>Nome Utente</label>
+                    <br/>
+                    <textarea class="comment_box"></textarea>
+                    <br/>
+                    <button class="confirm_button">Commenta</button>
+                </div>
             </div>
+            
             <br/>
             <hr/>
+            
             <!--Articolo n3-->
             <label class="news_section_title">Sfondo Numero 3</label>
             <div class="news_item">
                 <img src="news.image.3.jpg" alt="qualcosa" width="240"/>
                 <p class="news_item_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit tincidunt dolor, a malesuada ipsum cursus eget. Curabitur at feugiat massa. Nunc a laoreet erat. Nam ultrices faucibus felis a porttitor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque euismod odio id tempus rhoncus. Aliquam mollis eget ligula a dictum.</p>
+                 <a>Apri articolo</a>
+                <br/>
+                <label class="news_author">Autore: Lui</label>
+                <br/>
+                <label class="news_categories">Categorie : Sfondi, acqua</label>
+                <hr/>
+                <h6>Commenti</h6>
+                <div class="news_comment">
+                    <img src="user_icon_undef.png" alt="Utente" width="24" height="24"/>
+                    <label>Nome Utente</label>
+                    <br/>
+                    <textarea class="comment_box"></textarea>
+                    <br/>
+                    <button class="confirm_button">Commenta</button>
+                </div>
             </div>
             <br/>
             <hr/>
+            <div>
+                <a href="new_article.html" class="float_button"><img src="edit.png" alt="Scrivi articolo" width="48" height="48"/></a>
+            </div>
         </div>  
         <footer class="footer">
             <label class="footer_element">Copyright © 2018 Lorenzo L. Concas </label>

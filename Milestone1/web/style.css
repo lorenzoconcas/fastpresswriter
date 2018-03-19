@@ -152,7 +152,7 @@ a:hover{
 .login{
     text-align: center;
     position: absolute;
-    top: 70px;
+    top: 80px;
     left: 50%;
 }   
 .login_nav{
@@ -247,31 +247,50 @@ a:hover{
     border-color: #EAEAEA;
     padding: 10px;
 }
-.news_item_text{
-  
+.news_author{
+  color: #333333;
+  font-size: 12px;
 }
-#refresh_button{
-    background-color: #006699;
+.news_categories{
+  color: #333333;
+  font-size: 12px;
+}
+.current_comments{
+   background-color:#EAEAEA;
+   border-style: solid;
+   border-color:#EAEAEA;
+   border-radius: 1%;
+   height: 48px;
+   
+}
+.comment_box{
+    padding:10px;
+    width:80%;
+}
+
+.float_button{
+    background-color: white;
     position:fixed;
     right:5%;
     bottom:5%;
     border-style: solid;
-    border-radius: 100%;
+    border-radius: 50%;
     border-color: #006699;
-    width:48px;
-    height:48px;
+    width:50px;
+    height:50px;
 }
 
 /*Parti specifiche di profile.html*/
 .profile_section{
-     position: absolute;
+
+    position: absolute;
     top: 80px;
     width: 400px;
-    left: 265px;
+    left: 40%;
     border-color: #EAEAEA;
     border-style: solid;
     border-width: 2px;
-    height:50%;
+    height:55%;
     padding:10px;
 }
 
@@ -298,4 +317,59 @@ a:hover{
 #delete_profile:hover{
      color: white;
      background-color: #ff9999;
+}
+
+/*Parti specifiche di pers_articles*/
+.personal_articles_section{
+    
+    position: absolute;
+    top: 80px;
+    width: 400px;
+    left: 40%;
+    border-color: #EAEAEA;
+    border-style: solid;
+    border-width: 2px;
+    height:55%;
+    padding:10px;
+}
+.personal_articles_table{
+    border-style: solid;
+    width:98%;
+}
+.edit{
+    background-color: white;
+    border-style: none;
+}
+#new_article{
+    margin-top: 10px;
+    height: 28px;
+    color:white;
+    background-color: #006699;
+    border-style: solid;
+    border-width: 1px;
+    border-color:  #006699;
+    border-radius: 2%;
+    width:98%;
+    right: 2%;
+}
+.new_article_categories_section{
+    text-align:left;
+    border-style:solid;
+    border-width: 1px;
+    border-color: #EAEAEA;
+}
+.personal_articles_data{
+
+    text-align:left;
+    border-style:solid;
+    border-width: 1px;
+    border-color: #EAEAEA;
+    
+}
+.article_text{
+    width: 96%;
+    right: 2%;
+}
+.new_article_input{
+    width: 96%;
 }
