@@ -229,7 +229,7 @@ a:hover{
     right:2%;
     border-color: #EAEAEA;
     border-style: solid;
-
+    
     border-width: 0px;
     
     height:40%;
@@ -247,6 +247,7 @@ a:hover{
     border-color: #EAEAEA;
     padding: 10px;
 }
+
 .news_author{
   color: #333333;
   font-size: 12px;
