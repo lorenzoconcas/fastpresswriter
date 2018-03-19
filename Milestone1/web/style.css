@@ -1,0 +1,300 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 19-mar-2018, 11.04.49
+    Author     : lorec
+*/
+
+body{
+   background-color: white;
+   font-family: Roboto;
+   align-content: stretch;
+}
+
+a{
+    text-decoration: none;
+}
+a:visited{
+    color: black;
+    text-decoration: none;
+}
+a:hover{
+    color: blue;
+}
+
+.navbar{
+    z-index: 2;
+    text-align: left;
+    background-color: #006699;
+    color: white;
+    border: none;
+    position: fixed;
+    width : 100%;
+    height: 40px;
+    left: 0;
+    top: 0;
+    background-size: 100% auto;
+    padding-top:10px;
+    padding-bottom: 17px;
+}
+#logo{
+    width: 48px;
+    height: 48px;
+}
+
+#selected_item{
+    border-bottom-color: white;
+    border-bottom-style: solid;
+    border-bottom-width:thick;
+}
+.navbar_buttons{
+    float:left;
+    padding-top:10px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-bottom: 10px;
+    color: white;
+    border: none;
+    background-color: transparent;
+    text-decoration : none;
+    font-size: 24px;
+    border-bottom-color: #96FFFF;
+}
+.navbar_logo{
+    float:left;
+    padding-top: 0px;
+    padding-left: 2px;
+    padding-right: 2px;
+    background-color: transparent;
+}
+.navbar_buttons:visited{
+     color: white;
+}
+.navbar_buttons:hover{
+     color: white;
+     background-color: #006EA5;
+}
+
+.aside_search{
+
+    background-color: #EAEAEA;
+    position: fixed;
+    top: 80px;
+    left: 10px;
+    width: 220px;
+    border-width: 2px;
+    border-style: solid;
+    padding: 10px;
+    border-color: #EAEAEA;
+    border-radius: 2%;
+}
+#searchbox{
+    width: 215px;
+}
+#searchbutton{
+    width: 219px;
+}
+.aside_categories{
+    position: fixed;
+    top : 180px;
+    width: 220px;
+    left: 10px;
+    border-width: 2px;
+    border-style: solid;
+    padding: 10px;
+    border-color: #EAEAEA;
+    background-color: #EAEAEA;
+    border-radius: 2%;
+    
+}
+.aside_authors{
+    position: fixed;
+    top : 393px;
+    width: 220px;
+    left: 10px;
+    border-width: 2px;
+    border-style: solid;
+    padding: 10px;
+    border-color: #EAEAEA;
+    background-color: #EAEAEA;
+    border-radius: 2%;
+}
+.asides_title{
+    background-color: #F2F2F2;
+   text-align: center;
+}
+
+.footer{
+    z-index: 2;
+    text-align: center;
+    background-color: #006699;
+    color: white;
+    border: none;
+    position: fixed;
+    width : 100%;
+    height: 40px;
+    left: 0;
+    bottom: 0;
+    background-size: 100% auto;
+    
+}
+.footer_element:visited{
+     color: white;
+}
+.footer_element:hover{
+    color: white;
+     background-color: #006EA5;
+}
+/*Sezioni specifiche di index.html e login.html*/
+.login{
+    text-align: center;
+    position: absolute;
+    top: 70px;
+    left: 50%;
+}   
+.login_nav{
+   vertical-align: super;
+   font-size: 32px;
+   text-align: center;
+   padding:10px;
+}
+.login_section{
+    padding: 20px;
+    text-align: center;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #EAEAEA;
+    border-radius: 2%;
+
+}
+.confirm_button{
+    border-style: solid;
+    border-width: 1px;
+    border-color:  #006699;
+    border-radius: 2%;
+    background-color: white;
+    color: black;
+    width: 175px;
+}
+.confirm_button:hover{
+    background-color: #006699;
+    color: white;
+}
+
+
+/*Parti specifiche di profile.html e notizie.html*/
+#user_icon{
+    float: right;
+    width: 38px;
+    height: 38px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+}
+#logout{
+    padding-top: 5px;
+    float:right;
+    font-size: 14px;
+    text-align: right;
+    padding-right: 5px;
+}
+#logout:hover{
+    color: white;
+    background-color: #006EA5;
+}
+#user_icon:hover{
+   background-color: #006EA5;
+}
+
+/*parti di info.html*/
+.info_text{
+    position:relative;
+    top: 90px;
+    float:left;
+    text-align: center;
+    color:black;
+}
+
+/*Parti specifiche di news.html*/
+.news_section{
+    
+    position: absolute;
+    top: 80px;
+    left: 265px;
+    right:2%;
+    border-color: #EAEAEA;
+    border-style: solid;
+
+    border-width: 0px;
+    
+    height:40%;
+
+    padding:10px;
+
+}
+.news_section_title{
+    background-color: #EAEAEA;
+    background-size: 100% auto;
+
+}
+.news_item {
+    border-style: solid;
+    border-color: #EAEAEA;
+    padding: 10px;
+}
+.news_item_text{
+  
+}
+#refresh_button{
+    background-color: #006699;
+    position:fixed;
+    right:5%;
+    bottom:5%;
+    border-style: solid;
+    border-radius: 100%;
+    border-color: #006699;
+    width:48px;
+    height:48px;
+}
+
+/*Parti specifiche di profile.html*/
+.profile_section{
+     position: absolute;
+    top: 80px;
+    width: 400px;
+    left: 265px;
+    border-color: #EAEAEA;
+    border-style: solid;
+    border-width: 2px;
+    height:50%;
+    padding:10px;
+}
+
+.profile_section_buttons{
+    width: 100px;
+    text-align: left;
+    border-style: none;
+    padding: 0px;
+}
+#delete_profile{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: white;
+    height: 25px;
+    width: 200px;
+    border-style: solid;
+    border-width: 1px;
+    border-color:  red;
+    border-radius: 2%;
+    background-color: red;
+ 
+}
+#delete_profile:hover{
+     color: white;
+     background-color: #ff9999;
+}
