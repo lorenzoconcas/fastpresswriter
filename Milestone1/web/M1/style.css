@@ -39,6 +39,8 @@ a:hover{
     background-size: 100% auto;
     padding-top:10px;
     padding-bottom: 17px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 #logo{
     width: 48px;
@@ -53,8 +55,8 @@ a:hover{
 .navbar_buttons{
     float:left;
     padding-top:10px;
-    padding-left: 4px;
-    padding-right: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
     padding-bottom: 10px;
     color: white;
     border: none;
@@ -190,7 +192,7 @@ a:hover{
     float: right;
     width: 38px;
     height: 38px;
-    padding-right: 5px;
+    padding-right: 10px;
     padding-top: 5px;
     padding-left: 5px;
     padding-bottom: 5px;
@@ -374,3 +376,4 @@ a:hover{
 .new_article_input{
     width: 96%;
 }
+
