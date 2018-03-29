@@ -64,14 +64,14 @@ a:hover{
     border-color: #006EA5;
 }
 .search_bar{
-    background-color:006699;
+    background-color:#006699;
     position:fixed;
     color:white;
     left: 5%;
     
     top : 66px;
 
-    height: 72px;
+    height: 78px;
     width: 20%; 
 
     border-color: #006699;
@@ -81,7 +81,7 @@ a:hover{
 
 #search_box{
     position: relative;
-    width:98%;
+    width:96%;
     left:1%;
     top:9px;
     height:26px;
@@ -112,7 +112,7 @@ a:hover{
     position:fixed;
 
     left: 5%;
-    top : 148px;   
+    top : 150px;   
 
     width: 20%; 
     height: 200px;
@@ -203,7 +203,7 @@ a:hover{
 .new_article{
     background-color: #006699;
     position:fixed;
-    top : 576px;
+    top : 562px;
     width: 20%; 
     height: 48px;
     left: 5%;
@@ -388,6 +388,9 @@ a:hover{
 }
 /*Tasto nuovo articolo*/
 #new_article{
+    position:relative;
+    top:10px;
+    padding:5px;
     margin-top: 10px;
     height: 28px;
     color:white;
@@ -398,6 +401,10 @@ a:hover{
     border-radius: 2%;
     width:98%;
     right: 2%;
+}
+#new_article:hover{
+    color: white;
+    background-color: #006EA5;
 }
 /*Pagina nuovo articolo*/
 .new_article_section{
@@ -435,6 +442,7 @@ a:hover{
         position: relative;
         left: 0px;
     }
+  
     .aside_categories{
         
         position:relative;
@@ -457,7 +465,7 @@ a:hover{
         position: relative;
         left:15px;
         top: -5px; 
-        width:(100%-15px);
+        width:calc(100%-15px);
     }
 
     .new_article{
@@ -512,7 +520,7 @@ a:hover{
         position: relative;
         left:10px;
         top: -5px; 
-        width:(100%-10px);
+        width:calc(100%-10px);
     }
     .new_article{
         position:relative;
@@ -587,7 +595,7 @@ a:hover{
         position: relative;
         left:15px;
         top: -5px; 
-        width:(100%-15px);
+        width:calc(100%-15px);
     }
   
     .content{
