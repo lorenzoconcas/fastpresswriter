@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <title>Obi-Wan Kenobi</title>
+        <link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
+    </head>
+    <body>
+        <nav class="navbar">
+            <a id="home_logo"><img src="logo.png" alt=""></a>
+            <a class="navbar_buttons" href="news.html" id="">Home</a>
+            <a class="navbar_buttons"href="profilo.html">Profilo</a>
+            <a class="navbar_buttons" href="articoli.html" id="selected_item">Articoli</a>
+        </nav>
+        
+        <aside class="search_bar">
+          
+                <input id="search_box" type="text" placeholder="Cerca nel sito"/> 
+                <br/>
+                <button id="search_button">Cerca</button>
+        </aside>
+
+        <aside class="aside_categories">
+            <div class="aside_content_cat">   
+                    <h3>Categorie</h3>
+                    <ul>    
+                        <li><a>Politica</a></li>
+                        <li><a>Cronaca</a></li>
+                        <li><a>Esteri</a></li>
+                        <li><a>Economia</a></li>
+                        <li><a>Sport</a></li>
+                        <li><a>Cultura</a></li>
+                    </ul>
+            </div>
+               
+        </aside>
+        <aside class="aside_authors">
+            <div class="aside_content_auth">
+                    <h3>Autori</h3>
+                    <ul>    
+                            <li><a>Han Solo</a></li>
+                            <li><a>Luke Skywalker</a></li>
+                            <li><a>Lord Fener</a></li>
+                            <li><a>Leia Organa</a></li>
+                            <li><a>Chewbacca</a></li>
+                            <li><a>Palpatine</a></li>
+                    </ul>
+            </div>
+        </aside>
+        
+        <div class="content">
+                <div class="personal_articles_section">
+                        <h3>I tuoi articoli</h3>
+                        <table class="personal_articles_table">
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Titolo</th>
+                                    <th>Modifica</th>
+                                    <th>Cancella</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>19/03/2018</td>
+                                    <td><a>Sfondo Numero 1</a></td>
+                                    <td><button class="edit"><img src="edit.png" width="24" height="24" alt="Modifica"/></button></td>
+                                    <td><button class="edit"><img src="recycle.png" width="24" height="24" alt="Elimina"/></button></td>
+                                </tr>
+                                <tr>
+                                    <td>01/01/2018</td>
+                                    <td><a>Sfondo Numero 2</a></td>
+                                    <td><button class="edit"><img src="edit.png" width="24" height="24" alt="Modifica"/></button></td>
+                                    <td><button class="edit"><img src="recycle.png" width="24" height="24" alt="Elimina"/></button></td>
+                                </tr>
+                                <tr>
+                                    <td>08/10/2017</td>
+                                    <td><a>Sfondo Numero 3</a></td>
+                                   <td><button class="edit"><img src="edit.png" width="24" height="24" alt="Modifica"/></button></td>
+                                    <td><button class="edit"><img src="recycle.png" width="24" height="24" alt="Elimina"/></button></td>
+                                </tr>
+                                <tr>
+                                    <td>01/09/2016</td>
+                                    <td><a>Sfondo Numero 4</a></td>
+                                    <td><button class="edit"><img src="edit.png" width="24" height="24" alt="Modifica"/></button></td>
+                                    <td><button class="edit"><img src="recycle.png" width="24" height="24" alt="Elimina"/></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <a href="nuovo_articolo.html"><button id="new_article">Aggiungi nuovo articolo</button></a>
+            
+                    </div> 
+        </div>
+        <footer class="footer">
+                <img src="user_icon.png" alt="Profilo"/>
+                <a href="http://moodle.unica.it/mod/page/view.php?id=9020" id="logout">Progetto di FPW - Milestone 1 - Made By L.L.C.</a>
+            </footer>
+    </body>
+</html>

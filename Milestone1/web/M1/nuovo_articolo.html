@@ -1,0 +1,112 @@
+<html>
+    <head>
+        <title>Obi-Wan Kenobi</title>
+        <link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
+    </head>
+    <body>
+        <nav class="navbar">
+            <a id="home_logo"><img src="logo.png" alt=""></a>
+            <a class="navbar_buttons" href="news.html" >Home</a>
+            <a class="navbar_buttons"href="profilo.html">Profilo</a>
+            <a class="navbar_buttons" href="articoli.html">Articoli</a>
+        </nav>
+        
+        <aside class="search_bar">
+            <label id="search_title">Cerca nel sito</label>
+            <br/>
+            <input id="search_box" type="text"/> 
+            <br/>
+            <button id="search_button">Cerca</button>
+        </aside>
+
+        <aside class="aside_categories">
+            <div class="aside_content_cat">   
+                    <h3>Categorie</h3>
+                    <ul>    
+                        <li><a>Politica</a></li>
+                        <li><a>Cronaca</a></li>
+                        <li><a>Esteri</a></li>
+                        <li><a>Economia</a></li>
+                        <li><a>Sport</a></li>
+                        <li><a>Cultura</a></li>
+                    </ul>
+            </div>
+               
+        </aside>
+        <aside class="aside_authors">
+            <div class="aside_content_auth">
+                    <h3>Autori</h3>
+                    <ul>    
+                        <li><a>Io</a></li>
+                        <li><a>Tu</a></li>
+                        <li><a>Egli</a></li>
+                        <li><a>Noi</a></li>
+                        <li><a>Voi</a></li>
+                        <li><a>Essi</a></li>
+                    </ul>
+            </div>
+        </aside>
+        
+        <div class="content">
+                <div class="new_article_section">
+                        <h3>Scrivi un nuovo articolo</h3>
+                        <div class="personal_articles_data">
+                            <label>Titolo</label>
+                            <br/>
+                            <input class="new_article_input" type="text"/>
+                            <br/>
+                            <label>Data</label>
+                            <br/>
+                            <input class="new_article_input"  type="date"/>
+                            <br/>
+                            <label>Immagine</label>
+                            <br/>
+                            <input class="new_article_input"  type="text"/>
+                            <br/>
+                            <label>Didascalia</label>
+                            <br/>
+                            <input class="new_article_input"  type="date"/>
+                            <br/>
+                            <label>Testo</label>
+                            <br/>
+                            <textarea id="article_text"></textarea>
+                            <br/>
+                        </div>
+                        <br/>
+                        <div class="new_article_categoies">
+                            <label>Categorie</label>
+                            <br/>
+                            <input type="checkbox">
+                            <label>Politica</label>
+                            
+                            <br/>
+                            <input type="checkbox">
+                            <label>Croncaca</label>
+                            
+                            <br/>
+                            <input type="checkbox">
+                            <label>Esteri</label>
+                            
+                            <br/>
+                            <input type="checkbox">
+                            <label>Sport</label>
+                            
+                            <br/>
+                            <input type="checkbox">
+                            <label>Cultura</label>
+                            
+                            <br/>
+                            <input type="checkbox">
+                            <label>Economia</label>
+                            
+                        </div>
+                       
+                        <button class="button">Carica articolo</button>
+                    </div> 
+        </div>
+        <footer class="footer">
+                <img src="user_icon.png" alt="Profilo"/>
+                <a href="http://moodle.unica.it/mod/page/view.php?id=9020" id="logout">Progetto di FPW - Milestone 1 - Made By L.L.C.</a>
+            </footer>
+    </body>
+</html>
