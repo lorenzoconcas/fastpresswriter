@@ -257,26 +257,26 @@ a:hover{
     color:white;
     position: absolute;
     left:16px;
-    bottom:42px;
+    bottom:46px;
 }
 .post_open{
     color:white;
     position: absolute;
     left:16px;
-    bottom:22px;
+    bottom:26px;
 }
 .post_category{
     color:white;
     position: absolute;
     left:16px;
-    bottom:2px;
+    bottom:8px;
 }
 .fade2{
     position: absolute;
     width:100%;
     height:80px;
     left:0px;
-    bottom:0px;
+    bottom:5px;
 }
 .comment_section{
     background-color:#EFEFEF;
@@ -432,7 +432,7 @@ a:hover{
  }
  
 /*layout a una sola colonna (ideale per dispositivi mobili)*/
-@media only screen and (min-width: 0) and (max-width: 570px){
+@media only screen and (min-width: 0) and (max-width: 480px){
     .aside_categories{        
         position:relative;
         width:100%;
@@ -454,7 +454,7 @@ a:hover{
         position:relative;
         width:100%;
         left:0;
-        top:85px; 
+        top:75px; 
     }
     .aside_content_cat{
         position: relative;
@@ -487,7 +487,7 @@ a:hover{
    
 }
 
-@media only screen and (min-width:571px) and (max-width: 768px){
+@media only screen and (min-width:481px) and (max-width: 1024px){
     
     .search_bar{
         
@@ -535,7 +535,8 @@ a:hover{
 
     .content{
         position: absolute;
-        left:26%;
+        left: 30%;
+        width: 65%;
         top: 71px;
     }
     .login_form{
@@ -545,17 +546,11 @@ a:hover{
         text-align: center;
         padding-top:20px;
     }
-    .profile_section{
-        left:50%;
-        position:relative;
-        width:100%;
-        text-align: center;
-        padding-top:20px;
-    }
+
     .personal_articles_section{
-        left:18%;
+       
         position:relative;
-        width:100%;
+       
         text-align: center;
         padding-top:20px;
     }
