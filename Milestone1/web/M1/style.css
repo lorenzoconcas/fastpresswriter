@@ -150,6 +150,7 @@ a:hover{
     position: absolute;
     left:30%;
     top: 69px;
+     right: 20%;
     height:100%;
     
 }
@@ -418,6 +419,7 @@ a:hover{
     height:300px;
 }
 
+/*Rimuove il logo perchè troppo grande*/
 @media only screen and (min-width: 0) and (max-width: 460px){
     #home_logo{
         display: none;
@@ -481,13 +483,13 @@ a:hover{
         left: 0;
         top:100px;
         width:100%;
-        
+
     }
 
    
 }
-
-@media only screen and (min-width:481px) and (max-width: 1024px){
+/*Layout intermedio*/
+@media only screen and (min-width:481px) and (max-width: 1023px){
     
     .search_bar{
         
@@ -534,15 +536,18 @@ a:hover{
     }
 
     .content{
+         
         position: absolute;
         left: 30%;
         width: 65%;
+        
         top: 71px;
     }
     .login_form{
-        left:50%;
+       
         position:relative;
-        width:100%;
+        left: 20%;
+        width: 65%;
         text-align: center;
         padding-top:20px;
     }
@@ -599,10 +604,3 @@ a:hover{
         top: 71px;
     }
 }
-
-@media only screen and (min-width:769px){
-    .content{
-        right: 20%;
-    }
-}
-
