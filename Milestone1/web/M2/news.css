@@ -9,29 +9,63 @@ and open the template in the editor.
 */
 
 #news{
-    background: linear-gradient( #FCFCFC,#EFEFEF);
+    /* background: linear-gradient( #FCFCFC,#EFEFEF);*/
+}
+#content{
+     background: linear-gradient( #FCFCFC,#EFEFEF);
+    
+}
+
+#post_title{
+    font-size:24px;
+}
+#author{
+    position:absolute;
 }
 #news_pic{
+    
     width:100%;
+
 }
 #post_user_icon{
     width:24px;
 }
-#post_author{
-    position:absolute;
-    top:2px;
-    left: 32px;
-}
-#news_infos{
+#news_core{
     width:100%;
-    background: linear-gradient( #FCFCFC,#EFEFEF);
-  
-    position:absolute;
    
+    top: 8px;
+    position:relative;
 }
 #post_title{
-    font-size:28px;
+    position:relative;
+    left:16px;
+}
+#post_category{
+     position:relative;
+    left:24px;
+}
+#post_content{
+    position:relative;
+    top:8px;
+    left:24px;
 }
 #comment_section{
-    position: relative;
+    position:relative;
+    top:8px;
+    left:24px;
+}
+#comment_username{
+   position:relative;
+   left:24px; 
+}
+
+#comment{
+    position:relative;
+   left:24px; 
+}
+#comment_area{
+   position:relative;
+  
+ 
+   width:calc(100% - 48px);
 }

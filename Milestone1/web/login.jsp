@@ -18,7 +18,7 @@
     </head>
     <body>
        
-       <jsp:include page="M2/header_not_logged.jsp" />
+       <jsp:include page="M2/header.jsp" />
         <div id="content">
             <div class="login_form">
             <label>Effettua il login per poter creare articoli o commentarli</label>

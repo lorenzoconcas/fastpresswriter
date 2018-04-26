@@ -14,7 +14,7 @@
         <link rel="stylesheet" type="text/css" href="M2/style.css" media="screen"/>
     </head>
     <body>
-           <jsp:include page="M2/header_logged.jsp" />   
+           <jsp:include page="M2/header.jsp" />   
            <div id="content">
                <h3>Il tuo profilo, ${user.getName()} ${user.getSurname()}</h3>
                <img src="<c:url value="${user.getImgUrl()}"/>" alt="Immagine Profilo" width="168"/>
