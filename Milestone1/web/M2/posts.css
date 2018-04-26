@@ -1,0 +1,118 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 24-apr-2018, 19.33.05
+    Author     : lorec
+*/
+
+/*NEWS POSTS*/
+#post{
+    position: relative;
+    background: linear-gradient(#FCFCFC, #EFEFEF);
+   
+}
+
+#news_pic{
+    width:50%;
+    top:0px;
+    left:0px;
+}
+#post_author{
+    color:black;
+    position:absolute;
+    left: 56%;
+    top:4px;
+   
+
+}
+#fade{
+    position: absolute;
+    width:50%;
+    left:50%;
+    height:98%;
+  
+
+}
+#post_user_icon{
+    position: absolute;
+    left:51%;
+    width:28px;
+}
+#post_title{
+    font-size: 24px;
+    color:black;
+    position: absolute;
+    left:51%;
+    top:32px;
+}
+#post_content{
+    font-size: 18px;
+    color:black;
+    position: absolute;
+    left:52%;
+    top:64px;
+    
+    vertical-align:central;
+}
+#post_open{
+    color:black;
+    position: absolute;
+    left:51%;
+    bottom:8px;
+}
+#post_category{
+    color:black;
+    position: absolute;
+    left:51%;
+    bottom:32px;
+}
+.fade2{
+    position: absolute;
+    width:50%;
+    height:80px;
+    left:50%;
+    bottom:5px;
+}
+.comment_section{
+    background-color:#EFEFEF;
+    border-style:solid;
+    border-color:#EFEFEF;
+}
+.comment_area{
+    position: relative;
+    width: 90%;
+    height:90px;
+    left:10%;
+  
+}
+.comment_username{
+    position: relative;
+    background-color:#E5E5E5;
+    width:100%;
+    left:10%
+}
+.comment{
+    position: relative;
+
+    width:100%;
+    left:15%
+}
+.post_comment{
+    
+    position:relative;
+    top:2px;
+    width:25%;
+    left:75%;
+    border-style: solid;
+    background-color:#006699;
+    border-color: #006699;
+    border-width: 2px;
+    color:white;
+}
+
+#sadFace{
+    font-size: 48px;
+}

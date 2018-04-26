@@ -1,0 +1,37 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 25-apr-2018, 17.08.57
+    Author     : lorec
+*/
+
+#news{
+    background: linear-gradient( #FCFCFC,#EFEFEF);
+}
+#news_pic{
+    width:100%;
+}
+#post_user_icon{
+    width:24px;
+}
+#post_author{
+    position:absolute;
+    top:2px;
+    left: 32px;
+}
+#news_infos{
+    width:100%;
+    background: linear-gradient( #FCFCFC,#EFEFEF);
+  
+    position:absolute;
+   
+}
+#post_title{
+    font-size:28px;
+}
+#comment_section{
+    position: relative;
+}

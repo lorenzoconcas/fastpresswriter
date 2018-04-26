@@ -1,0 +1,15 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 24-apr-2018, 22.46.18
+    Author     : lorec
+*/
+.login_form{
+    background:linear-gradient(#FCFCFC,#EFEFEF);
+    text-align:center;
+    padding:15px;
+    border-radius: 1%;
+}

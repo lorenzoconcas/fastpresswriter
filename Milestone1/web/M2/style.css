@@ -1,0 +1,147 @@
+body{
+    background-color:white;
+    font-family: "Segoe UI", sans-serif;
+    cursor: pointer;
+}
+a{
+    color:black;
+    text-decoration: none;
+}
+a:hover{
+    color:#002A47;
+    
+}
+
+#header{
+    z-index: 5;
+    position: fixed;
+    background-color:white;
+    width: 100%;
+    height:64px;
+    top: 0;
+    left:0;
+    text-align: center;
+}
+#search_button{
+    position: absolute;
+    top:14px;
+    left:16px;
+}
+#search_image{
+    height: 24px;
+    width:24px;
+}
+#search_button:hover{
+   cursor:pointer;
+}
+
+#home_logo{
+    position: relative;
+    font-size: 32px;   
+    top: 8px;
+    color : #333333;
+    font-family: "Old English Text MT";
+
+}
+#home_logo:hover{
+    color: #111111;
+    background:white;
+}
+
+.navbar{
+    color:black;
+    background: linear-gradient(#FCFCFC, #EFEFEF);
+    position:relative;
+    width:100%;
+    height:48px;
+    left:0;
+    top:16px;   
+}
+.navbar:link{
+    color:black;
+}
+.navbar_buttons{
+    color:black;
+    position: relative;   
+    top:6px;
+    font-size: 24px;
+    padding-left:10px;
+    padding-right:10px;
+}
+.navbar_buttons:visited{
+    color: black;
+}
+.navbar_buttons:hover{
+   background:transparent;
+
+   border-bottom-color: #AAAAAA;
+   border-bottom-style: solid;
+    border-bottom-width:thick;
+    padding-bottom: 5px;
+
+}
+
+#selected_item{
+    border-bottom-color: #333333;
+    border-bottom-style: solid;
+    border-bottom-width:thick;
+    padding-bottom: 5px;
+}
+
+#user{
+   position:absolute;
+  
+   text-align: right;
+   top: 4px;
+   right: 16px;
+   height: 48px;
+   
+}
+#header_user_icon{
+    position:relative;
+    top:8px;
+    right:8px;
+    height:32px;
+}
+#logout{
+    position:relative;
+    top:8px;
+    right:8px;    
+}
+#user_logout{
+    font-size:12px;
+    position:relative;
+    top:0px;
+    right:16px;    
+}
+
+.footer{
+    text-align: center;
+    background: linear-gradient(#EFEFEF, #FCFCFC);
+    position: fixed;
+    height: 32px;
+    left: 0px;
+    bottom:0%;
+    width:100%;
+
+    color:black;
+}
+#info_text{
+    position:relative;
+    top:4px;
+   
+}
+
+#content{
+    color:black;
+
+    position: relative;
+    width: 50%;
+    left: 25%;
+    right:25%;
+    top : 118px;
+    
+    height: calc(100%-48px);
+ 
+}
+
