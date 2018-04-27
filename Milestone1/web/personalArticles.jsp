@@ -8,7 +8,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
-<html>
+<html> 
     <head>
         <!-- non viene utilizzato <base href> perch0è va in conflitto con la ricerca delle varie jsp-->
         <title>Fast Press Writer</title>
