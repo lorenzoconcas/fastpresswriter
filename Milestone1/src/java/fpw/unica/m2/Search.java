@@ -7,7 +7,7 @@ package fpw.unica.m2;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Random;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author lorec
  */
-public class NewsDetails extends HttpServlet {
+public class Search extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,32 +32,51 @@ public class NewsDetails extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-           String id;
-           id = request.getParameter("id");
-            NotizieFactory nF = NotizieFactory.getIstance();
-         
-           if(Integer.parseInt(id) < nF.getNewsList().size()){
-               Random randomL = new Random();
-                Notizia n = nF.getNewsById(Integer.parseInt(id));
-                CommentsFactory cF = CommentsFactory.getIstance();
-                if(cF.getCommentByNewsID(Integer.parseInt(id)).size() > 0)
-                    request.setAttribute("isCommented", true);
-                else
-                    request.setAttribute("isCommented", false);
-                out.println(cF.getCommentByNewsID(Integer.parseInt(id)).size() > 0);
-                request.setAttribute("randomLike", randomL);
-                request.setAttribute("comments", cF.getCommentByNewsID(Integer.parseInt(id)));
-                request.setAttribute("author", n.getAutore());
-                request.setAttribute("newsTitle", n.getTitolo());
-                request.setAttribute("imageUrl", n.getImg());
-                request.setAttribute("newsContent", n.getContent());
-                request.setAttribute("newsCat", n.getCategoria());
-                request.getRequestDispatcher("newsDetails.jsp").forward(request, response);
+           
+           if(request.getParameter("query") != null ){
+               request.setAttribute("searched", true); //se la pagina è stata chiamata con una query
+            
+               String query = request.getParameter("query");
+               boolean foundNewsBool = false;
+                boolean foundInNewsBool = false;
+               //ora cerco i titoli degli articoli
+               
+               NotizieFactory nF = NotizieFactory.getIstance();
+               ArrayList<Notizia> notizie = nF.getNewsList();
+               ArrayList<Notizia> foundNews = new ArrayList<>();
+               ArrayList<Notizia> foundInNews = new ArrayList<>();
+               
+               for(Notizia n : notizie){
+                   if(n.getTitolo().contains(query)){
+                       foundNews.add(n);
+                       foundNewsBool = true;
+                      
+                   }
+               }
+               
+                for(Notizia n : notizie){
+                   if(n.getContent().contains(query)){
+                       foundInNews.add(n);
+                       foundInNewsBool = true;
+                      
+                   }
+               }
+               request.setAttribute("query", query);
+               request.setAttribute("foundNewsBool", foundNewsBool);
+                request.setAttribute("foundInNewsBool", foundInNewsBool);
+               if(foundNewsBool)                
+                    request.setAttribute("foundNews", foundNews);                   
+  
+               if(foundInNewsBool)
+                   request.setAttribute("foundInNews", foundInNews);       
            }
            else{
-               request.getRequestDispatcher("notImplementedPage.jsp").forward(request, response);
+                
+                request.setAttribute("searched", false);
+                //request.getRequestDispatcher("search.jsp").forward(request, response);
            }
-          
+           request.getRequestDispatcher("search.jsp").forward(request, response);
+            
         }
     }
 

@@ -7,11 +7,14 @@ and open the template in the editor.
     Created on : 24-apr-2018, 22.05.26
     Author     : lorec
 */
+
 #aside_left{
+  
     position: absolute;
     text-align:center;
     width: 15%;
     left: 5%;
     top: 128px;
     background: linear-gradient(#FCFCFC,#EFEFEF);
+    
 }

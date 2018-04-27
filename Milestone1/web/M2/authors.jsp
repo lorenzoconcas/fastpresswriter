@@ -12,7 +12,7 @@
         <h3>Autori</h3>
         <ul>
             <c:forEach var="a" items="${autori}">
-                <a  href="ViewProfile?id=${a.getId()}"><li>${a.getName()} ${a.getSurname()}</li></a>
+                <li><a  href="ViewProfile?id=${a.getId()}">${a.getName()} ${a.getSurname()}</a></li>
             </c:forEach>
         </ul>
     </div>

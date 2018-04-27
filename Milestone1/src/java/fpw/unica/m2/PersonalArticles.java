@@ -7,17 +7,17 @@ package fpw.unica.m2;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Random;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author lorec
  */
-public class NewsDetails extends HttpServlet {
+public class PersonalArticles extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,32 +32,18 @@ public class NewsDetails extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-           String id;
-           id = request.getParameter("id");
-            NotizieFactory nF = NotizieFactory.getIstance();
-         
-           if(Integer.parseInt(id) < nF.getNewsList().size()){
-               Random randomL = new Random();
-                Notizia n = nF.getNewsById(Integer.parseInt(id));
-                CommentsFactory cF = CommentsFactory.getIstance();
-                if(cF.getCommentByNewsID(Integer.parseInt(id)).size() > 0)
-                    request.setAttribute("isCommented", true);
-                else
-                    request.setAttribute("isCommented", false);
-                out.println(cF.getCommentByNewsID(Integer.parseInt(id)).size() > 0);
-                request.setAttribute("randomLike", randomL);
-                request.setAttribute("comments", cF.getCommentByNewsID(Integer.parseInt(id)));
-                request.setAttribute("author", n.getAutore());
-                request.setAttribute("newsTitle", n.getTitolo());
-                request.setAttribute("imageUrl", n.getImg());
-                request.setAttribute("newsContent", n.getContent());
-                request.setAttribute("newsCat", n.getCategoria());
-                request.getRequestDispatcher("newsDetails.jsp").forward(request, response);
-           }
-           else{
-               request.getRequestDispatcher("notImplementedPage.jsp").forward(request, response);
-           }
-          
+            HttpSession session = request.getSession();
+            if (session.getAttribute("loggedIn") != null && session.getAttribute("loggedIn").equals(true)){
+                    NotizieFactory nF = NotizieFactory.getIstance();                   
+                    UtentiFactory u = UtentiFactory.getIstance();                  
+                    Utenti current = (Utenti) session.getAttribute("user");
+                    request.setAttribute("listaNews", nF.getNewsByAuthor(current));
+                    
+                    request.getRequestDispatcher("personalArticles.jsp").forward(request, response);
+            }
+            else
+                 request.getRequestDispatcher("Login").forward(request, response);
+                
         }
     }
 

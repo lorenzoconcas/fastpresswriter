@@ -46,15 +46,22 @@
                 
                 <br/>
                 
-                 <div id="comment_section">
-                        <label>Commenti</label>
-                        <c:forEach var="Commenti" items="${comments}">                   
+                <div id="comment_section">
+                    
+                     <br/>
+                     <c:if test="${isCommented == true}">     
+                         <label>Commenti</label>
+                        <c:forEach var="Commenti" items="${comments}">   
                             <br/>
-                            <label id="comment_username">${Commenti.getAutoreCommento().getName()} ${Commenti.getAutoreCommento().getSurname()}</label>
-                            <br/>
-                            <label id="comment">${Commenti.getCommento()}</label>
-                            <br/>                        
+                            <div id="comment_box">                           
+                                <label id="comment_username">${Commenti.getAutoreCommento().getName()} ${Commenti.getAutoreCommento().getSurname()}</label>
+                                <br/>
+                                <label id="comment">${Commenti.getCommento()}</label>
+                                <br/>        
+                                <a id="comment" href="notImplementedPage.jsp">Like : ${randomLike.nextInt(100)}</a>
+                            </div>
                         </c:forEach>  
+                    </c:if>       
                             <br/>
                         <c:if test="${loggedIn == true}">
                             <label>Commenta (come ${user.getName()} ${user.getSurname()})</label>
@@ -62,7 +69,8 @@
                             <textarea id="comment_area"></textarea>
                             <button id="post_comment">Commenta</button>   
                         </c:if>  
-                    </div> 
+                </div> 
+                <br/>
            </div>
               
        </div>

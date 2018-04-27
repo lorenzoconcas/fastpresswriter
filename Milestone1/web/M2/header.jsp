@@ -9,7 +9,7 @@
 
 <header id="header">
     <!--Tasto cerca-->
-    <a id="search_button"><img id="search_image" src="M2/search_icon.png" alt="Cerca"/></a>
+    <a id="search_button" href="Search"><img id="search_image" src="M2/search_icon.png" alt="Cerca"/></a>
    <!--Logo-->
     <a id="home_logo" href="Notizie">Fast Press Writer</a>
     <!--Nome utente-->
@@ -26,7 +26,7 @@
         <a class="navbar_buttons" href="Notizie">Home</a>
         <a class="navbar_buttons" href="Profilo">Profilo</a>
          <c:if test="${loggedIn == true}">
-            <a class="navbar_buttons" href="notImplementedPage.jsp">Articoli</a>
+            <a class="navbar_buttons" href="PersonalArticles">Articoli</a>
         </c:if>
    
     </nav>

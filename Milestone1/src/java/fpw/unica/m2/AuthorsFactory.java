@@ -16,14 +16,13 @@ public class AuthorsFactory {
     private ArrayList<Utenti> listaAutori = new ArrayList<>();
     
     AuthorsFactory(){
-        UtentiFactory uF = UtentiFactory.getIstance();
-        NotizieFactory nF = NotizieFactory.getIstance();
         
-         //dobbiamo capire quali di loro sono anche autori
-        ArrayList<Utenti> utenti = uF.getUsers();
-        ArrayList<Notizia> notizie = nF.getNewsList();
-   
-        listaAutori.add(utenti.get(0));
+        NotizieFactory nF = NotizieFactory.getIstance();
+        ArrayList<Notizia> n = nF.getNewsList();
+        for(Notizia a : n){
+            listaAutori.add(a.getAutore());
+        }
+        
              
     }
     public static AuthorsFactory getIstance(){

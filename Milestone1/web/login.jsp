@@ -40,7 +40,7 @@
         </c:if>
 
         </div>
+  <jsp:include page="M2/footer.jsp" />
     
-     <jsp:include page="M2/footer.jsp" />
     </body>
 </html>

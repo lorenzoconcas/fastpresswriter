@@ -7,6 +7,7 @@ package fpw.unica.m2;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -34,7 +35,7 @@ public class Index extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
            HttpSession session = request.getSession();
-           
+          
             if (session.getAttribute("loggedIn") != null && session.getAttribute("loggedIn").equals(true)){
                 request.setAttribute("test", true);
             }
@@ -48,7 +49,6 @@ public class Index extends HttpServlet {
            session.setAttribute("autori", aF.getAutori());
            request.setAttribute("listaNews", nF.getNewsList());
          
-           
            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
     }

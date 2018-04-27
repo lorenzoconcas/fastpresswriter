@@ -111,5 +111,11 @@ public class Notizia {
     public void setAutore(Utenti autore) {
         this.autore = autore;
     }
+    public String getContentPreview(){
+        //restituisce l'anteprima del contenuto 
+        if(this.content.length() > 100)
+            return this.content.substring(0, 100);
+            else return this.content;
+    }
   
 }

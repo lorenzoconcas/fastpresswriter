@@ -44,6 +44,18 @@
             <param-value>false</param-value>
         </init-param>
     </servlet>
+    <servlet>
+        <servlet-name>Search</servlet-name>
+        <servlet-class>fpw.unica.m2.Search</servlet-class>
+        <init-param>
+            <param-name>query</param-name>
+            <param-value/>
+        </init-param>
+    </servlet>
+    <servlet>
+        <servlet-name>PersonalArticles</servlet-name>
+        <servlet-class>fpw.unica.m2.PersonalArticles</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -63,6 +75,14 @@
     <servlet-mapping>
         <servlet-name>ViewProfile</servlet-name>
         <url-pattern>/ViewProfile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Search</servlet-name>
+        <url-pattern>/Search</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PersonalArticles</servlet-name>
+        <url-pattern>/PersonalArticles</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

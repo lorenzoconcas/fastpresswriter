@@ -62,7 +62,7 @@ public class Login extends HttpServlet {
                     request.setAttribute("invalidData", true);
                     request.getRequestDispatcher("login.jsp").forward(request, response); 
                 }
-                else if(email == "" || password == ""){
+                else if(email.equals("") || password.equals("")){
                     request.setAttribute("invalidData", true);
                     request.getRequestDispatcher("login.jsp").forward(request, response); 
                 }

@@ -52,6 +52,6 @@
                 <input type="button" class="button_delete" value="Elimina Profilo"/>
                 <br/>
            </div>
-           <jsp:include page="M2/footer.jsp"/>
+           
     </body>
 </html>

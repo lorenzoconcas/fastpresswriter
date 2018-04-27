@@ -8,8 +8,8 @@ a{
     text-decoration: none;
 }
 a:hover{
-    color:#002A47;
-    
+
+    color:#AAAAAA;
 }
 
 #header{
@@ -145,3 +145,12 @@ a:hover{
  
 }
 
+@media (max-width: 720px){
+#home_logo{
+   
+    font-size: 16px;   
+   
+
+}
+    
+}

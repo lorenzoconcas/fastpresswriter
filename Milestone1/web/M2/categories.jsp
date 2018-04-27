@@ -15,7 +15,7 @@
             <li><a>Esteri</a></li>
             <li><a>Economia</a></li>
             <li><a>Sport</a></li>
-            <li><a>Cultura</a></li>
+            <li><a>Cultura</a></li>           
         </ul>
     </div>
 </aside>

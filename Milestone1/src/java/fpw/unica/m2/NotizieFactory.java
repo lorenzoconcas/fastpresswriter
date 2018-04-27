@@ -31,8 +31,8 @@ public class NotizieFactory {
         Notizia n2 = new Notizia();
         
         n2.setId(1);
-        n2.setCategoria("Arte");
-        n2.setContent("Lorem Ipsumdolor sit amet");
+        n2.setCategoria("Sport");
+        n2.setContent("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit tincidunt dolor");
         n2.setImg("M2/news.image.2.jpg");
         n2.setTitolo("Articolo 2");
         n2.setAutore(uF.getUserById(1));
@@ -40,7 +40,7 @@ public class NotizieFactory {
         Notizia n3 = new Notizia();
         
         n3.setId(2);
-        n3.setCategoria("Arte");
+        n3.setCategoria("Esteri");
         n3.setContent("Lorem Ipsumdolor sit amet");
         n3.setImg("M2/news.image.3.jpg");
         n3.setTitolo("Articolo 3");

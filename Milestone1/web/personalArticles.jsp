@@ -40,7 +40,7 @@
                     <img id="news_pic" src="<c:url value="${Notizia.getImg()}"/>" alt="immagine"/>
                   
                     <label id="post_title">${Notizia.getTitolo()}</label>
-                    <label id="post_content">${Notizia.getContentPreview()}</label>
+                    <label id="post_content">${Notizia.getContent()}</label>
                     
                     <label id="post_category">Categorie : ${Notizia.getCategoria()}</label>
                     <a id="post_open" href="NewsDetails?id=${Notizia.getId()}">Apri Articolo</a>
