@@ -8,7 +8,7 @@ and open the template in the editor.
     Author     : lorec
 */
 
-#querybox{
+#querybox{ 
     width:256px;
     position:relative;
     left: calc(50% - 128px);

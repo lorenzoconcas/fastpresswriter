@@ -8,7 +8,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html>
+<html> 
     <head>
         <title>Fast Press Writer</title>
         <link rel="stylesheet" type="text/css" href="M2/style.css" media="screen"/>

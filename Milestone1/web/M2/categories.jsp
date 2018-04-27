@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <aside id="aside_left">
     <div class="aside_content_cat">   
         <h3>Categorie</h3>

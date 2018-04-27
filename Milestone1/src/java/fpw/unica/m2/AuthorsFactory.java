@@ -8,7 +8,7 @@ package fpw.unica.m2;
 import java.util.ArrayList;
 
 /**
- *
+ * 
  * @author lorec
  */
 public class AuthorsFactory {
@@ -23,7 +23,7 @@ public class AuthorsFactory {
             listaAutori.add(a.getAutore());
         }
         
-             
+              
     }
     public static AuthorsFactory getIstance(){
         if(istance == null)

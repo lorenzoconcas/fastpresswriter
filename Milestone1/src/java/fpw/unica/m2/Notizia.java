@@ -6,7 +6,7 @@
 package fpw.unica.m2;
 
 /**
- *
+ * 
  * @author lorec
  */
 public class Notizia {

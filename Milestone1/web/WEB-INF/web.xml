@@ -9,10 +9,6 @@
         <servlet-class>fpw.unica.m2.Login</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Test</servlet-name>
-        <servlet-class>fpw.unica.m2.Test</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>NewsDetails</servlet-name>
         <servlet-class>fpw.unica.m2.NewsDetails</servlet-class>
         <init-param>
@@ -59,10 +55,6 @@
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Test</servlet-name>
-        <url-pattern>/Test</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>NewsDetails</servlet-name>

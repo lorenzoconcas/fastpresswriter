@@ -8,7 +8,7 @@ package fpw.unica.m2;
 import java.util.ArrayList;
 
 /**
- *
+ * 
  * @author lorec
  */
 public class CommentsFactory {
