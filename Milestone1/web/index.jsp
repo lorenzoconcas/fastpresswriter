@@ -46,7 +46,7 @@
                     <a id="post_open" href="NewsDetails?id=${Notizia.getId()}">Apri Articolo</a>
                 </a>
                 </div>
-                
+                <label></label>
                 <br/>
             </c:forEach>
         </div>
