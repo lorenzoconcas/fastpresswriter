@@ -45,30 +45,52 @@ public class Search extends HttpServlet {
                ArrayList<Notizia> notizie = nF.getNewsList();
                ArrayList<Notizia> foundNews = new ArrayList<>();
                ArrayList<Notizia> foundInNews = new ArrayList<>();
-               
+               //cerco la query nei titoli
+               int tAFound = 0;
                for(Notizia n : notizie){
                    if(n.getTitolo().contains(query)){
                        foundNews.add(n);
                        foundNewsBool = true;
-                      
+                      tAFound++;
                    }
                }
-               
+               //cerco la query nei contenuti
+                int tATFound = 0;
                 for(Notizia n : notizie){
                    if(n.getContent().contains(query)){
                        foundInNews.add(n);
                        foundInNewsBool = true;
+                       tATFound++;
                       
                    }
                }
-               request.setAttribute("query", query);
-               request.setAttribute("foundNewsBool", foundNewsBool);
+                //cerco la query nei nomi utente
+                int tAuthFound = 0;
+                Boolean foundUsrBool = false;
+                ArrayList<Utenti> foundUsr = new ArrayList<>();
+                for(Utenti u : UtentiFactory.getIstance().getUsers()){
+                   if(u.getName().contains(query) || u.getSurname().contains(query) || u.getUsername().contains(query)){
+                       foundUsr.add(u);
+                       foundUsrBool = true;
+                       tAuthFound++;
+                       
+                   }
+               }
+                request.setAttribute("tAuthFound", tAuthFound);
+                
+                request.setAttribute("tAFound", tAFound);
+                request.setAttribute("tATFound", tATFound);
+                   
+                request.setAttribute("foundNewsBool", foundNewsBool);
                 request.setAttribute("foundInNewsBool", foundInNewsBool);
-               if(foundNewsBool)                
-                    request.setAttribute("foundNews", foundNews);                   
-  
-               if(foundInNewsBool)
-                   request.setAttribute("foundInNews", foundInNews);       
+                request.setAttribute("foundNews", foundNews); 
+                request.setAttribute("foundInNews", foundInNews); 
+                
+                request.setAttribute("query", query);
+             
+                request.setAttribute("foundUsrList", foundUsr);
+                request.setAttribute("foundUsrBool", foundUsrBool);
+                
            }
            else{
                 

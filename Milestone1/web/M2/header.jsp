@@ -15,7 +15,8 @@
     <!--Nome utente-->
         <c:if test="${loggedIn == true}">
             <aside id="user">
-                <a id="logout" name="logout" href="Login?logout=true">${user.getName()} ${user.getSurname()} - Esci</a>
+                <a id="header_user_profile" href="Profilo">${user.getName()} ${user.getSurname()}</a> 
+                <a id="logout" name="logout" href="Login?logout=true">Esci</a>
                 <img id="header_user_icon" src="<c:url value="${user.getImgUrl()}"/>" alt="Immagine Utente"/>
             </aside>              
         </c:if>

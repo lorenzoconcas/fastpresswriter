@@ -50,7 +50,7 @@
                  </c:if>     
 
                   <c:if test="${foundNewsBool == true}">
-                      <label>Ho trovato questi articoli che contengono la ricerca :</label>
+                      <label>Questi articoli hanno "${query}" nel titolo (${tAFound} articolo/i)</label>
                       <br/>
                      <c:forEach var="n" items="${foundNews}">
                           <a href="NewsDetails?id=${n.getId()}">${n.getTitolo()} - scritto da ${n.getAutore().getName()} ${n.getAutore().getSurname()}</a>   
@@ -61,13 +61,24 @@
 
                  <c:if test="${foundInNewsBool == true}">
                        <br/>
-                      <label>La query è stata trovata nei seguenti articoli</label>
+                      <label>Questi articoli parlano di "${query}" (${tATFound} articolo/i)</label>
                       <br/>
                      <c:forEach var="n" items="${foundInNews}">
                          <a href="NewsDetails?id=${n.getId()}">${n.getTitolo()} - scritto da ${n.getAutore().getName()} ${n.getAutore().getSurname()}<br/>${n.getContent()}</a>   
                           <br/>  
                       </c:forEach>
 
+                 </c:if>   
+                          
+                  <c:if test="${foundUsrBool == true}">
+                       <br/>
+                      <label>Ho trovato questi utenti (${tAuthFound} utente/i)</label>
+                      <br/>
+                     <c:forEach var="n" items="${foundUsrList}">
+                         <a href="ViewProfile?id=${n.getId()}">${n.getName()} ${n.getSurname()}</a>   
+                          <br/>  
+                      </c:forEach>
+                          <br/>  
                  </c:if>   
                 </div>
              </c:if>

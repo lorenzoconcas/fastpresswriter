@@ -3,6 +3,7 @@ body{
     font-family: "Segoe UI", sans-serif;
     cursor: pointer;
 }
+
 a{ 
     color:black;
     text-decoration: none;
@@ -87,32 +88,37 @@ a:hover{
     border-bottom-width:thick;
     padding-bottom: 5px;
 }
-
 #user{
-   position:absolute;
+   position:fixed;
   
-   text-align: right;
-   top: 4px;
-   right: 16px;
+   top: 8px;
+   right: 8px;
+   width:calc(50% - 150px);
    height: 48px;
    
+   
 }
+
 #header_user_icon{
-    position:relative;
-    top:8px;
-    right:8px;
+  
+    position:absolute;
+    top:6px;
+    right:0px;
     height:32px;
 }
 #logout{
-    position:relative;
-    top:8px;
-    right:8px;    
+    
+    position:absolute;
+    top:20px;
+    right:48px;    
 }
-#user_logout{
-    font-size:12px;
-    position:relative;
-    top:0px;
-    right:16px;    
+#logout:hover{
+    color:red;
+}
+#header_user_profile{
+    position:absolute;
+   top:4px;
+    right:48px;    
 }
 
 .footer{
@@ -123,7 +129,7 @@ a:hover{
     left: 0px;
     bottom:0%;
     width:100%;
-
+    top: calc(100% - 32px);
     color:black;
 }
 #info_text{
@@ -134,7 +140,7 @@ a:hover{
 
 #content{
     color:black;
-
+    font-size: 2vh;
     position: relative;
     width: 50%;
     left: 25%;
@@ -145,12 +151,5 @@ a:hover{
  
 }
 
-@media (max-width: 720px){
-#home_logo{
-   
-    font-size: 16px;   
-   
 
-}
-    
-}
+

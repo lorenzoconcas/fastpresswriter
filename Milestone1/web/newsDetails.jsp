@@ -13,44 +13,46 @@
         <link rel="stylesheet" type="text/css" href="M2/style.css" media="screen"/>
         <link rel="stylesheet" type="text/css" href="M2/aside_left.css" media="screen"/>
         <link rel="stylesheet" type="text/css" href="M2/aside_right.css" media="screen"/>
-        <link rel="stylesheet" type="text/css" href="M2/news.css" media="screen"/>
+        <link rel="stylesheet" type="text/css" href="M2/posts.css" media="screen"/>
+        <link rel="stylesheet" type="text/css" href="M2/comments.css" media="screen"/>
         <link rel="shortcut icon" href="M2/logo_old.png" type="image/x-icon" />
 
     </head>
     <body>
-      
-       <jsp:include page="M2/header.jsp" />               
-       
-     
-       <jsp:include page="M2/categories.jsp"/>
-       <jsp:include page="M2/authors.jsp"/>
-       
-       <div id="content">
-           <div id="news">
-               <div id="author">
+
+        <jsp:include page="M2/header.jsp" />               
+
+
+        <jsp:include page="M2/categories.jsp"/>
+        <jsp:include page="M2/authors.jsp"/>
+
+        <div id="content">
+            <div id="news">            
+                <div id="post">
+                    <!--icona utente, nome utente-->
                     <img id="post_user_icon" src="<c:url value="${author.getImgUrl()}"/>" alt=""/>
-                     <a href="ViewProfile?id=${author.getId()}">
-                        <label id="post_author">Scritto da : ${author.getName()} ${author.getSurname()}</label>
-                    </a>
-               </div>
-              
-                <br/>
-                <div id="news_core">
-                    <img id="news_pic" src="<c:url value="${imageUrl}"/>" alt="Immagine"/>
+
+                    <a href="ViewProfile?id=${author.getId()}">
+                        <label id="post_author">Scritto da : ${author.getName()} ${author.getSurname()}</label>                         
+                    </a>                        
+                    <br/>
+
+                    <img id="news_pic" src="<c:url value="${imageUrl}"/>" alt="Immagine"/>                        
+                    <br/>
+
                     <label id="post_title">${newsTitle}</label>
                     <br/>
+
+                    <label id="post_content">${newsContent}</label>
+                    <br/>
+
                     <label id="post_category">Categorie : ${newsCat}</label>
                     <br/>
-                    <label id="post_content">${newsContent}</label>
-                </div> 
-                
-                <br/>
-                
+                </div>
                 <div id="comment_section">
-                    
-                     <br/>
-                     <c:if test="${isCommented == true}">     
-                         <label>Commenti</label>
+
+                    <c:if test="${isCommented == true}">     
+                        <label id="comment_section_title">Commenti</label>
                         <c:forEach var="Commenti" items="${comments}">   
                             <br/>
                             <div id="comment_box">                           
@@ -58,22 +60,26 @@
                                 <br/>
                                 <label id="comment">${Commenti.getCommento()}</label>
                                 <br/>        
-                                <a id="comment" href="notImplementedPage.jsp">Like : ${randomLike.nextInt(100)}</a>
+
                             </div>
-                        </c:forEach>  
+                        </c:forEach> 
+
                     </c:if>       
-                            <br/>
-                        <c:if test="${loggedIn == true}">
+
+                    <c:if test="${loggedIn == true}">
+                        <div id="personal_comment">
                             <label>Commenta (come ${user.getName()} ${user.getSurname()})</label>
                             <br/>
-                            <textarea id="comment_area"></textarea>
-                            <button id="post_comment">Commenta</button>   
-                        </c:if>  
+                            <textarea id="personal_comment_textarea"></textarea>
+
+                            <button id="personal_post_comment">Commenta</button> 
+                            <br/>
+                        </div>
+                    </c:if>  
+                    <br/>
                 </div> 
                 <br/>
-           </div>
-              
-       </div>
-       
+            </div>
+        </div>       
     </body>
 </html>

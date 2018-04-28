@@ -18,38 +18,40 @@
         <link rel="stylesheet" type="text/css" href="M2/posts.css" media="screen"/>
         <link rel="shortcut icon" href="M2/logo_old.png" type="image/x-icon" />
     </head>
-    
-       
-       <jsp:include page="M2/header.jsp" />   
-              
-     
-       <jsp:include page="M2/categories.jsp"/>
-       <jsp:include page="M2/authors.jsp"/>
-        <div id="content">
-            
-            <c:forEach var="Notizia" items="${listaNews}">
-             
-                <div id="post">
-                    <a href="NewsDetails?id=${Notizia.getId()}">
-                    <!--gradiente, icona utente, nome utente-->
-                   
+
+
+    <jsp:include page="M2/header.jsp" />   
+
+
+    <jsp:include page="M2/categories.jsp"/>
+    <jsp:include page="M2/authors.jsp"/>
+    <div id="content">
+
+        <c:forEach var="Notizia" items="${listaNews}">
+
+            <div id="post">
+                <a href="NewsDetails?id=${Notizia.getId()}">
+                    <!--icona utente, nome utente-->
+
                     <img id="post_user_icon" src="<c:url value="${Notizia.getAutore().getImgUrl()}"/>" alt=""/>
                     <label id="post_author">${Notizia.getAutore().getName()} ${Notizia.getAutore().getSurname()}</label>
-                    <!--Immagine articolo, altro gradiente, titolo articolo e link ad esso-->
-                    
+                    <br/>
+                    <!--Immagine articolo, titolo articolo e link ad esso-->
+
                     <img id="news_pic" src="<c:url value="${Notizia.getImg()}"/>" alt="immagine"/>
-                  
+                    <br/>
                     <label id="post_title">${Notizia.getTitolo()}</label>
+                    <br/>
                     <label id="post_content">${Notizia.getContentPreview()}</label>
-                    
+                    <br/>
                     <label id="post_category">Categorie : ${Notizia.getCategoria()}</label>
+                    <br/>
                     <a id="post_open" href="NewsDetails?id=${Notizia.getId()}">Apri Articolo</a>
+                    <br/>
                 </a>
-                </div>
-             <br/>
-            </c:forEach>
-        </div>
-        <br/>
-      
-     
+            </div>
+            <br/>
+        </c:forEach>
+    </div>
+    <br/>
 </html>

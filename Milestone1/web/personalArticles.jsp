@@ -29,24 +29,26 @@
             
             <c:forEach var="Notizia" items="${listaNews}">
              
-                <div id="post">
+                 <div id="post">
                     <a href="NewsDetails?id=${Notizia.getId()}">
-                    <!--gradiente, icona utente, nome utente-->
-                   
-                    <img id="post_user_icon" src="<c:url value="${Notizia.getAutore().getImgUrl()}"/>" alt=""/>
-                    <label id="post_author">${Notizia.getAutore().getName()} ${Notizia.getAutore().getSurname()}</label>
-                    <!--Immagine articolo, altro gradiente, titolo articolo e link ad esso-->
-                    
-                    <img id="news_pic" src="<c:url value="${Notizia.getImg()}"/>" alt="immagine"/>
-                  
-                    <label id="post_title">${Notizia.getTitolo()}</label>
-                    <label id="post_content">${Notizia.getContent()}</label>
-                    
-                    <label id="post_category">Categorie : ${Notizia.getCategoria()}</label>
-                    <a id="post_open" href="NewsDetails?id=${Notizia.getId()}">Apri Articolo</a>
+                        <!--icona utente, nome utente-->
+
+                        <img id="post_user_icon" src="<c:url value="${Notizia.getAutore().getImgUrl()}"/>" alt=""/>
+                        <label id="post_author">${Notizia.getAutore().getName()} ${Notizia.getAutore().getSurname()}</label>
+                        <br/>
+                        <!--Immagine articolo, titolo articolo e link ad esso-->
+                        <img id="news_pic" src="<c:url value="${Notizia.getImg()}"/>" alt="immagine"/>
+                        <br/>
+                        <label id="post_title">${Notizia.getTitolo()}</label>
+                        <br/>
+                        <label id="post_content">${Notizia.getContentPreview()}</label>
+                        <br/>
+                        <label id="post_category">Categorie : ${Notizia.getCategoria()}</label>
+                         <br/>
+                        <a id="post_open" href="NewsDetails?id=${Notizia.getId()}">Apri Articolo</a>
+                       
                 </a>
-                </div>
-                
+                </div>                
                 <br/>
             </c:forEach>
         </div>

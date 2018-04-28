@@ -11,62 +11,53 @@ and open the template in the editor.
 /*NEWS POSTS*/
 #post{
     position: relative;
-    background: linear-gradient(#FCFCFC, #EFEFEF);
-   
-}
-
-#news_pic{
-    width:50%;
-    top:0px;
-    left:0px;
+    background: linear-gradient(#FCFCFC, #EFEFEF);   
 }
 #post_author{
     color:black;
     position:absolute;
-    left: 56%;
+    left: 40px;
     top:4px;
-   
-
 }
-#fade{
-    position: absolute;
-    width:50%;
-    left:50%;
-    height:98%;
-  
-
+#news_pic{
+    position:relative;
+    width:100%;
+    top:8px;
+    left:0px;
 }
 #post_user_icon{
     position: absolute;
-    left:51%;
+    left:4px;
+    top: 2px;
     width:28px;
 }
 #post_title{
-    font-size: 24px;
+    font-size: 28px;
     color:black;
-    position: absolute;
-    left:51%;
-    top:32px;
+    position: relative;
+    left:16px;
+    top:8px;
 }
 #post_content{
     font-size: 18px;
     color:black;
-    position: absolute;
-    left:52%;
-    top:64px;
-    
-    vertical-align:central;
+    position: relative;
+    left:16px;
+    width: calc(100% - 32px);
+
 }
 #post_open{
     color:black;
-    position: absolute;
-    left:51%;
-    bottom:8px;
+    position: relative;
+    left:16px;
+
 }
 #post_category{
     color:black;
-    position: absolute;
-    left:51%;
-    bottom:32px;
+    position: relative;
+    left:16px;
+
+
 }
+
 
