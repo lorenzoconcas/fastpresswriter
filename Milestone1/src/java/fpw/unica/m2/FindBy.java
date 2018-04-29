@@ -41,7 +41,14 @@ public class FindBy extends HttpServlet {
                 }
                 else request.getRequestDispatcher("NotFound.jsp").forward(request, response);
             }
-         
+            //mostro per id autore, la userò prossimamente
+            else if (request.getParameter("authorID") != null){
+                if(UtentiFactory.getIstance().getUsers().size() > Integer.parseInt((String) request.getParameter("authorID"))){
+                    request.setAttribute("listaNews", NotizieFactory.getIstance().getNewsByAuthor(UtentiFactory.getIstance().getUserById(Integer.parseInt((String) request.getParameter("authorID")))));
+                    request.getRequestDispatcher("personalArticles.jsp").forward(request, response);
+                }
+                  else request.getRequestDispatcher("NotFound.jsp").forward(request, response);
+            }
             else request.getRequestDispatcher("Notizie").forward(request, response);
         }
     }

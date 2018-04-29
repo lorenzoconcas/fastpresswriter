@@ -33,17 +33,14 @@ public class PersonalArticles extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             HttpSession session = request.getSession();
-            if (session.getAttribute("loggedIn") != null && session.getAttribute("loggedIn").equals(true)){
-                    NotizieFactory nF = NotizieFactory.getIstance();                   
-                    UtentiFactory u = UtentiFactory.getIstance();                  
-                    Utenti current = (Utenti) session.getAttribute("user");
-                    request.setAttribute("listaNews", nF.getNewsByAuthor(current));
-                    
-                    request.getRequestDispatcher("personalArticles.jsp").forward(request, response);
+            if (session.getAttribute("loggedIn") != null && session.getAttribute("loggedIn").equals(true)) {
+                //chiedo a "FindBy" di mostrarmi tutti gli articoli di questo utente passandogli il suo ID
+                Utenti current = (Utenti) session.getAttribute("user");
+                request.getRequestDispatcher("FindBy?authorID=" + current.getId()).forward(request, response);
+            } else {
+                request.getRequestDispatcher("Login").forward(request, response);
             }
-            else
-                 request.getRequestDispatcher("Login").forward(request, response);
-                
+
         }
     }
 
