@@ -1,4 +1,4 @@
- /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * 
+ *
  * @author lorec
  */
 public class ViewProfile extends HttpServlet {
@@ -32,19 +32,23 @@ public class ViewProfile extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-             HttpSession session = request.getSession();
-             String id = "id";
+            HttpSession session = request.getSession();
+            String id = "id";
             id = request.getParameter(id);
 
-           UtentiFactory uF = UtentiFactory.getIstance();
-           Utenti u = uF.getUserById(Integer.parseInt(id));
-           //se l'utente è loggato e accede al suo profilo mostro la sua pagina personale
-            if (session.getAttribute("loggedIn") != null && session.getAttribute("loggedIn").equals(true) && u.equals(session.getAttribute("user"))){
-              request.getRequestDispatcher("profilo.jsp").forward(request, response); 
-            }
-            else{
-                request.setAttribute("target", u);
-                request.getRequestDispatcher("ViewProfile.jsp").forward(request, response);
+            UtentiFactory uF = UtentiFactory.getIstance();
+            //se l'id cercato è valido lo mostro 
+            if (uF.getUsers().size() > Integer.parseInt(id)) {
+                Utenti u = uF.getUserById(Integer.parseInt(id));
+                //se l'utente è loggato e accede al suo profilo mostro la sua pagina personale
+                if (session.getAttribute("loggedIn") != null && session.getAttribute("loggedIn").equals(true) && u.equals(session.getAttribute("user"))) {
+                    request.getRequestDispatcher("profilo.jsp").forward(request, response);
+                } else {
+                    request.setAttribute("target", u);
+                    request.getRequestDispatcher("ViewProfile.jsp").forward(request, response);
+                }
+            } else {
+                request.getRequestDispatcher("NotFound.jsp").forward(request, response);
             }
         }
     }

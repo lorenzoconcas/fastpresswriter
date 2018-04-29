@@ -16,8 +16,7 @@
         <link rel="stylesheet" type="text/css" href="M2/login.css" media="screen"/>
         <link rel="shortcut icon" href="M2/logo_old.png" type="image/x-icon" />
     </head>
-    <body>
-       
+    <body>       
        <jsp:include page="M2/header.jsp" />
         <div id="content">
             <div class="login_form">
@@ -35,12 +34,10 @@
                 <button type="submit">Invia</button>
             </form>
             </div>
-        <c:if test="${invalidData == true}">
-            <label>Nome utente e/o password errati, riprova</label>
-        </c:if>
-
+            <c:if test="${invalidData == true}">
+                <label>Nome utente e/o password errati, riprova</label>
+            </c:if>
         </div>
-  <jsp:include page="M2/footer.jsp" />
-    
+        <jsp:include page="M2/footer.jsp" />    
     </body>
 </html>

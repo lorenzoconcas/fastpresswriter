@@ -8,6 +8,7 @@ package fpw.unica.m2;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -33,7 +34,8 @@ public class Login extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             HttpSession session = request.getSession();
-             
+            
+            
             if (request.getParameter("logout") != null){
                 session.invalidate();
                 request.getRequestDispatcher("login.jsp").forward(request, response);
@@ -62,7 +64,7 @@ public class Login extends HttpServlet {
                     request.setAttribute("invalidData", true);
                     request.getRequestDispatcher("login.jsp").forward(request, response); 
                 }
-                else if(email.equals("") || password.equals("")){
+                else if("".equals(email) || "".equals(password)){
                     request.setAttribute("invalidData", true);
                     request.getRequestDispatcher("login.jsp").forward(request, response); 
                 }

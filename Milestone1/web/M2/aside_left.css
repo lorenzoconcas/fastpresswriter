@@ -9,8 +9,8 @@ and open the template in the editor.
 */
 
 #aside_left{ 
-  
-    position: absolute;
+    border-radius: 2%;
+    position: fixed;
     text-align:center;
     width: 15%;
     left: 5%;

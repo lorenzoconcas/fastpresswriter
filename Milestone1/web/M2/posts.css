@@ -10,6 +10,7 @@ and open the template in the editor.
 
 /*NEWS POSTS*/
 #post{
+    border-radius: 1%;
     position: relative;
     background: linear-gradient(#FCFCFC, #EFEFEF);   
 }
@@ -17,7 +18,7 @@ and open the template in the editor.
     color:black;
     position:absolute;
     left: 40px;
-    top:4px;
+    top:3px;
 }
 #news_pic{
     position:relative;
@@ -43,7 +44,7 @@ and open the template in the editor.
     color:black;
     position: relative;
     left:16px;
-    width: calc(100% - 32px);
+    width: calc(100% - 40px);
 
 }
 #post_open{

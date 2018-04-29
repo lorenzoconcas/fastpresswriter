@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author lorec
  */
-public class Index extends HttpServlet {
+public class FindBy extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,20 +33,16 @@ public class Index extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            HttpSession session = request.getSession();
-
-            if (session.getAttribute("loggedIn") != null && session.getAttribute("loggedIn").equals(true)) {
-                request.setAttribute("test", true);
-            } else {
-                request.setAttribute("test", false);
+            
+            if (request.getParameter("category") != null) {
+                if(NotizieFactory.getIstance().getNewsByCat((String) request.getParameter("category")).size() > 0){
+                    request.setAttribute("listaNews", NotizieFactory.getIstance().getNewsByCat((String) request.getParameter("category")));
+                    request.getRequestDispatcher("personalArticles.jsp").forward(request, response);
+                }
+                else request.getRequestDispatcher("NotFound.jsp").forward(request, response);
             }
-
-            session.setAttribute("users", UtentiFactory.getIstance().getUsers());
-            session.setAttribute("autori", AuthorsFactory.getIstance().getAutori());
-            session.setAttribute("categories", CategoriesFactory.getIstance().getCategories());
-            request.setAttribute("listaNews", NotizieFactory.getIstance().getNewsList());
-
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+         
+            else request.getRequestDispatcher("Notizie").forward(request, response);
         }
     }
 

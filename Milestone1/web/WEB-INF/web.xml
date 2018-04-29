@@ -17,6 +17,11 @@
 </param-value>
         </init-param>
     </servlet>
+    <servlet>
+        <servlet-name>FindBy</servlet-name>
+        <servlet-class>fpw.unica.m2.FindBy</servlet-class>
+      
+    </servlet>
     <servlet-mapping>
         <servlet-name>Notizie</servlet-name>
         <url-pattern>/Notizie</url-pattern>
@@ -75,6 +80,10 @@
     <servlet-mapping>
         <servlet-name>PersonalArticles</servlet-name>
         <url-pattern>/PersonalArticles</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FindBy</servlet-name>
+        <url-pattern>/FindBy</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

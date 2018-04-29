@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * 
+ *
  * @author lorec
  */
 public class NewsDetails extends HttpServlet {
@@ -32,19 +32,20 @@ public class NewsDetails extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-           String id;
-           id = request.getParameter("id");
+            String id;
+            id = request.getParameter("id");
             NotizieFactory nF = NotizieFactory.getIstance();
-         
-           if(Integer.parseInt(id) < nF.getNewsList().size()){
-               Random randomL = new Random();
+
+            if (Integer.parseInt(id) < nF.getNewsList().size()) {
+                Random randomL = new Random();
                 Notizia n = nF.getNewsById(Integer.parseInt(id));
                 CommentsFactory cF = CommentsFactory.getIstance();
-                if(cF.getCommentByNewsID(Integer.parseInt(id)).size() > 0)
+                if (cF.getCommentByNewsID(Integer.parseInt(id)).size() > 0) {
                     request.setAttribute("isCommented", true);
-                else
+                } else {
                     request.setAttribute("isCommented", false);
-                out.println(cF.getCommentByNewsID(Integer.parseInt(id)).size() > 0);
+                }
+                //out.println(cF.getCommentByNewsID(Integer.parseInt(id)).size() > 0);
                 request.setAttribute("randomLike", randomL);
                 request.setAttribute("comments", cF.getCommentByNewsID(Integer.parseInt(id)));
                 request.setAttribute("author", n.getAutore());
@@ -53,11 +54,10 @@ public class NewsDetails extends HttpServlet {
                 request.setAttribute("newsContent", n.getContent());
                 request.setAttribute("newsCat", n.getCategoria());
                 request.getRequestDispatcher("newsDetails.jsp").forward(request, response);
-           }
-           else{
-               request.getRequestDispatcher("notImplementedPage.jsp").forward(request, response);
-           }
-          
+            } else {
+                request.getRequestDispatcher("NotFound.jsp").forward(request, response);
+            }
+
         }
     }
 

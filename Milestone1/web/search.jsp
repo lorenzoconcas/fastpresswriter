@@ -19,72 +19,72 @@
 
     </head>
     <body>
-      
-       <jsp:include page="M2/header.jsp" />               
-       
-     
-       <jsp:include page="M2/categories.jsp"/>
-       <jsp:include page="M2/authors.jsp"/>
-       
-       <div id="content">
-           
-           <form action="Search" method="post">
-               <input id="querybox" name="query" type="text" placeholder="Cerca nel sito...">
-               <img id="submit_search" src="M2/search_icon.png"/>
-               
-           </form>
+
+        <jsp:include page="M2/header.jsp" />               
+
+
+        <jsp:include page="M2/categories.jsp"/>
+        <jsp:include page="M2/authors.jsp"/>
+
+        <div id="content">
+
+            <form action="Search" method="post">
+                <input id="querybox" name="query" type="text" placeholder="Cerca nel sito...">
+                <img id="submit_search" src="M2/search_icon.png"/>
+
+            </form>
             <br/>
-           
+
             <c:if test="${searched == true}"> 
                 <div id="searchResultSection">
                     <br/>
                     <c:if test="${foundNewsBool == false}">                     
                         <label>Non ho trovato notizie dal titolo "${query}"</label>  
                         <br/>
-                 </c:if>
+                    </c:if>
 
-                 <c:if test="${foundInNewsBool == false}">
-                      <br/>
-                      <label>Nessuna notizia parla di "${query}"</label> 
-                      <br/>
-                 </c:if>     
+                    <c:if test="${foundInNewsBool == false}">
+                        <br/>
+                        <label>Nessuna notizia parla di "${query}"</label> 
+                        <br/>
+                    </c:if>     
 
-                  <c:if test="${foundNewsBool == true}">
-                      <label>Questi articoli hanno "${query}" nel titolo (${tAFound} articolo/i)</label>
-                      <br/>
-                     <c:forEach var="n" items="${foundNews}">
-                          <a href="NewsDetails?id=${n.getId()}">${n.getTitolo()} - scritto da ${n.getAutore().getName()} ${n.getAutore().getSurname()}</a>   
-                          <br/>  
-                      </c:forEach>
+                    <c:if test="${foundNewsBool == true}">
+                        <label>Questi articoli hanno "${query}" nel titolo (${tAFound} articolo/i)</label>
+                        <br/>
+                        <c:forEach var="n" items="${foundNews}">
+                            <a href="NewsDetails?id=${n.getId()}">${n.getTitolo()} - scritto da ${n.getAutore().getName()} ${n.getAutore().getSurname()}</a>   
+                            <br/>  
+                        </c:forEach>
 
-                 </c:if>  
+                    </c:if>  
 
-                 <c:if test="${foundInNewsBool == true}">
-                       <br/>
-                      <label>Questi articoli parlano di "${query}" (${tATFound} articolo/i)</label>
-                      <br/>
-                     <c:forEach var="n" items="${foundInNews}">
-                         <a href="NewsDetails?id=${n.getId()}">${n.getTitolo()} - scritto da ${n.getAutore().getName()} ${n.getAutore().getSurname()}<br/>${n.getContent()}</a>   
-                          <br/>  
-                      </c:forEach>
+                    <c:if test="${foundInNewsBool == true}">
+                        <br/>
+                        <label>Questi articoli parlano di "${query}" (${tATFound} articolo/i)</label>
+                        <br/>
+                        <c:forEach var="n" items="${foundInNews}">
+                            <a href="NewsDetails?id=${n.getId()}">${n.getTitolo()} - scritto da ${n.getAutore().getName()} ${n.getAutore().getSurname()}<br/>${n.getContentPreview()}</a>   
+                            <br/>  
+                        </c:forEach>
 
-                 </c:if>   
-                          
-                  <c:if test="${foundUsrBool == true}">
-                       <br/>
-                      <label>Ho trovato questi utenti (${tAuthFound} utente/i)</label>
-                      <br/>
-                     <c:forEach var="n" items="${foundUsrList}">
-                         <a href="ViewProfile?id=${n.getId()}">${n.getName()} ${n.getSurname()}</a>   
-                          <br/>  
-                      </c:forEach>
-                          <br/>  
-                 </c:if>   
+                    </c:if>   
+
+                    <c:if test="${foundUsrBool == true}">
+                        <br/>
+                        <label>Ho trovato questi utenti (${tAuthFound} utente/i)</label>
+                        <br/>
+                        <c:forEach var="n" items="${foundUsrList}">
+                            <a href="ViewProfile?id=${n.getId()}">${n.getName()} ${n.getSurname()}</a>   
+                            <br/>  
+                        </c:forEach>
+                        <br/>  
+                    </c:if>   
                 </div>
-             </c:if>
-             <br/>              
-           
-       </div>
+            </c:if>
+            <br/>              
+
+        </div>
     </body>
- </html>
-       
+</html>
+

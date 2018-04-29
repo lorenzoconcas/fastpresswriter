@@ -21,23 +21,17 @@
 
 
     <jsp:include page="M2/header.jsp" />   
-
-
     <jsp:include page="M2/categories.jsp"/>
     <jsp:include page="M2/authors.jsp"/>
     <div id="content">
-
         <c:forEach var="Notizia" items="${listaNews}">
-
             <div id="post">
                 <a href="NewsDetails?id=${Notizia.getId()}">
                     <!--icona utente, nome utente-->
-
                     <img id="post_user_icon" src="<c:url value="${Notizia.getAutore().getImgUrl()}"/>" alt=""/>
                     <label id="post_author">${Notizia.getAutore().getName()} ${Notizia.getAutore().getSurname()}</label>
                     <br/>
                     <!--Immagine articolo, titolo articolo e link ad esso-->
-
                     <img id="news_pic" src="<c:url value="${Notizia.getImg()}"/>" alt="immagine"/>
                     <br/>
                     <label id="post_title">${Notizia.getTitolo()}</label>

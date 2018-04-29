@@ -20,23 +20,19 @@
     </head>
     <body>
 
-        <jsp:include page="M2/header.jsp" />               
-
-
+        <jsp:include page="M2/header.jsp" /> 
         <jsp:include page="M2/categories.jsp"/>
         <jsp:include page="M2/authors.jsp"/>
-
         <div id="content">
             <div id="news">            
                 <div id="post">
                     <!--icona utente, nome utente-->
                     <img id="post_user_icon" src="<c:url value="${author.getImgUrl()}"/>" alt=""/>
-
                     <a href="ViewProfile?id=${author.getId()}">
                         <label id="post_author">Scritto da : ${author.getName()} ${author.getSurname()}</label>                         
                     </a>                        
                     <br/>
-
+                    
                     <img id="news_pic" src="<c:url value="${imageUrl}"/>" alt="Immagine"/>                        
                     <br/>
 
@@ -50,7 +46,6 @@
                     <br/>
                 </div>
                 <div id="comment_section">
-
                     <c:if test="${isCommented == true}">     
                         <label id="comment_section_title">Commenti</label>
                         <c:forEach var="Commenti" items="${comments}">   
@@ -59,23 +54,22 @@
                                 <label id="comment_username">${Commenti.getAutoreCommento().getName()} ${Commenti.getAutoreCommento().getSurname()}</label>
                                 <br/>
                                 <label id="comment">${Commenti.getCommento()}</label>
-                                <br/>        
-
+                                <br/>  
                             </div>
                         </c:forEach> 
-
                     </c:if>       
 
                     <c:if test="${loggedIn == true}">
                         <div id="personal_comment">
                             <label>Commenta (come ${user.getName()} ${user.getSurname()})</label>
                             <br/>
+                            
                             <textarea id="personal_comment_textarea"></textarea>
-
                             <button id="personal_post_comment">Commenta</button> 
                             <br/>
                         </div>
                     </c:if>  
+                            
                     <br/>
                 </div> 
                 <br/>
