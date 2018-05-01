@@ -5,6 +5,8 @@
  */
 package fpw.unica.m2;
 
+import java.util.Random;
+
 /**
  * 
  * @author lorec
@@ -116,6 +118,11 @@ public class Notizia {
         if(this.content.length() > 100)
             return this.content.substring(0, 100);
             else return this.content;
+    }
+    
+    public String getDate(){
+        Random rnd = new Random();
+        return  (rnd.nextInt(32)+1)+"/"+(rnd.nextInt(12)+1)+"/"+(rnd.nextInt(3)+2015);        
     }
   
 }

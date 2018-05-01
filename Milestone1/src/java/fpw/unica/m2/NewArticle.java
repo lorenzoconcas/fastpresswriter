@@ -8,17 +8,16 @@ package fpw.unica.m2;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/** 
+/**
  *
  * @author lorec
  */
-public class Login extends HttpServlet {
+public class NewArticle extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,43 +33,22 @@ public class Login extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             HttpSession session = request.getSession();
-            if (request.getParameter("logout") != null){
-                session.invalidate();
-                request.getRequestDispatcher("login.jsp").forward(request, response);
-                
+            if (session.getAttribute("loggedIn") != null && session.getAttribute("loggedIn").equals(true)) {
+                //se non sono presenti quei parametri semplicemente le stringhe saranno vuote (effetto voluto)
+                request.setAttribute("content", request.getParameter("content"));
+                request.setAttribute("title", request.getParameter("title"));
+                request.setAttribute("date", request.getParameter("date"));
+                request.setAttribute("imageUrl", request.getParameter("imageUrl"));
+                request.setAttribute("id", 0);
+
+                request.getRequestDispatcher("NewArticle.jsp").forward(request, response);
+            } else {
+                request.getRequestDispatcher("NotLogged.jsp").forward(request, response);
             }
-            //Nel caso l'utente sia loggato 
-            if (session.getAttribute("loggedIn") != null && session.getAttribute("loggedIn").equals(true)){
-                request.getRequestDispatcher("Notizie").forward(request, response);  
-            }
-            else{
-                String email = request.getParameter("email");
-                String password = request.getParameter("password");
-             
-                UtentiFactory uF = UtentiFactory.getIstance();
-              
-                if(email != null && password != null && uF.login(email, password)){
-                    int userID = uF.getUserByEmail(email).getId();
-                    session.setAttribute("userID", userID);
-                    session.setAttribute("loggedIn", true);
-                    session.setAttribute("user", uF.getUserById(userID));
-                    session.setAttribute("invalidData",false);
-                    request.getRequestDispatcher("Notizie").forward(request, response);
-                   
-                }
-                else if(email != null && password != null){
-                    request.setAttribute("invalidData", true);
-                    request.getRequestDispatcher("login.jsp").forward(request, response); 
-                }
-                else if("".equals(email) || "".equals(password)){
-                    request.setAttribute("invalidData", true);
-                    request.getRequestDispatcher("login.jsp").forward(request, response); 
-                }
-               
-                
-            }
+
         }
     }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

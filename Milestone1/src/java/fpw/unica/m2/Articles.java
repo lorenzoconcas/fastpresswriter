@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author lorec
  */
-public class PersonalArticles extends HttpServlet {
+public class Articles extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,11 +34,11 @@ public class PersonalArticles extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             HttpSession session = request.getSession();
             if (session.getAttribute("loggedIn") != null && session.getAttribute("loggedIn").equals(true)) {
-                //chiedo a "FindBy" di mostrarmi tutti gli articoli di questo utente passandogli il suo ID
                 Utenti current = (Utenti) session.getAttribute("user");
-                request.getRequestDispatcher("FindBy?authorID=" + current.getId()).forward(request, response);
+                request.setAttribute("Notizie", NotizieFactory.getIstance().getNewsByAuthor(current));
+                request.getRequestDispatcher("PersonalArticles.jsp").forward(request, response);
             } else {
-                request.getRequestDispatcher("Login").forward(request, response);
+                request.getRequestDispatcher("NotLogged.jsp").forward(request, response);
             }
 
         }

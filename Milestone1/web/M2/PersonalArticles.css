@@ -1,0 +1,36 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 1-mag-2018, 10.46.31
+    Author     : lorec
+*/
+
+#personal_articles_table{
+    text-align:center;
+    width:100%;
+    border-style:solid;
+     background: linear-gradient(#FCFCFC,#EFEFEF);
+   
+}
+#edit_button{
+    width:32px;
+    height:32px;
+}
+#delete_button{
+    width:32px;
+    height:32px;
+}
+#new_article_button{
+    background: linear-gradient(#FCFCFC,#EFEFEF);
+    width:100%;
+    height:32px;
+    border-style:solid;
+}
+#new_article_button:hover{
+    background: linear-gradient(#cccccc,#bbbbbb);
+    border-color: #666666;
+    color:white;
+}

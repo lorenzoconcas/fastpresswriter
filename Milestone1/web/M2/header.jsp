@@ -27,7 +27,7 @@
         <a class="navbar_buttons" href="Notizie">Home</a>
         <a class="navbar_buttons" href="Profilo">Profilo</a>
          <c:if test="${loggedIn == true}">
-            <a class="navbar_buttons" href="PersonalArticles">Articoli</a>
+            <a class="navbar_buttons" href="Articles">Articoli</a>
         </c:if>
    
     </nav>

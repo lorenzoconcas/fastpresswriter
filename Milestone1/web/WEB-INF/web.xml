@@ -20,7 +20,10 @@
     <servlet>
         <servlet-name>FindBy</servlet-name>
         <servlet-class>fpw.unica.m2.FindBy</servlet-class>
-      
+    </servlet>
+    <servlet>
+        <servlet-name>NewArticle</servlet-name>
+        <servlet-class>fpw.unica.m2.NewArticle</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Notizie</servlet-name>
@@ -54,8 +57,8 @@
         </init-param>
     </servlet>
     <servlet>
-        <servlet-name>PersonalArticles</servlet-name>
-        <servlet-class>fpw.unica.m2.PersonalArticles</servlet-class>
+        <servlet-name>Articles</servlet-name>
+        <servlet-class>fpw.unica.m2.Articles</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
@@ -78,12 +81,16 @@
         <url-pattern>/Search</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>PersonalArticles</servlet-name>
-        <url-pattern>/PersonalArticles</url-pattern>
+        <servlet-name>Articles</servlet-name>
+        <url-pattern>/Articles</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>FindBy</servlet-name>
         <url-pattern>/FindBy</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NewArticle</servlet-name>
+        <url-pattern>/NewArticle</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
