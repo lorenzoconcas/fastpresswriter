@@ -24,7 +24,11 @@
     <jsp:include page="M2/categories.jsp"/>
     <jsp:include page="M2/authors.jsp"/>
     <div id="content">
+        
+           
+       
         <form action="NewArticle?send=true">
+             <label>${id}</label>
             <div id="new_article_section">
                 <h3>Scrivi un nuovo articolo</h3>
                 <div class="personal_articles_data">

@@ -39,8 +39,8 @@ public class NewArticle extends HttpServlet {
                 request.setAttribute("title", request.getParameter("title"));
                 request.setAttribute("date", request.getParameter("date"));
                 request.setAttribute("imageUrl", request.getParameter("imageUrl"));
-                request.setAttribute("id", 0);
-
+                
+                
                 request.getRequestDispatcher("NewArticle.jsp").forward(request, response);
             } else {
                 request.getRequestDispatcher("NotLogged.jsp").forward(request, response);
