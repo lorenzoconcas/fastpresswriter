@@ -24,7 +24,7 @@
             <div class="login_form">
             <label>Effettua il login per poter creare articoli o commentarli</label>
             <br/>
-            <form action="Login" method="post" >
+            <form action="login.html" method="post" >
                 <label>Nome utente</label>
                 <br/>
                 <input type="text" name="email" id="email">

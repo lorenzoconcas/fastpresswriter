@@ -28,7 +28,7 @@
     <div id="content">
         <c:forEach var="Notizia" items="${listaNews}">
             <div id="post">
-                <a href="NewsDetails?id=${Notizia.getId()}">
+                <a href="notizia.html?id=${Notizia.getId()}">
                     <!--icona utente, nome utente-->
                     <img id="post_user_icon" src="<c:url value="${Notizia.getAutore().getImgUrl()}"/>" alt=""/>
                     <label id="post_author">${Notizia.getAutore().getName()} ${Notizia.getAutore().getSurname()}</label>

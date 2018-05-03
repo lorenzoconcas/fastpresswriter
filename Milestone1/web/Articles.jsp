@@ -39,9 +39,9 @@
                 <c:forEach var="Notizia" items="${Notizie}">   
                     <tr>
                         <td>${Notizia.getDate()}</td>
-                        <td><a href="NewsDetails?id=${Notizia.getId()}">${Notizia.getTitolo()}</a></td>
-                        <td><a href="NewsDetails?id=${Notizia.getId()}"><img id="edit_button" src="M2/edit.png" alt="Modifica${Notizia.getTitolo()}"></a></td>
-                        <td><a href="NewsDetails?id=${Notizia.getId()}"><img id="delete_button" src="M2/delete.png" alt="Modifica${Notizia.getTitolo()}"></a></td>
+                        <td><a href="notizia.html?id=${Notizia.getId()}">${Notizia.getTitolo()}</a></td>
+                        <td><a href="notizia.html?id=${Notizia.getId()}"><img id="edit_button" src="M2/edit.png" alt="Modifica${Notizia.getTitolo()}"></a></td>
+                        <td><a href="notizia.html?id=${Notizia.getId()}"><img id="delete_button" src="M2/delete.png" alt="Modifica${Notizia.getTitolo()}"></a></td>
                     </tr>
                 </c:forEach>
             </tbody>

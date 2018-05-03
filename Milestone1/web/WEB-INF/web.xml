@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
-        <servlet-name>Notizie</servlet-name>
+        <servlet-name>notizie.html</servlet-name>
         <servlet-class>fpw.unica.m2.Index</servlet-class>
-    </servlet>
+    </servlet>    
     <servlet>
-        <servlet-name>Login</servlet-name>
+        <servlet-name>login.html</servlet-name>
         <servlet-class>fpw.unica.m2.Login</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>NewsDetails</servlet-name>
+        <servlet-name>notizia.html</servlet-name>
         <servlet-class>fpw.unica.m2.NewsDetails</servlet-class>
         <init-param>
             <param-name>id</param-name>
@@ -26,14 +26,14 @@
         <servlet-class>fpw.unica.m2.NewArticle</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Notizie</servlet-name>
-        <url-pattern>/Notizie</url-pattern>
+        <servlet-name>notizie.html</servlet-name>
+        <url-pattern>/notizie.html</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
-        <welcome-file>Notizie</welcome-file>
+        <welcome-file>notizie.html</welcome-file>
     </welcome-file-list>
     <servlet>
-        <servlet-name>Profilo</servlet-name>
+        <servlet-name>profilo.html</servlet-name>
         <servlet-class>fpw.unica.m2.Profilo</servlet-class>
     </servlet>
     <servlet>
@@ -57,20 +57,20 @@
         </init-param>
     </servlet>
     <servlet>
-        <servlet-name>Articles</servlet-name>
+        <servlet-name>articoli.html</servlet-name>
         <servlet-class>fpw.unica.m2.Articles</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Login</servlet-name>
-        <url-pattern>/Login</url-pattern>
+        <servlet-name>login.html</servlet-name>
+        <url-pattern>/login.html</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>NewsDetails</servlet-name>
-        <url-pattern>/NewsDetails</url-pattern>
+        <servlet-name>notizia.html</servlet-name>
+        <url-pattern>/notizia.html</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Profilo</servlet-name>
-        <url-pattern>/Profilo</url-pattern>
+        <servlet-name>profilo.html</servlet-name>
+        <url-pattern>/profilo.html</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ViewProfile</servlet-name>
@@ -81,8 +81,8 @@
         <url-pattern>/Search</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Articles</servlet-name>
-        <url-pattern>/Articles</url-pattern>
+        <servlet-name>articoli.html</servlet-name>
+        <url-pattern>/articoli.html</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>FindBy</servlet-name>

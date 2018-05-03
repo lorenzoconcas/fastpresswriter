@@ -42,7 +42,7 @@ public class Login extends HttpServlet {
             }
             //Nel caso l'utente sia loggato 
             if (session.getAttribute("loggedIn") != null && session.getAttribute("loggedIn").equals(true)){
-                request.getRequestDispatcher("Notizie").forward(request, response);  
+                request.getRequestDispatcher("profilo.html").forward(request, response);  
             }
             else{
                 //nel caso non sia loggato
@@ -56,7 +56,7 @@ public class Login extends HttpServlet {
                     session.setAttribute("loggedIn", true);
                     session.setAttribute("user", uF.getUserById(userID));
                     session.setAttribute("invalidData",false);
-                    request.getRequestDispatcher("Profilo").forward(request, response);
+                    request.getRequestDispatcher("profilo.html").forward(request, response);
                    
                 }
                 //se i valori non sono stati inseriti o non validi
