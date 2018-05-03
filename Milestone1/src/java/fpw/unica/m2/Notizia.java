@@ -131,8 +131,7 @@ public class Notizia {
     }
     
     public String getDate(){
-        Random rnd = new Random();
-        return  (rnd.nextInt(31)+1)+"/"+(rnd.nextInt(12)+1)+"/"+(rnd.nextInt(3)+2015);        
+       return this.date;
     }
   
 }

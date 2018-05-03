@@ -17,6 +17,8 @@
         <link rel="stylesheet" type="text/css" href="M2/aside_right.css" media="screen"/>
         <link rel="stylesheet" type="text/css" href="M2/posts.css" media="screen"/>
         <link rel="shortcut icon" href="M2/logo_old.png" type="image/x-icon" />
+                  <meta name="author" content="Lorenzo L. Concas">
+        <meta name="keywords" content="fast,press,writer">
     </head>
 
 
@@ -38,7 +40,7 @@
                     <br/>
                     <label id="post_content">${Notizia.getContentPreview()}</label>
                     <br/>
-                    <label id="post_category">Categorie : ${Notizia.getCategoria()}</label>
+                    <label id="post_category">Scritto il ${Notizia.getDate()} - Categorie : ${Notizia.getCategoria()}</label>
                     <br/>
                     <a id="post_open" href="NewsDetails?id=${Notizia.getId()}">Apri Articolo</a>
                     <br/>

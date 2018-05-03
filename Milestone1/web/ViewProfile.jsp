@@ -16,6 +16,8 @@
         <link rel="stylesheet" type="text/css" href="M2/style.css" media="screen"/>
         <link rel="stylesheet" type="text/css" href="M2/Profiles.css" media="screen"/>
         <link rel="stylesheet" type="text/css" href="M2/posts.css" media="screen"/>
+                  <meta name="author" content="Lorenzo L. Concas">
+        <meta name="keywords" content="Mostra,profilo,fast,press,writer">
 
     </head>
     <body>

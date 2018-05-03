@@ -15,6 +15,8 @@
         <link rel="stylesheet" type="text/css" href="M2/style.css" media="screen"/>
         <link rel="stylesheet" type="text/css" href="M2/login.css" media="screen"/>
         <link rel="shortcut icon" href="M2/logo_old.png" type="image/x-icon" />
+                  <meta name="author" content="Lorenzo L. Concas">
+        <meta name="keywords" content="login,fast,press,writer">
     </head>
     <body>       
        <jsp:include page="M2/header.jsp" />

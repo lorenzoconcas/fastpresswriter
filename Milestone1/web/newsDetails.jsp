@@ -16,7 +16,8 @@
         <link rel="stylesheet" type="text/css" href="M2/posts.css" media="screen"/>
         <link rel="stylesheet" type="text/css" href="M2/comments.css" media="screen"/>
         <link rel="shortcut icon" href="M2/logo_old.png" type="image/x-icon" />
-
+         <meta name="author" content="Lorenzo L. Concas">
+        <meta name="keywords" content="Notizia, Fast, Press, Writer">
     </head>
     <body>
 
@@ -33,16 +34,16 @@
                     </a>                        
                     <br/>
                     
-                    <img id="news_pic" src="<c:url value="${imageUrl}"/>" alt="Immagine"/>                        
+                    <img id="news_pic" src="<c:url value="${Notizia.getImg()}"/>" alt="Immagine"/>                        
                     <br/>
 
-                    <label id="post_title">${newsTitle}</label>
+                    <label id="post_title">${Notizia.getTitolo()}</label>
                     <br/>
 
-                    <label id="post_content">${newsContent}</label>
+                    <label id="post_content">${Notizia.getContent()}</label>
                     <br/>
 
-                    <label id="post_category">Categorie : ${newsCat}</label>
+                    <label id="post_category">Scritto il ${Notizia.getDate()} - Categorie : ${Notizia.getCategoria()}</label>
                     <br/>
                 </div>
                 <div id="comment_section">

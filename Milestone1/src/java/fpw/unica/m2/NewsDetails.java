@@ -45,13 +45,10 @@ public class NewsDetails extends HttpServlet {
                 } else {
                     request.setAttribute("isCommented", false);
                 }
-
-                request.setAttribute("comments", cF.getCommentByNewsID(Integer.parseInt(id)));
                 request.setAttribute("author", n.getAutore());
-                request.setAttribute("newsTitle", n.getTitolo());
-                request.setAttribute("imageUrl", n.getImg());
-                request.setAttribute("newsContent", n.getContent());
-                request.setAttribute("newsCat", n.getCategoria());
+                request.setAttribute("Notizia", n);
+                request.setAttribute("comments", cF.getCommentByNewsID(Integer.parseInt(id)));
+
                 request.getRequestDispatcher("newsDetails.jsp").forward(request, response);
             } else {
                 request.getRequestDispatcher("NotFound.jsp").forward(request, response);

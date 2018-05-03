@@ -16,6 +16,8 @@
         <link rel="stylesheet" type="text/css" href="M2/aside_right.css" media="screen"/>
        
         <link rel="stylesheet" type="text/css" href="M2/Profiles.css" media="screen"/>
+                  <meta name="author" content="Lorenzo L. Concas">
+        <meta name="keywords" content="profilo,fast,press,writer">
     </head>
     <body>
         <jsp:include page="M2/header.jsp" />  
