@@ -41,9 +41,19 @@ public class UtentiFactory {
         u3.setImgUrl("M2/test_profile_pic.png");
         u3.setUsername("lorec");
         
+        Utenti u4 = new Utenti();
+        u4.setId(3);
+        u4.setName("Han");
+        u4.setSurname("Solo");
+        u4.setEmail("hansolo@resistenza.com");
+        u4.setPassword("millenniumfalcon");
+        u4.setImgUrl("M2/header_user_icon.png");
+        u4.setUsername("hansolo");
+        
         users.add(u2);
         users.add(u1);
         users.add(u3);
+        users.add(u4);
     }
     
     public static UtentiFactory getIstance(){

@@ -37,7 +37,7 @@ public class NewsDetails extends HttpServlet {
             NotizieFactory nF = NotizieFactory.getIstance();
 
             if (Integer.parseInt(id) < nF.getNewsList().size()) {
-                Random randomL = new Random();
+                
                 Notizia n = nF.getNewsById(Integer.parseInt(id));
                 CommentsFactory cF = CommentsFactory.getIstance();
                 if (cF.getCommentByNewsID(Integer.parseInt(id)).size() > 0) {
@@ -45,8 +45,7 @@ public class NewsDetails extends HttpServlet {
                 } else {
                     request.setAttribute("isCommented", false);
                 }
-                //out.println(cF.getCommentByNewsID(Integer.parseInt(id)).size() > 0);
-                request.setAttribute("randomLike", randomL);
+
                 request.setAttribute("comments", cF.getCommentByNewsID(Integer.parseInt(id)));
                 request.setAttribute("author", n.getAutore());
                 request.setAttribute("newsTitle", n.getTitolo());

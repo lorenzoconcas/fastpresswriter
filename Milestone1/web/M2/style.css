@@ -33,7 +33,7 @@ a:hover{
     width:24px;
 }
 #search_button:hover{
-   cursor:pointer;
+    cursor:pointer;
 }
 
 #home_logo{
@@ -42,7 +42,6 @@ a:hover{
     top: 8px;
     color : #333333;
     font-family: "Old English Text MT";
-
 }
 #home_logo:hover{
     color: #111111;
@@ -73,15 +72,12 @@ a:hover{
     color: black;
 }
 .navbar_buttons:hover{
-   background:transparent;
-
-   border-bottom-color: #AAAAAA;
-   border-bottom-style: solid;
+    background:transparent;
+    border-bottom-color: #AAAAAA;
+    border-bottom-style: solid;
     border-bottom-width:thick;
     padding-bottom: 5px;
-
 }
-
 #selected_item{
     border-bottom-color: #333333;
     border-bottom-style: solid;
@@ -89,25 +85,20 @@ a:hover{
     padding-bottom: 5px;
 }
 #user{
-   position:fixed;
-  
-   top: 8px;
-   right: 8px;
-   width:calc(50% - 150px);
-   height: 48px;
-   
-   
+    position:fixed;
+    top: 8px;
+    right: 8px;
+    width:calc(50% - 150px);
+    height: 48px;
 }
 
 #header_user_icon{
-  
     position:absolute;
     top:6px;
     right:0px;
     height:32px;
 }
 #logout{
-    
     position:absolute;
     top:20px;
     right:48px;    
@@ -117,10 +108,9 @@ a:hover{
 }
 #header_user_profile{
     position:absolute;
-   top:4px;
+    top:4px;
     right:48px;    
 }
-
 .footer{
     text-align: center;
     background: linear-gradient(#EFEFEF, #FCFCFC);
@@ -135,7 +125,6 @@ a:hover{
 #info_text{
     position:relative;
     top:4px;
-   
 }
 
 #content{
@@ -146,9 +135,8 @@ a:hover{
     left: 25%;
     right:25%;
     top : 118px;
-    
-   height: calc(100% - 160px);
- 
+    height: calc(100% - 160px);
+
 }
 
 

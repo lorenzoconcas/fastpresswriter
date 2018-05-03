@@ -13,6 +13,13 @@ import java.util.Random;
  */
 public class Notizia {
 
+    /**
+     * @param date the date to set
+     */
+    public void setDate(String date) {
+        this.date = date;
+    }
+
     
     private int id;
     private String titolo;
@@ -20,6 +27,8 @@ public class Notizia {
     private String img;
     private String categoria;
     private Utenti autore;
+    private String date;
+
 
     public Notizia(){
         this.id = 0;
@@ -28,6 +37,7 @@ public class Notizia {
         this.img= "";
         this.categoria = "";
         this.autore = new Utenti();
+        this.date = "";
     }
     
     /**
@@ -122,7 +132,7 @@ public class Notizia {
     
     public String getDate(){
         Random rnd = new Random();
-        return  (rnd.nextInt(32)+1)+"/"+(rnd.nextInt(12)+1)+"/"+(rnd.nextInt(3)+2015);        
+        return  (rnd.nextInt(31)+1)+"/"+(rnd.nextInt(12)+1)+"/"+(rnd.nextInt(3)+2015);        
     }
   
 }

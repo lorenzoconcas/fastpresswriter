@@ -45,7 +45,7 @@
             </tbody>
         </table>
         <br/>
-        <a href="NewArticle" <button id="new_article_button" >Crea un nuovo articolo</button></a>   
+        <a href="NewArticle"><button id="new_article_button" >Crea un nuovo articolo</button></a>   
     </div>
     <br/>
 </html>

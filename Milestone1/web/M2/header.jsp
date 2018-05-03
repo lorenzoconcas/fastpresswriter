@@ -31,6 +31,4 @@
         </c:if>
    
     </nav>
-    
-    
 </header>

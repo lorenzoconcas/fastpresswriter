@@ -27,7 +27,7 @@ public class NotizieFactory {
         n1.setImg("M2/news.image.1.jpg");
         n1.setTitolo("Articolo 1");
         n1.setAutore(uF.getUserById(0));
-
+        n1.setDate("12/04/2008");
         Notizia n2 = new Notizia();
         
         n2.setId(1);
@@ -36,7 +36,7 @@ public class NotizieFactory {
         n2.setImg("M2/news.image.2.jpg");
         n2.setTitolo("Articolo 2");
         n2.setAutore(uF.getUserById(1));
-        
+        n2.setDate("25/05/2012");
         Notizia n3 = new Notizia();
         
         n3.setId(2);
@@ -45,7 +45,7 @@ public class NotizieFactory {
         n3.setImg("M2/news.image.3.jpg");
         n3.setTitolo("Articolo 3");
         n3.setAutore(uF.getUserById(2));
-        
+        n3.setDate("6/11/2017");
         listaNotizie.add(n1);
         listaNotizie.add(n2);
         listaNotizie.add(n3);
@@ -60,6 +60,7 @@ public class NotizieFactory {
     {
         return listaNotizie;
     }
+ 
     public Notizia getNewsById(int id)
     {
         for (Notizia news : listaNotizie)
