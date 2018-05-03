@@ -34,6 +34,7 @@ public class Login extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             HttpSession session = request.getSession();
+            //richiesta di logout
             if (request.getParameter("logout") != null){
                 session.invalidate();
                 request.getRequestDispatcher("login.jsp").forward(request, response);
@@ -44,9 +45,11 @@ public class Login extends HttpServlet {
                 request.getRequestDispatcher("Notizie").forward(request, response);  
             }
             else{
+                //nel caso non sia loggato
                 String email = request.getParameter("email");
                 String password = request.getParameter("password");             
-                UtentiFactory uF = UtentiFactory.getIstance();              
+                UtentiFactory uF = UtentiFactory.getIstance();        
+                //se i dati sono corretti
                 if(email != null && password != null && uF.login(email, password)){
                     int userID = uF.getUserByEmail(email).getId();
                     session.setAttribute("userID", userID);
@@ -56,10 +59,12 @@ public class Login extends HttpServlet {
                     request.getRequestDispatcher("Notizie").forward(request, response);
                    
                 }
+                //se i valori non sono stati inseriti o non validi
                 else if(email != null && password != null){
                     request.setAttribute("invalidData", true);
                     request.getRequestDispatcher("login.jsp").forward(request, response); 
                 }
+                //se i valori sono vuoti
                 else if("".equals(email) || "".equals(password)){
                     request.setAttribute("invalidData", true);
                     request.getRequestDispatcher("login.jsp").forward(request, response); 

@@ -36,7 +36,7 @@ public class Articles extends HttpServlet {
             if (session.getAttribute("loggedIn") != null && session.getAttribute("loggedIn").equals(true)) {
                 Utenti current = (Utenti) session.getAttribute("user");
                 request.setAttribute("Notizie", NotizieFactory.getIstance().getNewsByAuthor(current));
-                request.getRequestDispatcher("PersonalArticles.jsp").forward(request, response);
+                request.getRequestDispatcher("Articles.jsp").forward(request, response);
             } else {
                 request.getRequestDispatcher("NotLogged.jsp").forward(request, response);
             }
