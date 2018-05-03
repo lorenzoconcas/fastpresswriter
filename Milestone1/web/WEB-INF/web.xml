@@ -1,64 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
-    <servlet>
-        <servlet-name>notizie.html</servlet-name>
-        <servlet-class>fpw.unica.m2.Index</servlet-class>
-    </servlet>    
-    <servlet>
-        <servlet-name>login.html</servlet-name>
-        <servlet-class>fpw.unica.m2.Login</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>notizia.html</servlet-name>
-        <servlet-class>fpw.unica.m2.NewsDetails</servlet-class>
-        <init-param>
-            <param-name>id</param-name>
-            <param-value>0
-</param-value>
-        </init-param>
-    </servlet>
-    <servlet>
-        <servlet-name>FindBy</servlet-name>
-        <servlet-class>fpw.unica.m2.FindBy</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>NewArticle</servlet-name>
-        <servlet-class>fpw.unica.m2.NewArticle</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>notizie.html</servlet-name>
-        <url-pattern>/notizie.html</url-pattern>
-    </servlet-mapping>
     <welcome-file-list>
         <welcome-file>notizie.html</welcome-file>
     </welcome-file-list>
     <servlet>
-        <servlet-name>profilo.html</servlet-name>
-        <servlet-class>fpw.unica.m2.Profilo</servlet-class>
+        <servlet-name>login.html</servlet-name>
+        <servlet-class>it.lorenzoconcas.blog.servlet.Login</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ViewProfile</servlet-name>
-        <servlet-class>fpw.unica.m2.ViewProfile</servlet-class>
-        <init-param>
-            <param-name>id</param-name>
-            <param-value>-1</param-value>
-        </init-param>
-        <init-param>
-            <param-name>author</param-name>
-            <param-value>false</param-value>
-        </init-param>
+        <servlet-name>notizia.html</servlet-name>
+        <servlet-class>it.lorenzoconcas.blog.servlet.NewsDetail</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Search</servlet-name>
-        <servlet-class>fpw.unica.m2.Search</servlet-class>
-        <init-param>
-            <param-name>query</param-name>
-            <param-value/>
-        </init-param>
+        <servlet-name>notizie.html</servlet-name>
+        <servlet-class>it.lorenzoconcas.blog.servlet.Notizie</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>articoli.html</servlet-name>
-        <servlet-class>fpw.unica.m2.Articles</servlet-class>
+        <servlet-class>it.lorenzoconcas.blog.servlet.Articles</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>scriviArticolo.html</servlet-name>
+        <servlet-class>it.lorenzoconcas.blog.servlet.NewArticle</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>profilo.html</servlet-name>
+        <servlet-class>it.lorenzoconcas.blog.servlet.Profile</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>login.html</servlet-name>
@@ -69,28 +36,20 @@
         <url-pattern>/notizia.html</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>profilo.html</servlet-name>
-        <url-pattern>/profilo.html</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ViewProfile</servlet-name>
-        <url-pattern>/ViewProfile</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Search</servlet-name>
-        <url-pattern>/Search</url-pattern>
+        <servlet-name>notizie.html</servlet-name>
+        <url-pattern>/notizie.html</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>articoli.html</servlet-name>
         <url-pattern>/articoli.html</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>FindBy</servlet-name>
-        <url-pattern>/FindBy</url-pattern>
+        <servlet-name>scriviArticolo.html</servlet-name>
+        <url-pattern>/scriviArticolo.html</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>NewArticle</servlet-name>
-        <url-pattern>/NewArticle</url-pattern>
+        <servlet-name>profilo.html</servlet-name>
+        <url-pattern>/profilo.html</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
