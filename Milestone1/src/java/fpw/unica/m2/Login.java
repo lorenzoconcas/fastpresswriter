@@ -45,10 +45,8 @@ public class Login extends HttpServlet {
             }
             else{
                 String email = request.getParameter("email");
-                String password = request.getParameter("password");
-             
-                UtentiFactory uF = UtentiFactory.getIstance();
-              
+                String password = request.getParameter("password");             
+                UtentiFactory uF = UtentiFactory.getIstance();              
                 if(email != null && password != null && uF.login(email, password)){
                     int userID = uF.getUserByEmail(email).getId();
                     session.setAttribute("userID", userID);

@@ -35,11 +35,15 @@ public class ViewProfile extends HttpServlet {
             HttpSession session = request.getSession();
             String id = "id";
             id = request.getParameter(id);
-
+            
             UtentiFactory uF = UtentiFactory.getIstance();
             //se l'id cercato è valido lo mostro 
             if (uF.getUsers().size() > Integer.parseInt(id)) {
                 Utenti u = uF.getUserById(Integer.parseInt(id));
+                if(NotizieFactory.getIstance().getNewsByAuthor(u).size() > 0){
+                    request.setAttribute("listaNews", NotizieFactory.getIstance().getNewsByAuthor(u));
+                    request.setAttribute("authWroteArticles", true);
+                }
                 //se l'utente è loggato e accede al suo profilo mostro la sua pagina personale
                 if (session.getAttribute("loggedIn") != null && session.getAttribute("loggedIn").equals(true) && u.equals(session.getAttribute("user"))) {
                     request.getRequestDispatcher("profilo.jsp").forward(request, response);
