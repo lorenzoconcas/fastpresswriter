@@ -56,7 +56,7 @@ public class Login extends HttpServlet {
                     session.setAttribute("loggedIn", true);
                     session.setAttribute("user", uF.getUserById(userID));
                     session.setAttribute("invalidData",false);
-                    request.getRequestDispatcher("Notizie").forward(request, response);
+                    request.getRequestDispatcher("Profilo").forward(request, response);
                    
                 }
                 //se i valori non sono stati inseriti o non validi
