@@ -75,7 +75,7 @@ public class Login extends HttpServlet {
                         if(email != null || password != null){ //significa che i dati non sono null e sono sbagliati
                             request.setAttribute("invalidData", true);
                         }
-                    request.getRequestDispatcher("Login2.jsp").forward(request, response);
+                    request.getRequestDispatcher("Login.jsp").forward(request, response);
                 }
 
             }
