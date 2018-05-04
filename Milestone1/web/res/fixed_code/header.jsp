@@ -9,7 +9,7 @@
 
 <header id="header"> 
     <!--Tasto cerca-->
-    <a id="search_button" href="Search"><img id="search_image" src="res/site_resources/search_icon.png" alt="Cerca"/></a>
+    <a id="search_button" href="cerca.html"><img id="search_image" src="res/site_resources/search_icon.png" alt="Cerca"/></a>
    <!--Logo-->
     <a id="home_logo" href="notizie.html">Fast Press Writer</a>
     <!--Nome utente-->

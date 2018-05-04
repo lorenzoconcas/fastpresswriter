@@ -35,15 +35,15 @@
            
             <div id="new_article_section">
                 <h3>Scrivi un nuovo articolo</h3>
-                <c:if test="${title != null}">
-                    <h5>Articolo salvato, ID articolo : ${lastID}</h5>
+                <c:if test="${lastID != null}">
+                    <h5>ID articolo : ${lastID}</h5>
                 </c:if>
                 <div class="personal_articles_data">
                     <label>Titolo</label>               
                     <input class="new_article_generic_input" type="text" name="title"  placeholder="${title}"/>
                     <br/>
                     <label>Data</label>              
-                    <input class="new_article_generic_input" type="date" name="date"  placeholder="${date}"/>
+                    <input class="new_article_generic_input" type="text" name="date"  placeholder="${date}"/>
                     <br/>
                     <label>Immagine</label>
                     <input class="new_article_generic_input"  type="text" name="imageUrl" placeholder="${imageUrl}"/>                   <br/>                   

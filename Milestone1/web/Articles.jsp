@@ -40,7 +40,7 @@
                     <tr>
                         <td>${Notizia.getDate()}</td>
                         <td><a href="notizia.html?nid=${Notizia.getId()}">${Notizia.getTitle()}</a></td>
-                        <td><a href="scriviArticolo.html"><img id="edit_button" src="res/site_resources/edit.png" alt="Modifica${Notizia.getTitle()}"></a></td>
+                        <td><a href="scriviArticolo.html?edit=${Notizia.getId()}"><img id="edit_button" src="res/site_resources/edit.png" alt="Modifica${Notizia.getTitle()}"></a></td>
                         <td><a href="#"><img id="delete_button" src="res/site_resources/delete.png" alt="Modifica${Notizia.getTitle()}"></a></td>
                     </tr>
                 </c:forEach>

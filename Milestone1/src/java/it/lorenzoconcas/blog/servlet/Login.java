@@ -36,7 +36,7 @@ public class Login extends HttpServlet {
             HttpSession session = request.getSession();
             //richiesta di logout
             if (request.getParameter("logout") != null) {
-                session.invalidate();
+                session.invalidate();               
                 request.getRequestDispatcher("notizie.html").forward(request, response);
 
             }

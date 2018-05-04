@@ -39,24 +39,32 @@ public class NewArticle extends HttpServlet {
             HttpSession session = request.getSession();
             //seguiamo gli stessi ragionamenti di Articles.java
             int id = Integer.parseInt(session.getAttribute("userID").toString());
+            int lastID;
             User u = Authors.getIstance().getAuthorByID(id);
-            out.println("2");
             if (session.getAttribute("loggedIn") != null && session.getAttribute("loggedIn").equals(true) && u != null) {
+                if (request.getParameter("edit") != null) {
+                    id = Integer.parseInt(request.getParameter("edit"));
+                    request.setAttribute("title", NewsFactory.getIstance().getNewsById(id).getTitle());
+                    request.setAttribute("date", NewsFactory.getIstance().getNewsById(id).getDate());
+                    request.setAttribute("imageUrl", NewsFactory.getIstance().getNewsById(id).getImageUrl());
+                    request.setAttribute("content", NewsFactory.getIstance().getNewsById(id).getContent());
+                    session.setAttribute("lastID", id);
+                }
                 //se l'utente chiama la servlet per salvare l'articolo semplicemente prendiamo i dati inseriti
-                if (request.getParameter("title") != null || request.getParameter("content") != null) {
+                else if (request.getParameter("title") != null || request.getParameter("content") != null) {
                     request.setAttribute("title", request.getParameter("title"));
                     request.setAttribute("date", request.getParameter("date"));
                     request.setAttribute("imageUrl", request.getParameter("imageUrl"));
                     request.setAttribute("content", request.getParameter("content"));
                     //calcoliamo l'id da assegnare
-                    int lastID;
+
                     if (session.getAttribute("lastID") == null) {
 
                         //poichè gli id sono assegnati progressivamente, l'ultimo ID sarà:
                         //dimensione lista news -1 
                         lastID = NewsFactory.getIstance().getNewsList().size() - 1;
                         lastID++;
-                       
+
                     }
                     else {
                         lastID = Integer.parseInt(session.getAttribute("lastID").toString());
@@ -70,10 +78,10 @@ public class NewArticle extends HttpServlet {
             }
             //se i requisiti non sono rispettati nego l'accesso
             else {
-
                 request.setAttribute("errorMessage", "Spiacenti, accesso negato");
                 request.getRequestDispatcher("notAllowed.jsp").forward(request, response);
             }
+
         }
     }
 
