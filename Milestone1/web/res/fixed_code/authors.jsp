@@ -11,8 +11,8 @@
     <div class="aside_content_auth">
         <h3>Autori</h3>
         <ul>
-            <c:forEach var="a" items="${autori}">
-                <li><a  href="ViewProfile?id=${a.getId()}">${a.getName()} ${a.getSurname()}</a></li>
+            <c:forEach var="a" items="${authors}">
+                <li><a href="notizie.html?author=${a.getId()}">${a.getName()} ${a.getSurname()}</a></li>
             </c:forEach>
         </ul>
     </div>

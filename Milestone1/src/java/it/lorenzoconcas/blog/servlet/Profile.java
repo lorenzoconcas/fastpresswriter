@@ -41,11 +41,13 @@ public class Profile extends HttpServlet {
             //è necessario solo che sia loggato, non serve essere anche autori
             if (session.getAttribute("loggedIn") != null && session.getAttribute("loggedIn").equals(true) ) {
                 //gestire l'invio dei dati da parte della pagina
-                request.getRequestDispatcher("Profile.jsp").forward(request, response);
+               request.getRequestDispatcher("Profile.jsp").forward(request, response);
+              
             }
             //se i requisiti non sono rispettati nego l'accesso
             else{
-                request.getRequestDispatcher("notAllowed.jsp").forward(request, response);
+                out.println("ciao");
+                //request.getRequestDispatcher("notAllowed.jsp").forward(request, response);
             }
         }
     }

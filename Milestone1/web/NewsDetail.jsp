@@ -28,22 +28,22 @@
             <div id="news">            
                 <div id="post">
                     <!--icona utente, nome utente-->
-                    <img id="post_user_icon" src="<c:url value="${author.getImgUrl()}"/>" alt=""/>
+                    <img id="post_user_icon" src="<c:url value="${News.getAuthor().getImgUrl()}"/>" alt=""/>
 
-                    <label id="post_author">Scritto da : ${author.getName()} ${author.getSurname()}</label>                         
+                    <label id="post_author">Scritto da : ${News.getAuthor().getName()} ${News.getAuthor().getSurname()}</label>                         
 
                     <br/>
 
-                    <img id="news_pic" src="<c:url value="${Notizia.getImageUrl()}"/>" alt="Immagine"/>                        
+                    <img id="news_pic" src="<c:url value="${News.getImageUrl()}"/>" alt="Immagine"/>                        
                     <br/>
 
-                    <label id="post_title">${Notizia.getTitle()}</label>
+                    <label id="post_title">${News.getTitle()}</label>
                     <br/>
 
-                    <label id="post_content">${Notizia.getContent()}</label>
+                    <label id="post_content">${News.getContent()}</label>
                     <br/>
 
-                    <label id="post_category">Scritto il ${Notizia.getDate()} - Categorie : ${Notizia.getCategory()}</label>
+                    <label id="post_category">Scritto il ${News.getDate()} - Categorie : ${News.getCategory()}</label>
                     <br/>
                 </div>
                 <div id="comment_section">

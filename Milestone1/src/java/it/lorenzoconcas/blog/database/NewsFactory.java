@@ -33,7 +33,7 @@ public class NewsFactory {
         n2.setId(1);
         n2.setCategory(Categories.getIstance().getCategoryByID(2));
         n2.setContent("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit tincidunt dolor");
-        n2.setImageUrl("M2/news.image.2.jpg");
+        n2.setImageUrl("res/news_pictures/news.image.2.jpg");
         n2.setTitle("Articolo 2");
         n2.setAuthor(uF.getUserById(1));
         n2.setDate("25/05/2012");
@@ -43,7 +43,7 @@ public class NewsFactory {
         n3.setId(2);
         n3.setCategory(Categories.getIstance().getCategoryByID(1));
         n3.setContent("Lorem Ipsumdolor sit amet");
-        n3.setImageUrl("M2/news.image.3.jpg");
+        n3.setImageUrl("res/news_pictures/news.image.3.jpg");
         n3.setTitle("Articolo 3");
         n3.setAuthor(uF.getUserById(2));
         n3.setDate("6/11/2017");
@@ -84,7 +84,7 @@ public class NewsFactory {
         return listToReturn;
     }
 
-    public ArrayList<News> getNewsByCat(Categories cat) {
+    public ArrayList<News> getNewsByCat(String cat) {
         ArrayList<News> listToReturn = new ArrayList<>();
 
         for (News n : newsList) {

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package it.lorenzoconcas.blog.servlet;
+
 import it.lorenzoconcas.blog.database.*;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -36,19 +37,19 @@ public class Login extends HttpServlet {
             //richiesta di logout
             if (request.getParameter("logout") != null) {
                 session.invalidate();
-                //request.getRequestDispatcher("login.jsp").forward(request, response);
+                request.getRequestDispatcher("notizie.html").forward(request, response);
 
             }
             //Controllo se nella sessione è presente l'attributo "loggedIn" e che abbia valore true
             //in tal caso l'utente è loggato e deve essere rimanandato all'elenco notizie
             if (session.getAttribute("loggedIn") != null && session.getAttribute("loggedIn").equals(true)) {
-                //request.getRequestDispatcher("profilo.html").forward(request, response);
+                request.getRequestDispatcher("notizie.html").forward(request, response);
             }
             /*
             fallita la verifica di uno dei due casi stabiliamo che l'utente non è collegato,
             pertanto procediamo col login
-            */
-            else {               
+             */
+            else {
                 String email = request.getParameter("email");
                 String password = request.getParameter("password");
                 UsersFactory uF = UsersFactory.getIstance();
@@ -60,17 +61,22 @@ public class Login extends HttpServlet {
                     session.setAttribute("userID", userID);
                     session.setAttribute("loggedIn", true);
                     session.setAttribute("user", uF.getUserById(userID));
+                    if (Authors.getIstance().isAuthor(uF.getUserById(userID))) {
+                        session.setAttribute("isAuthor", true);
+                    }
                     //rimandiamo infine l'utente alla pagina principale
-                   // request.getRequestDispatcher("Notizie.html").forward(request, response);
-                   out.println("loggato");
+                    request.getRequestDispatcher("notizie.html").forward(request, response);
 
-                } 
+                }
                 //se i valori non sono stati inseriti o non validi, allora rimando alla pagina di login
                 //questo caso viene raggiunto quando viene effettuata una richiesta di login che non provenga dal file login.jsp
-                else if (email != null || password != null || "".equals(email) || "".equals(password)) {
-                    request.setAttribute("invalidData", true);
-                    request.getRequestDispatcher("Login.jsp").forward(request, response);
-                } 
+                
+                else {
+                        if(email != null || password != null){ //significa che i dati non sono null e sono sbagliati
+                            request.setAttribute("invalidData", true);
+                        }
+                    request.getRequestDispatcher("Login2.jsp").forward(request, response);
+                }
 
             }
         }

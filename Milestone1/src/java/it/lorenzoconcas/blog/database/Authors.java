@@ -40,4 +40,11 @@ public class Authors {
         }
         return null;
     }
+    public Boolean isAuthor(User auth){
+        for(User u : authorsList){
+            if(u.equals(auth))
+                return true;
+        }
+        return false;
+    }
 }

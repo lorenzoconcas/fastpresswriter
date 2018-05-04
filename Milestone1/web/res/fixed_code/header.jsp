@@ -9,13 +9,13 @@
 
 <header id="header"> 
     <!--Tasto cerca-->
-    <a id="search_button" href="Search"><img id="search_image" src="M2/search_icon.png" alt="Cerca"/></a>
+    <a id="search_button" href="Search"><img id="search_image" src="res/site_resources/search_icon.png" alt="Cerca"/></a>
    <!--Logo-->
     <a id="home_logo" href="notizie.html">Fast Press Writer</a>
     <!--Nome utente-->
         <c:if test="${loggedIn == true}">
             <aside id="user">
-                <a id="header_user_profile" href="articoli.html">${user.getName()} ${user.getSurname()}</a> 
+                <a id="header_user_profile" href="profilo.html">${user.getName()} ${user.getSurname()}</a> 
                 <a id="logout" name="logout" href="login.html?logout=true">Esci</a>
                 <img id="header_user_icon" src="<c:url value="${user.getImgUrl()}"/>" alt="Immagine Utente"/>
             </aside>              
@@ -25,7 +25,13 @@
     <!--Tasti di navigazione -->
     <nav class="navbar">     
         <a class="navbar_buttons" href="notizie.html">Home</a>
-        <a class="navbar_buttons" href="profilo.html">Profilo</a>
+        <c:if test="${loggedIn == null || loggedIn == false}">
+            <a class="navbar_buttons" href="login.html">Login</a>
+        </c:if>
+        <c:if test="${isAuthor == true}">
+            <a class="navbar_buttons" href="articoli.html">Articoli</a>
+        </c:if>
+        
       
    
     </nav>

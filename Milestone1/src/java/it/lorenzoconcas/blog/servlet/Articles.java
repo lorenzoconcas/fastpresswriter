@@ -53,6 +53,7 @@ public class Articles extends HttpServlet {
             }
             //se i requisiti non sono rispettati nego l'accesso
             else{
+                request.setAttribute("errorMessage", "Spiacenti, accesso negato");
                 request.getRequestDispatcher("notAllowed.jsp").forward(request, response);
             }
 

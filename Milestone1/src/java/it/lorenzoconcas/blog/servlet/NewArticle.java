@@ -35,19 +35,22 @@ public class NewArticle extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-           
+
             HttpSession session = request.getSession();
             //seguiamo gli stessi ragionamenti di Articles.java
             int id = Integer.parseInt(session.getAttribute("userID").toString());
             User u = Authors.getIstance().getAuthorByID(id);
-            
+            out.println("2");
             if (session.getAttribute("loggedIn") != null && session.getAttribute("loggedIn").equals(true) && u != null) {
                 //gestire l'invio dei dati da parte della pagina
+                out.println("ciao");
                 request.getRequestDispatcher("NewArticle.jsp").forward(request, response);
             }
             //se i requisiti non sono rispettati nego l'accesso
-            else{
-                request.getRequestDispatcher("notAllowed.jsp").forward(request, response);
+            else {
+                out.println("2");
+                //request.setAttribute("errorMessage", "Spiacenti, accesso negato");
+                //request.getRequestDispatcher("notAllowed.jsp").forward(request, response);
             }
         }
     }

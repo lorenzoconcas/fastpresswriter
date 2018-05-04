@@ -22,7 +22,7 @@ public class UsersFactory {
         u1.setSurname("Fener");
         u1.setEmail("lordfener@impero.com");
         u1.setPassword("theforce");
-        u1.setImgUrl("M2/header_user_icon.png");
+        u1.setImgUrl("res/user_pictures/header_user_icon.png");
         u1.setUsername("vader");
         
         User u2 = new User();
@@ -31,7 +31,7 @@ public class UsersFactory {
         u2.setSurname("Skywalker");
         u2.setEmail("lukeskywalker@resistenza.com");
         u2.setPassword("resistence");
-        u2.setImgUrl("M2/header_user_icon.png");
+        u2.setImgUrl("res/user_pictures/header_user_icon.png");
         u2.setUsername("luke");
        
         User u3 = new User();
@@ -40,7 +40,7 @@ public class UsersFactory {
         u3.setSurname("Concas");
         u3.setEmail("lore@glassfish.com");
         u3.setPassword("test");
-        u3.setImgUrl("M2/test_profile_pic.png");
+        u3.setImgUrl("res/user_pictures/test_profile_pic.png");
         u3.setUsername("lorec");
         
         User u4 = new User();
@@ -49,7 +49,7 @@ public class UsersFactory {
         u4.setSurname("Solo");
         u4.setEmail("hansolo@resistenza.com");
         u4.setPassword("millenniumfalcon");
-        u4.setImgUrl("M2/header_user_icon.png");
+        u4.setImgUrl("res/user_pictures/header_user_icon.png");
         u4.setUsername("hansolo");
         
         userList.add(u2);

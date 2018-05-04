@@ -12,7 +12,7 @@
         <h3>Categorie</h3>
         <ul>  
             <c:forEach var="cat" items="${categories}">
-                 <li><a href="FindBy?category=${cat}" >${cat}</a></li>
+                 <li><a href="notizie.html?category=${cat}" >${cat}</a></li>
             </c:forEach>
            
         </ul>

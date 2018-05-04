@@ -143,4 +143,11 @@ public class News {
     public void setImageDescription(String imageDescription) {
         this.imageDescription = imageDescription;
     }
+    
+     public String getContentPreview(){
+        //restituisce l'anteprima del contenuto 
+        if(this.content.length() > 100)
+            return this.content.substring(0, 100);
+            else return this.content;
+    }
 }

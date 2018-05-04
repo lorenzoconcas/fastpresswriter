@@ -1,6 +1,6 @@
 <%-- 
-    Document   : PersonalArticles
-    Created on : 1-mag-2018, 10.35.17
+    Document   : Articles
+    Created on : 4-mag-2018, 0.49.22
     Author     : lorec
 --%>
 
@@ -39,15 +39,15 @@
                 <c:forEach var="Notizia" items="${authorNewsList}">   
                     <tr>
                         <td>${Notizia.getDate()}</td>
-                        <td><a href="notizia.html?id=${Notizia.getId()}">${Notizia.getTitle()}</a></td>
-                        <td><a href="notizia.html?id=${Notizia.getId()}"><img id="edit_button" src="res/site_resources/edit.png" alt="Modifica${Notizia.getTitle()}"></a></td>
-                        <td><a href="notizia.html?id=${Notizia.getId()}"><img id="delete_button" src="res/site_resources/delete.png" alt="Modifica${Notizia.getTitle()}"></a></td>
+                        <td><a href="notizia.html?nid=${Notizia.getId()}">${Notizia.getTitle()}</a></td>
+                        <td><a href="scriviArticolo.html"><img id="edit_button" src="res/site_resources/edit.png" alt="Modifica${Notizia.getTitle()}"></a></td>
+                        <td><a href="#"><img id="delete_button" src="res/site_resources/delete.png" alt="Modifica${Notizia.getTitle()}"></a></td>
                     </tr>
                 </c:forEach>
             </tbody>
         </table>
         <br/>
-        <a href="nuovoArticolo.html"><button id="new_article_button" >Crea un nuovo articolo</button></a>   
+        <a href="scriviArticolo.html"><button id="new_article_button" >Crea un nuovo articolo</button></a>   
     </div>
     <br/>
 </html>
