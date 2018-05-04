@@ -32,24 +32,24 @@ public class Profile extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-           HttpSession session = request.getSession();
+
+        HttpSession session = request.getSession(false);
+        //controllo che l'utente sia loggato e che sia un autore
+        if (session != null) {
             //seguiamo gli stessi ragionamenti di Articles.java
             int id = Integer.parseInt(session.getAttribute("userID").toString());
             User u = UsersFactory.getIstance().getUserById(id);
             //è necessario solo che sia loggato, non serve essere anche autori
-            if (session.getAttribute("loggedIn") != null && session.getAttribute("loggedIn").equals(true) ) {
+            if (session.getAttribute("loggedIn") != null && session.getAttribute("loggedIn").equals(true)) {
                 //gestire l'invio dei dati da parte della pagina
-               request.getRequestDispatcher("Profile.jsp").forward(request, response);
-              
+                request.getRequestDispatcher("Profile.jsp").forward(request, response);
+                return;
             }
-            //se i requisiti non sono rispettati nego l'accesso
-            else{
-                out.println("ciao");
-                //request.getRequestDispatcher("notAllowed.jsp").forward(request, response);
-            }
-        }
+        } //se i requisiti non sono rispettati nego l'accesso
+
+        request.setAttribute("errorMessage", "Spiacenti, accesso negato");
+        request.getRequestDispatcher("notAllowed.jsp").forward(request, response);;
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

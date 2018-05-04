@@ -34,13 +34,13 @@ public class Articles extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            //Questa servelt mostra solo agli autori la lista dei proprio articoli
-            //chi non è autore viene respinto con un accesso negato
-            //per ora la lista degli autori viene calcolata semplicemente controllando articolo per articolo quali sono gli autori
 
-            HttpSession session = request.getSession();
-            //controllo che l'utente sia loggato e che sia un autore
+        //Questa servelt mostra solo agli autori la lista dei proprio articoli
+        //chi non è autore viene respinto con un accesso negato
+        //per ora la lista degli autori viene calcolata semplicemente controllando articolo per articolo quali sono gli autori
+        HttpSession session = request.getSession(false);
+        //controllo che l'utente sia loggato e che sia un autore
+        if (session != null) {
             int id = Integer.parseInt(session.getAttribute("userID").toString());
             User u = Authors.getIstance().getAuthorByID(id);
             //poichè la funzione getAuthorByID restituisce null se l'utente richiesto non è un autore
@@ -50,14 +50,14 @@ public class Articles extends HttpServlet {
                 ArrayList<News> newsList = NewsFactory.getIstance().getNewsByAuthor(u);
                 request.setAttribute("authorNewsList", newsList);
                 request.getRequestDispatcher("Articles.jsp").forward(request, response);
+                return;
             }
-            //se i requisiti non sono rispettati nego l'accesso
-            else{
-                request.setAttribute("errorMessage", "Spiacenti, accesso negato");
-                request.getRequestDispatcher("notAllowed.jsp").forward(request, response);
-            }
-
         }
+        //se i requisiti non sono rispettati nego l'accesso
+
+        request.setAttribute("errorMessage", "Spiacenti, accesso negato");
+        request.getRequestDispatcher("notAllowed.jsp").forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

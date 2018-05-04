@@ -33,56 +33,60 @@ public class NewArticle extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
 
-            HttpSession session = request.getSession();
+        HttpSession session = request.getSession(false);
+
+        //controllo che l'utente sia loggato e che sia un autore
+        if (session != null) {
             //seguiamo gli stessi ragionamenti di Articles.java
-            int id = Integer.parseInt(session.getAttribute("userID").toString());
-            int lastID;
-            User u = Authors.getIstance().getAuthorByID(id);
-            if (session.getAttribute("loggedIn") != null && session.getAttribute("loggedIn").equals(true) && u != null) {
-                if (request.getParameter("edit") != null) {
-                    id = Integer.parseInt(request.getParameter("edit"));
-                    request.setAttribute("title", NewsFactory.getIstance().getNewsById(id).getTitle());
-                    request.setAttribute("date", NewsFactory.getIstance().getNewsById(id).getDate());
-                    request.setAttribute("imageUrl", NewsFactory.getIstance().getNewsById(id).getImageUrl());
-                    request.setAttribute("content", NewsFactory.getIstance().getNewsById(id).getContent());
-                    session.setAttribute("lastID", id);
-                }
-                //se l'utente chiama la servlet per salvare l'articolo semplicemente prendiamo i dati inseriti
-                else if (request.getParameter("title") != null || request.getParameter("content") != null) {
-                    request.setAttribute("title", request.getParameter("title"));
-                    request.setAttribute("date", request.getParameter("date"));
-                    request.setAttribute("imageUrl", request.getParameter("imageUrl"));
-                    request.setAttribute("content", request.getParameter("content"));
-                    //calcoliamo l'id da assegnare
-
-                    if (session.getAttribute("lastID") == null) {
-
-                        //poichè gli id sono assegnati progressivamente, l'ultimo ID sarà:
-                        //dimensione lista news -1 
-                        lastID = NewsFactory.getIstance().getNewsList().size() - 1;
-                        lastID++;
+            if (session.getAttribute("userID") != null) {
+                int id = Integer.parseInt(session.getAttribute("userID").toString());
+                int lastID;
+                User u = Authors.getIstance().getAuthorByID(id);
+                if (session.getAttribute("loggedIn") != null && session.getAttribute("loggedIn").equals(true) && u != null) {
+                    if (request.getParameter("edit") != null) {
+                        id = Integer.parseInt(request.getParameter("edit"));
+                        request.setAttribute("title", NewsFactory.getIstance().getNewsById(id).getTitle());
+                        request.setAttribute("date", NewsFactory.getIstance().getNewsById(id).getDate());
+                        request.setAttribute("imageUrl", NewsFactory.getIstance().getNewsById(id).getImageUrl());
+                        request.setAttribute("content", NewsFactory.getIstance().getNewsById(id).getContent());
+                        session.setAttribute("lastID", id);
 
                     }
-                    else {
-                        lastID = Integer.parseInt(session.getAttribute("lastID").toString());
-                        lastID++;
+                    //se l'utente chiama la servlet per salvare l'articolo semplicemente prendiamo i dati inseriti
+                    else if (request.getParameter("title") != null || request.getParameter("content") != null) {
+                        request.setAttribute("title", request.getParameter("title"));
+                        request.setAttribute("date", request.getParameter("date"));
+                        request.setAttribute("imageUrl", request.getParameter("imageUrl"));
+                        request.setAttribute("content", request.getParameter("content"));
+                        //calcoliamo l'id da assegnare
+
+                        if (session.getAttribute("lastID") == null) {
+
+                            //poichè gli id sono assegnati progressivamente, l'ultimo ID sarà:
+                            //dimensione lista news -1 
+                            lastID = NewsFactory.getIstance().getNewsList().size() - 1;
+                            lastID++;
+
+                        }
+                        else {
+                            lastID = Integer.parseInt(session.getAttribute("lastID").toString());
+                            lastID++;
+                        }
+                        session.setAttribute("lastID", lastID);
+
                     }
-                    session.setAttribute("lastID", lastID);
-
+                    request.getRequestDispatcher("NewArticle.jsp").forward(request, response);
+                    return;
                 }
-                request.getRequestDispatcher("NewArticle.jsp").forward(request, response);
-
-            }
-            //se i requisiti non sono rispettati nego l'accesso
-            else {
-                request.setAttribute("errorMessage", "Spiacenti, accesso negato");
-                request.getRequestDispatcher("notAllowed.jsp").forward(request, response);
             }
 
         }
+        //se i requisiti non sono rispettati nego l'accesso
+
+        request.setAttribute("errorMessage", "Spiacenti, accesso negato");
+        request.getRequestDispatcher("notAllowed.jsp").forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
