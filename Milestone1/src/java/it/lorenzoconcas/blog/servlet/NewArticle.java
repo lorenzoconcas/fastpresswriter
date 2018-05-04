@@ -42,15 +42,37 @@ public class NewArticle extends HttpServlet {
             User u = Authors.getIstance().getAuthorByID(id);
             out.println("2");
             if (session.getAttribute("loggedIn") != null && session.getAttribute("loggedIn").equals(true) && u != null) {
-                //gestire l'invio dei dati da parte della pagina
-                out.println("ciao");
+                //se l'utente chiama la servlet per salvare l'articolo semplicemente prendiamo i dati inseriti
+                if (request.getParameter("title") != null || request.getParameter("content") != null) {
+                    request.setAttribute("title", request.getParameter("title"));
+                    request.setAttribute("date", request.getParameter("date"));
+                    request.setAttribute("imageUrl", request.getParameter("imageUrl"));
+                    request.setAttribute("content", request.getParameter("content"));
+                    //calcoliamo l'id da assegnare
+                    int lastID;
+                    if (session.getAttribute("lastID") == null) {
+
+                        //poichè gli id sono assegnati progressivamente, l'ultimo ID sarà:
+                        //dimensione lista news -1 
+                        lastID = NewsFactory.getIstance().getNewsList().size() - 1;
+                        lastID++;
+                       
+                    }
+                    else {
+                        lastID = Integer.parseInt(session.getAttribute("lastID").toString());
+                        lastID++;
+                    }
+                    session.setAttribute("lastID", lastID);
+
+                }
                 request.getRequestDispatcher("NewArticle.jsp").forward(request, response);
+
             }
             //se i requisiti non sono rispettati nego l'accesso
             else {
-                out.println("2");
-                //request.setAttribute("errorMessage", "Spiacenti, accesso negato");
-                //request.getRequestDispatcher("notAllowed.jsp").forward(request, response);
+
+                request.setAttribute("errorMessage", "Spiacenti, accesso negato");
+                request.getRequestDispatcher("notAllowed.jsp").forward(request, response);
             }
         }
     }

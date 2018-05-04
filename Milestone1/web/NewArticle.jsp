@@ -31,10 +31,13 @@
         
            
        
-        <form action="NewArticle?send=true">
-             <label>${id}</label>
+        <form action="scriviArticolo.html?send=true">
+           
             <div id="new_article_section">
                 <h3>Scrivi un nuovo articolo</h3>
+                <c:if test="${title != null}">
+                    <h5>Articolo salvato, ID articolo : ${lastID}</h5>
+                </c:if>
                 <div class="personal_articles_data">
                     <label>Titolo</label>               
                     <input class="new_article_generic_input" type="text" name="title"  placeholder="${title}"/>
