@@ -34,49 +34,36 @@ public class Notizie extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            HttpSession session = request.getSession();
-//
-//            if (session.getAttribute("loggedIn") != null && session.getAttribute("loggedIn").equals(true)) {
-//                request.setAttribute("test", true);
-//            }
-//            else {
-//                request.setAttribute("test", false);
-//            }
 
-            session.setAttribute("users", UsersFactory.getIstance().getUsers());
-            session.setAttribute("authors", Authors.getIstance().getAutori());
-            session.setAttribute("categories", Categories.getIstance().getCategories());
-            request.setAttribute("newsList", NewsFactory.getIstance().getNewsByDate(1));//ricordati di mostrarle dalla più vecchia alla più nuova
-            //se mi viene chiesto di mostrare le categorie
-            if (request.getParameter("category") != null) {
+        HttpSession session = request.getSession();
 
-                if (request.getParameter("category").equals("Tutte")) {
-                    request.setAttribute("newsList", NewsFactory.getIstance().getNewsByDate(1));//ricordati di mostrarle dalla più vecchia alla più nuova
-                }
-                else {
-                    request.setAttribute("categorySearchedName", request.getParameter("category"));
-                    request.setAttribute("newsList", NewsFactory.getIstance().getNewsByCat(request.getParameter("category"), 1));
-                    //se la categoria è vuota avviso l'utente
-                    if (NewsFactory.getIstance().getNewsByCat(request.getParameter("category"), 1).size() < 1) {
-                        request.setAttribute("emptyCategory", true);
-                    }
+        session.setAttribute("users", UsersFactory.getIstance().getUsers());
+        session.setAttribute("authors", Authors.getIstance().getAutori());
+        session.setAttribute("categories", Categories.getIstance().getCategories());
+        request.setAttribute("newsList", NewsFactory.getIstance().getNewsByDate(1));//ricordati di mostrarle dalla più vecchia alla più nuova
+        //se mi viene chiesto di mostrare le categorie
+        if (request.getParameter("category") != null) {
+
+            if (request.getParameter("category").equals("Tutte")) {
+                request.setAttribute("newsList", NewsFactory.getIstance().getNewsByDate(1));//ricordati di mostrarle dalla più vecchia alla più nuova
+            }
+            else {
+                request.setAttribute("categorySearchedName", request.getParameter("category"));
+                request.setAttribute("newsList", NewsFactory.getIstance().getNewsByCat(request.getParameter("category"), 1));
+                //se la categoria è vuota avviso l'utente
+                if (NewsFactory.getIstance().getNewsByCat(request.getParameter("category"), 1).size() < 1) {
+                    request.setAttribute("emptyCategory", true);
                 }
             }
-            else if(request.getParameter("author") != null){                
-                    User u = UsersFactory.getIstance().getUserById(Integer.parseInt(request.getParameter("author")));
-                    request.setAttribute("newsList", NewsFactory.getIstance().getNewsByAuthor(u, 1));
-                    request.setAttribute("authorResult", true);                     
-                    request.setAttribute("authNameSurname",(u.getName() +" " + u.getSurname()));
-                
-            }
-
-            request.getRequestDispatcher("Notizie.jsp").forward(request, response);
-        
-             
+        }
+        else if (request.getParameter("author") != null) {
+            User u = UsersFactory.getIstance().getUserById(Integer.parseInt(request.getParameter("author")));
+            request.setAttribute("newsList", NewsFactory.getIstance().getNewsByAuthor(u, 1));
+            request.setAttribute("authorResult", true);
+            request.setAttribute("authNameSurname", (u.getName() + " " + u.getSurname()));
 
         }
+        request.getRequestDispatcher("Notizie.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

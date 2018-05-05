@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package it.lorenzoconcas.blog.database;
+
 import it.lorenzoconcas.blog.objects.User;
 import java.util.ArrayList;
 
@@ -12,10 +12,11 @@ import java.util.ArrayList;
  * @author lorec
  */
 public class UsersFactory {
+
     private static UsersFactory istance;
     private ArrayList<User> userList = new ArrayList<>();
-    
-    public UsersFactory(){
+
+    public UsersFactory() {
         User u1 = new User();
         u1.setId(0);
         u1.setName("Lord");
@@ -24,7 +25,7 @@ public class UsersFactory {
         u1.setPassword("theforce");
         u1.setImgUrl("res/user_pictures/header_user_icon.png");
         u1.setUsername("vader");
-        
+
         User u2 = new User();
         u2.setId(1);
         u2.setName("Luke");
@@ -33,7 +34,7 @@ public class UsersFactory {
         u2.setPassword("resistence");
         u2.setImgUrl("res/user_pictures/header_user_icon.png");
         u2.setUsername("luke");
-       
+
         User u3 = new User();
         u3.setId(2);
         u3.setName("Lore");
@@ -42,7 +43,7 @@ public class UsersFactory {
         u3.setPassword("test");
         u3.setImgUrl("res/user_pictures/test_profile_pic.png");
         u3.setUsername("lorec");
-        
+
         User u4 = new User();
         u4.setId(3);
         u4.setName("Han");
@@ -51,13 +52,13 @@ public class UsersFactory {
         u4.setPassword("millenniumfalcon");
         u4.setImgUrl("res/user_pictures/header_user_icon.png");
         u4.setUsername("hansolo");
-        
+
         userList.add(u2);
         userList.add(u1);
         userList.add(u3);
         userList.add(u4);
     }
-    
+
     public static UsersFactory getIstance() {
         if (istance == null) {
             istance = new UsersFactory();
@@ -65,10 +66,12 @@ public class UsersFactory {
         return istance;
 
     }
+
     public ArrayList<User> getUsers() {
         return userList;
 
     }
+
     public User getUserById(int id) {
         for (User u : userList) {
             if (u.getId() == id) {
@@ -78,16 +81,17 @@ public class UsersFactory {
 
         return null;
     }
-    
-    public boolean login(String email, String password)
-    {
-        for(User u : userList)
-            if (u.getEmail().equals(email) && u.getPassword().equals(password))
+
+    public boolean login(String email, String password) {
+        for (User u : userList) {
+            if (u.getEmail().equals(email) && u.getPassword().equals(password)) {
                 return true;
-        
+            }
+        }
+
         return false;
     }
-    
+
     public User getUserByEmail(String email) {
         for (User u : userList) {
             if (u.getEmail().equals(email)) {
@@ -97,5 +101,3 @@ public class UsersFactory {
         return null;
     }
 }
-
-

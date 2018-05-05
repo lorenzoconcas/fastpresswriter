@@ -145,3 +145,4 @@ public class NewsFactory {
         return newsList;
     }
 }
+
