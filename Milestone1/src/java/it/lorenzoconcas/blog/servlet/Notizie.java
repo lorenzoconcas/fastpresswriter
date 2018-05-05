@@ -10,6 +10,7 @@ import it.lorenzoconcas.blog.objects.*;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -47,31 +48,33 @@ public class Notizie extends HttpServlet {
             session.setAttribute("users", UsersFactory.getIstance().getUsers());
             session.setAttribute("authors", Authors.getIstance().getAutori());
             session.setAttribute("categories", Categories.getIstance().getCategories());
-            request.setAttribute("newsList", NewsFactory.getIstance().getNewsList());//ricordati di mostrarle dalla più vecchia alla più nuova
+            request.setAttribute("newsList", NewsFactory.getIstance().getNewsByDate(1));//ricordati di mostrarle dalla più vecchia alla più nuova
             //se mi viene chiesto di mostrare le categorie
             if (request.getParameter("category") != null) {
 
                 if (request.getParameter("category").equals("Tutte")) {
-                    request.setAttribute("newsList", NewsFactory.getIstance().getNewsList());//ricordati di mostrarle dalla più vecchia alla più nuova
+                    request.setAttribute("newsList", NewsFactory.getIstance().getNewsByDate(1));//ricordati di mostrarle dalla più vecchia alla più nuova
                 }
                 else {
                     request.setAttribute("categorySearchedName", request.getParameter("category"));
-                    request.setAttribute("newsList", NewsFactory.getIstance().getNewsByCat(request.getParameter("category").toString()));
+                    request.setAttribute("newsList", NewsFactory.getIstance().getNewsByCat(request.getParameter("category"), 1));
                     //se la categoria è vuota avviso l'utente
-                    if (NewsFactory.getIstance().getNewsByCat(request.getParameter("category").toString()).size() < 1) {
+                    if (NewsFactory.getIstance().getNewsByCat(request.getParameter("category"), 1).size() < 1) {
                         request.setAttribute("emptyCategory", true);
                     }
                 }
             }
             else if(request.getParameter("author") != null){                
                     User u = UsersFactory.getIstance().getUserById(Integer.parseInt(request.getParameter("author")));
-                    request.setAttribute("newsList", NewsFactory.getIstance().getNewsByAuthor(u));
+                    request.setAttribute("newsList", NewsFactory.getIstance().getNewsByAuthor(u, 1));
                     request.setAttribute("authorResult", true);                     
                     request.setAttribute("authNameSurname",(u.getName() +" " + u.getSurname()));
                 
             }
 
             request.getRequestDispatcher("Notizie.jsp").forward(request, response);
+        
+             
 
         }
     }

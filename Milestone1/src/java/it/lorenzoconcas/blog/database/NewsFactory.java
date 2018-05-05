@@ -3,19 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package it.lorenzoconcas.blog.database;
+
 import it.lorenzoconcas.blog.objects.*;
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * @author lorec
  */
 public class NewsFactory {
+
     private static NewsFactory istance;
     private ArrayList<News> newsList = new ArrayList<>();
-    
-    NewsFactory(){
+
+    NewsFactory() {
         UsersFactory uF = UsersFactory.getIstance();
 
         News n1 = new News();
@@ -28,7 +30,7 @@ public class NewsFactory {
         n1.setAuthor(uF.getUserById(0));
         n1.setDate("12/04/2008");
         n1.setImageDescription("Lorem Ipsumdolor sit amet");
-        
+
         News n2 = new News();
         n2.setId(1);
         n2.setCategory(Categories.getIstance().getCategoryByID(2));
@@ -38,7 +40,7 @@ public class NewsFactory {
         n2.setAuthor(uF.getUserById(1));
         n2.setDate("25/05/2012");
         n2.setImageDescription("Lorem Ipsumdolor sit amet");
-        
+
         News n3 = new News();
         n3.setId(2);
         n3.setCategory(Categories.getIstance().getCategoryByID(1));
@@ -46,14 +48,14 @@ public class NewsFactory {
         n3.setImageUrl("res/news_pictures/news.image.3.jpg");
         n3.setTitle("Articolo 3");
         n3.setAuthor(uF.getUserById(2));
-        n3.setDate("6/11/2017");
+        n3.setDate("06/11/2017");
         n3.setImageDescription("Lorem Ipsumdolor sit amet");
         newsList.add(n1);
         newsList.add(n2);
         newsList.add(n3);
     }
-    
-        public static NewsFactory getIstance() {
+
+    public static NewsFactory getIstance() {
         if (istance == null) {
             istance = new NewsFactory();
         }
@@ -73,7 +75,7 @@ public class NewsFactory {
         return null;
     }
 
-    public ArrayList<News> getNewsByAuthor(User author) {
+    public ArrayList<News> getNewsByAuthor(User author, int order) {
         ArrayList<News> listToReturn = new ArrayList<>();
 
         for (News n : newsList) {
@@ -81,10 +83,26 @@ public class NewsFactory {
                 listToReturn.add(n);
             }
         }
+        
+          if (listToReturn.size() > 0) {
+            //0 : dalla più vecchia alla più nuova
+            //1 : viceversa
+            switch (order) {
+                case 0:
+                    return newsList;
+                case 1: {
+                    ArrayList<News> temp = new ArrayList<>();
+                    for (int i = listToReturn.size() - 1; i > -1; i--) {
+                        temp.add(listToReturn.get(i));
+                    }
+                    return temp;
+                }
+            }
+        }
         return listToReturn;
     }
 
-    public ArrayList<News> getNewsByCat(String cat) {
+    public ArrayList<News> getNewsByCat(String cat, int order) {
         ArrayList<News> listToReturn = new ArrayList<>();
 
         for (News n : newsList) {
@@ -92,7 +110,38 @@ public class NewsFactory {
                 listToReturn.add(n);
             }
         }
-
+        if (listToReturn.size() > 0) {
+            //0 : dalla più vecchia alla più nuova
+            //1 : viceversa
+            switch (order) {
+                case 0:
+                    return newsList;
+                case 1: {
+                    ArrayList<News> temp = new ArrayList<>();
+                    for (int i = listToReturn.size() - 1; i > -1; i--) {
+                        temp.add(listToReturn.get(i));
+                    }
+                    return temp;
+                }
+            }
+        }
         return listToReturn;
+    }
+
+    public ArrayList<News> getNewsByDate(int order) {
+        //0 : dalla più vecchia alla più nuova
+        //1 : viceversa
+        switch (order) {
+            case 0:
+                return newsList;
+            case 1: {
+                ArrayList<News> listToReturn = new ArrayList<>();
+                for (int i = newsList.size() - 1; i > -1; i--) {
+                    listToReturn.add(newsList.get(i));
+                }
+                return listToReturn;
+            }
+        }
+        return newsList;
     }
 }
