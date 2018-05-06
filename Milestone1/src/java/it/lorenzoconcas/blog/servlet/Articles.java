@@ -47,7 +47,7 @@ public class Articles extends HttpServlet {
             //aggiungiamo alle verifiche di login anche quella di essere un autore valido
             if (session.getAttribute("loggedIn") != null && session.getAttribute("loggedIn").equals(true) && u != null) {
                 //carico gli articoli dell'autore in una lista e la setto come attributo di request
-                ArrayList<News> newsList = NewsFactory.getIstance().getNewsByAuthor(u);
+                ArrayList<News> newsList = NewsFactory.getIstance().getNewsByAuthor(u, 1);
                 request.setAttribute("authorNewsList", newsList);
                 request.getRequestDispatcher("Articles.jsp").forward(request, response);
                 return;
