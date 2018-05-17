@@ -6,6 +6,7 @@
 package it.lorenzoconcas.blog.database;
 
 import it.lorenzoconcas.blog.objects.User;
+import java.sql.*;
 import java.util.ArrayList;
 
 /**
@@ -13,10 +14,27 @@ import java.util.ArrayList;
  */
 public class UsersFactory {
 
+    /**
+     * @return the db_str_connection
+     */
+    public String getDb_str_connection() {
+        return db_str_connection;
+    }
+
+    /**
+     * @param db_str_connection the db_str_connection to set
+     */
+    public void setDb_str_connection(String db_str_connection) {
+        this.db_str_connection = db_str_connection;
+    }
+
     private static UsersFactory istance;
+    private String db_str_connection;
     private ArrayList<User> userList = new ArrayList<>();
 
     public UsersFactory() {
+       
+        
         User u1 = new User();
         u1.setId(0);
         u1.setName("Lord");
@@ -57,8 +75,10 @@ public class UsersFactory {
         userList.add(u1);
         userList.add(u3);
         userList.add(u4);
+
     }
 
+    
     public static UsersFactory getIstance() {
         if (istance == null) {
             istance = new UsersFactory();
@@ -91,6 +111,7 @@ public class UsersFactory {
 
         return false;
     }
+
 
     public User getUserByEmail(String email) {
         for (User u : userList) {

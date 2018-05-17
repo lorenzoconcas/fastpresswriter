@@ -9,6 +9,7 @@ and open the template in the editor.
 */
 
 #new_article_section{
+      border-radius:10px;
     width:100%;
     text-align:center;
      background: linear-gradient(#FCFCFC,#EFEFEF);
@@ -19,12 +20,15 @@ and open the template in the editor.
     width:70%;
     position:relative;
     float:right;
+      border-radius:10px;
+      border-color: #DDDDDD;
     
 }
 #new_article_text{
     position:relative;
     width:calc(100% - 8px); 
     height: 256px;
+      border-radius:10px;
 }
 #new_article_categories_element{
     text-align:left;
@@ -47,6 +51,7 @@ and open the template in the editor.
     width:100%;
     height:32px;
     border-style:solid;
+      border-radius:10px;
 }
 #new_article_upload_button:hover{
     background: linear-gradient(#cccccc,#bbbbbb);

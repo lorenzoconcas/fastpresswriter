@@ -17,7 +17,7 @@ and open the template in the editor.
     border-width:2px;
     padding:4px;
     border-color: #EFEFEF;
-    
+    border-radius: 16px;
 }
 #submit_search{
     width:16px;
@@ -35,4 +35,15 @@ and open the template in the editor.
     background: linear-gradient( #FCFCFC,#EFEFEF);
     text-align:center;
 }
-
+@media (max-width:1080px) and (-webkit-min-device-pixel-ratio: 2.0), (max-width:720) and (-webkit-min-device-pixel-ratio: 2.0){
+    #querybox{ 
+        position:relative;
+        width:50%;
+        font-size:48px;
+        border-radius:32px;
+    }
+    #submit_search{
+        width:48px;
+        top:12px;
+    }
+}

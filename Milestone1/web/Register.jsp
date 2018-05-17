@@ -20,9 +20,17 @@
          <jsp:include page="res/fixed_code/header.jsp" />
          <div id="content">
             <div id="login_form">
-                <label id="loginTitle">Login</label>
+                <label id="loginTitle">Registrazione</label>
                 <br/>
-                <form action="login.html" method="post" >
+                <form action="register.html" method="post" >
+                    <label class="input_title"l>Nome</label>
+                    <br/>
+                    <input class="input_box" type="text" name="nome" id="nome">
+                    <br/>
+                     <label class="input_title"l>Cognome</label>
+                    <br/>
+                    <input class="input_box" type="text" name="cognome" id="nome">
+                    <br/>
                     <label class="input_title"l>Email</label>
                     <br/>
                     <input class="input_box" type="text" name="email" id="email">
@@ -31,13 +39,15 @@
                     <br/>
                     <input class="input_box" type="password" name="password" id="password">
                     <br/>
-                    <button id="loginButton" type="submit">Login</button>
+                    <label class="input_title">Conferma password</label>
+                    <br/>
+                    <input class="input_box" type="password" name="password" id="confirm_password">
+                    <br/>
+                    <button id="loginButton" type="submit"><label id="loginButtonText">Registrati</label></button>
                 </form>
                 <br/>
                 <div id="secondBox">
-                    <a href="Register.jsp">Non hai un account?Iscriviti qui</a>
-                    <br/>                    
-                    <a href="">Password dimenticata</a>
+                    <input type="checkbox">Iscriviti come autore per soli 99€/anno</input>                   
                 </div>
             </div>
             

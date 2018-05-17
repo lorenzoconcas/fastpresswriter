@@ -29,10 +29,10 @@
         <table id="personal_articles_table">
             <thead>
                 <tr>
-                    <th>Data</th>
-                    <th>Titolo</th>
-                    <th>Modifica</th>
-                    <th>Cancella</th>
+                    <th class="personal_articles_table_header">Data</th>
+                    <th class="personal_articles_table_header">Titolo</th>
+                    <th class="personal_articles_table_header">Modifica</th>
+                    <th class="personal_articles_table_header">Cancella</th>
                 </tr>
             </thead>
             <tbody>

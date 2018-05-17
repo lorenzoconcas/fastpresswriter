@@ -7,8 +7,6 @@ package it.lorenzoconcas.blog.database;
 
 import it.lorenzoconcas.blog.objects.*;
 import java.util.ArrayList;
-import java.util.Map;
-
 /**
  * @author lorec
  */

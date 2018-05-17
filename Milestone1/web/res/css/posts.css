@@ -10,9 +10,11 @@ and open the template in the editor.
 
 /*NEWS POSTS*/
 #post{
-    border-radius: 1%;
+    border-radius: 8px;
     position: relative;
     background: linear-gradient(#FCFCFC, #EFEFEF);   
+     border-color: #EFEFEF;
+     border-style: solid;
 }
 #post_author{
     color:black;
@@ -60,5 +62,41 @@ and open the template in the editor.
 
 
 }
+@media (max-width: 480px){
+    #post{
+        width:100%;
+    }
+}
 
-
+@media (max-width:1080px) and (-webkit-min-device-pixel-ratio: 2.0), (max-width:720) and (-webkit-min-device-pixel-ratio: 2.0){
+    #content{        
+        font-size:32px;
+    }
+    #post{
+        font-size:32px;
+    }
+   
+    #post_title{
+        font-size: 64px;        
+    }
+    #post_user_icon{
+        width:32px;
+        height:32px;
+        top:8px;
+        left:8px;
+    }
+    #post_author{       
+        left: 48px;
+        top:6px;
+        font-size:32px;
+    }
+    #post_content{
+        font-size:42px;
+    }
+    #post_category{
+        font-size:28px;
+    }
+    #post_open{
+        font-size:28px;
+    }
+}

@@ -28,9 +28,6 @@
     <jsp:include page="res/fixed_code/categories.jsp"/>
     <jsp:include page="res/fixed_code/authors.jsp"/>
     <div id="content">
-        
-           
-       
         <form action="scriviArticolo.html?send=true">
            
             <div id="new_article_section">

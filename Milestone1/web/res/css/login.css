@@ -7,9 +7,133 @@ and open the template in the editor.
     Created on : 24-apr-2018, 22.46.18
     Author     : lorec
 */
-.login_form{
+
+#login_form{
+    border-color:#333333;
+    border-style: solid;
     background:linear-gradient(#FCFCFC,#EFEFEF);
     text-align:center;
     padding:15px;
-    border-radius: 1%;
+    border-radius: 5px;
+
+
+}
+#loginTitle{
+    font-size:32px;
+
+}
+.input_box{
+    width:40%;
+    height:24px;
+    padding-left:8px;
+    padding-right:2px;
+    background:white;
+    border-radius: 24px;
+    border-color:#333333;
+}
+.input_box:hover{
+    background-color: #333333;
+    color:white;
+}
+#loginButton{
+    position:relative;
+    top:8px;
+    width:40%;
+    height:24px;
+    padding-left:16px;
+    padding-right:16px;
+    padding-top:3px;
+    padding-bottom:6px;
+    background:white;
+    border-radius: 12px;
+    border-color:#333333;
+}
+#loginButton:hover{
+    background-color: #333333;
+    color:white;
+}
+.input_title{
+    font-size:16px;
+    font-family:"Segoe UI";
+
+}
+#secondBox{
+    position:relative;
+   
+    font-size: 14px;
+}
+
+#footer{
+    text-align: center;
+    background: linear-gradient(#EFEFEF, #FCFCFC);
+    position: fixed;
+    height: 32px;
+    left: 0px;
+    bottom:0%;
+    width:100%;
+    top: calc(100% - 32px);
+    color:black;
+}
+#info_text{
+    position:relative;
+    top:4px;
+}
+
+
+@media (max-width: 1024px){
+    #content{
+        
+        width:50%;
+        left:25%;
+        right:25%;
+    }
+}
+
+@media (max-width: 480px){
+    #content{
+        position: relative;
+        top: 100px;
+        width:90%;
+        left:5%;
+        right:5%;
+    }
+}
+
+@media (max-width:1080px) and (-webkit-min-device-pixel-ratio: 2.0), (max-width:720) and (-webkit-min-device-pixel-ratio: 2.0){
+    #content{
+        width:80%;
+         left:10%;
+    }
+    #login_form{
+        width:100%;
+       
+    }
+    #loginTitle{
+        font-size:80px;
+    }
+    .input_title{
+        font-size:48px;
+        font-family:"Segoe UI";
+
+    }
+    .input_box{
+        font-size:32px;
+        height:48px;
+        width:60%;
+    }
+    #loginButton{
+        position:relative;
+        
+        width:60%;
+        height:64px;
+        font-size:48px;
+        
+        background:white;
+        border-radius: 32px;
+        border-color:#333333;
+    }
+   
+    #secondBox{
+        font-size:32px;
+    }
 }

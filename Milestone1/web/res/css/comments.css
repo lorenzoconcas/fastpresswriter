@@ -10,48 +10,93 @@ and open the template in the editor.
 
 
 #comment_section{
+    border-radius: 10px;
+    border-color: #333333;
+    border-style: solid;
     position:relative;
     background: linear-gradient( #FCFCFC,#EFEFEF);
     left:0px;
     top:8px;
 }
-#comment_section_title{
-    position:relative;
-    left:16px;
+#comment_section_title{ 
+    position:absolute;
+    width:100%;
+    left:0px;
+    
+    padding-bottom: 6px;
+    
+    background: #EFEFEF;   
+    color:#333333;
+    
+    text-align: center;
+    
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-color: #333333;
 }
 #comment_box{
-   position:relative;
-   left:24px;
-   background: #FCFCFC;
-   width:calc(100% - 24px);
-   
+    position:relative;
+    left:8px;
+    background: #FCFCFC;
+    width:calc(100% - 24px);
+    border-radius: 10px;   
+    border-style: solid;
+    border-color:#333333;
 }
 #comment_username{
-   position:relative;
-   left:12px; 
-   font-size: 20px;
+    position:absolute;
+    width:100%;
+    text-align:center;
 }
 #comment{
-   position:relative;
-   left:24px;
+    position:relative;
+    left:10px;
+
 }
 #personal_comment{
-      position:relative;
-   left:24px;
-   top:8px;
+    position:relative;   
+    top:8px;
+    left:10px;
+    width: calc(100% - 20px);   
+
 }
 #personal_comment_textarea{
-   position:relative;
-   width:calc(100% - 48px);
+    position:relative;
+
+    width: calc(100% - 8px);
+    border-radius: 10px;   
+    border-style: solid;
+    height:256px;
+
+}
+#personal_comment_textarea:focus{
+    background: #333333;
+    color:white;
 }
 #personal_post_comment{
     position:relative;
-     border-bottom-left-radius: 2%;
-     border-top-right-radius: 2%;
     background: linear-gradient( #FCFCFC,#EFEFEF);
     border-style:solid;
     border-width:2px;
     padding:4px;
     border-color: #333333;
-    width: calc(100% - 42px);
+    width: 100%;
+    border-radius: 10px;   
+    border-style: solid;
+}
+#personal_post_comment:hover{
+    background: #333333;
+    color:white;
+    border-color:#333333;
+}
+@media (max-width: 1080px)and (-webkit-min-device-pixel-ratio: 2.0), (max-width:720) and (-webkit-min-device-pixel-ratio: 2.0){
+    #comment_section{
+        width:100%;
+    }
+    #personal_comment_textarea{
+        height:256px;
+    }
+    #personal_post_comment{
+       font-size:48px;
+    }
 }

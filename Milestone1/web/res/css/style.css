@@ -12,20 +12,65 @@ a:hover{
 
     color:#AAAAAA;
 }
+#background{
+    z-index:-1;
+    position:absolute;
+    width:100%;
+    left: 0px;
+    top:0px;
+    height:60px;
+    background: #FCFCFC;
+    opacity: 0.8;
 
+
+}
 #header{
     z-index: 5;
     position: fixed;
-    background-color:white;
+    background: transparent;
+
     width: 100%;
-    height:64px;
+    height:60px;
     top: 0;
     left:0;
-    text-align: center;
+    text-align: left;
 }
+#home_logo{  
+    position: relative;
+    font-size: 32px;   
+    top: 8px;
+    left : 32px;
+    color : #333333;
+    font-family: "Old English Text MT";
+}
+#home_logo:hover{
+    color: #666666;
+}
+.navbar_buttons{
+
+    color:black;
+    position: relative;   
+    top:8px;
+    left: 48px;
+    font-size: 24px;
+    padding-right:10px;
+    padding-left:10px;   
+
+}
+.navbar_buttons:visited{
+    color: black;
+}
+.navbar_buttons:hover{  
+    color:white;    
+    background-color:#333333;
+    border-color:#333333;
+    border-radius:30px;
+    padding-bottom:2px;
+}
+
 #search_button{
-    position: absolute;
-    top:14px;
+    position: relative;
+    top:10px;
     left:16px;
 }
 #search_image{
@@ -36,54 +81,6 @@ a:hover{
     cursor:pointer;
 }
 
-#home_logo{
-    position: relative;
-    font-size: 32px;   
-    top: 8px;
-    color : #333333;
-    font-family: "Old English Text MT";
-}
-#home_logo:hover{
-    color: #111111;
-    background:white;
-}
-
-.navbar{
-    color:black;
-    background: linear-gradient(#FCFCFC, #EFEFEF);
-    position:relative;
-    width:100%;
-    height:48px;
-    left:0;
-    top:16px;   
-}
-.navbar:link{
-    color:black;
-}
-.navbar_buttons{
-    color:black;
-    position: relative;   
-    top:6px;
-    font-size: 24px;
-    padding-left:10px;
-    padding-right:10px;
-}
-.navbar_buttons:visited{
-    color: black;
-}
-.navbar_buttons:hover{
-    background:transparent;
-    border-bottom-color: #AAAAAA;
-    border-bottom-style: solid;
-    border-bottom-width:thick;
-    padding-bottom: 5px;
-}
-#selected_item{
-    border-bottom-color: #333333;
-    border-bottom-style: solid;
-    border-bottom-width:thick;
-    padding-bottom: 5px;
-}
 #user{
     position:fixed;
     top: 8px;
@@ -111,21 +108,8 @@ a:hover{
     top:4px;
     right:48px;    
 }
-.footer{
-    text-align: center;
-    background: linear-gradient(#EFEFEF, #FCFCFC);
-    position: fixed;
-    height: 32px;
-    left: 0px;
-    bottom:0%;
-    width:100%;
-    top: calc(100% - 32px);
-    color:black;
-}
-#info_text{
-    position:relative;
-    top:4px;
-}
+
+
 
 #content{
     color:black;
@@ -134,10 +118,108 @@ a:hover{
     width: 50%;
     left: 25%;
     right:25%;
-    top : 118px;
+    top : 72px;
     height: calc(100% - 160px);
 
 }
 
+@media (max-width: 1024px){
+    #content{
+        top: 72px;
+        width:60%;
+        left:30%;
+        right:10%;
+    }
+}
 
+@media (max-width: 480px){
+
+    #content{
+        position: relative;
+        top: 64px;
+        width:90%;
+        left:5%;
+        right:5%;
+    }
+    #home_logo{
+        font-size:0px;
+    }
+    .navbar_buttons{
+        top:12px;
+    }
+    #search_button{
+        top:16px;
+    }
+    #user{
+
+        width: calc(100% - 300px);
+
+    }
+    #header_user_profile{
+        position:absolute;
+        top:0px;
+        right:48px;    
+    }
+}
+
+/*Accorgimenti per la versione mobile*/
+@media (max-width:1080px) and (-webkit-min-device-pixel-ratio: 2.0), (max-width:720) and (-webkit-min-device-pixel-ratio: 2.0){
+    #content{
+        position: relative;
+        top: 140px;
+        width:90%;
+        left:5%;
+        right:5%;
+    }
+    #home_logo{
+        font-size:0px;
+    }
+    #header{
+
+        height:128px;
+
+    }
+    #background{
+        height:128px;
+    }
+    .navbar_buttons{
+        top:24px;
+        font-size:64px;
+    }
+    .navbar_buttons:hover{        
+        border-radius:60px;        
+    }
+
+    #search_button{
+        top:32px;
+        left:24px;
+        height:64px;
+        width:64px;
+    }
+    #search_image{
+        width:64px;
+        height:64px;
+    }
+    #user{
+        color:red;
+        font-size:28px;
+        top:28px;
+        width: calc(100% - 300px);
+
+    }
+    #header_user_profile{
+        position:absolute;
+        top:4px;
+        right:72px;    
+    }
+    #logout{
+        top:32px;  
+        right:72px;
+    }
+    #header_user_icon{
+        top:4px;
+        right:0px;
+        height:64px;
+    }
+}
 

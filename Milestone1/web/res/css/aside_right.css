@@ -8,12 +8,39 @@ and open the template in the editor.
     Author     : lorec
 */
 #aside_right{ 
-    border-radius: 2%;
+    border-radius: 10px;
     position: fixed;
     text-align:center;
     width: 15%;
     right: 5%;
-    top: 128px;
+    top: 80px;
     background: linear-gradient(#FCFCFC,#EFEFEF);
     list-style-type: none;
+    border-color: #EFEFEF;
+    border-style: solid;
+}
+
+@media (max-width: 1024px){
+    
+    #aside_right{
+        position: absolute;
+        width: 20%;
+        left: 5%;
+        right: 30%;
+        top: 330px;
+    }
+}
+@media (max-width: 480px){
+    #aside_right{       
+        width:0;
+        font-size:0;
+        border-style: none;        
+    }    
+}
+@media (max-width:1080px) and (-webkit-min-device-pixel-ratio: 2.0), (max-width:720) and (-webkit-min-device-pixel-ratio: 2.0){
+    #aside_right{
+        width:0;
+        font-size:0;
+        border-style: none;
+    }
 }

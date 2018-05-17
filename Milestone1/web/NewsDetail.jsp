@@ -46,33 +46,39 @@
                     <label id="post_category">Scritto il ${News.getDate()} - Categorie : ${News.getCategory()}</label>
                     <br/>
                 </div>
-                <div id="comment_section">
-                    <c:if test="${isCommented == true}">     
-                        <label id="comment_section_title">Commenti</label>
-                        <c:forEach var="Commenti" items="${comments}">   
+                <!--Mostro questa sezione solo se sono loggato o se ci sono commenti-->
+                <c:if test="${loggedIn == true || isCommented == true}">
+                    <!--Sezione commenti utenti-->
+                    <div id="comment_section">
+                        <c:if test="${isCommented == true}">     
+                            <label id="comment_section_title">Commenti</label>
                             <br/>
-                            <div id="comment_box">                           
-                                <label id="comment_username">${Commenti.getCommentAuthor().getName()} ${Commenti.getCommentAuthor().getSurname()}</label>
+                            <c:forEach var="Commenti" items="${comments}">   
                                 <br/>
-                                <label id="comment">${Commenti.getComment()}</label>
-                                <br/>  
+                                <div id="comment_box">                           
+                                    <label id="comment_username">${Commenti.getCommentAuthor().getName()} ${Commenti.getCommentAuthor().getSurname()}</label>
+                                    <br/>
+                                    <label id="comment">${Commenti.getComment()}</label>
+                                    <br/>  
+                                </div>
+                            </c:forEach> 
+                        </c:if>       
+                        <!--Sezione commento personale-->
+                        <c:if test="${loggedIn == true}">
+                            <div id="personal_comment">
+                                <label>Commenta (come ${user.getName()} ${user.getSurname()})</label>
+                                <br/>
+
+                                <textarea id="personal_comment_textarea"></textarea>
+                                <button id="personal_post_comment">Commenta</button> 
+                                <br/>
                             </div>
-                        </c:forEach> 
-                    </c:if>       
+                        </c:if>  
 
-                    <c:if test="${loggedIn == true}">
-                        <div id="personal_comment">
-                            <label>Commenta (come ${user.getName()} ${user.getSurname()})</label>
-                            <br/>
+                        <br/>
+                    </div> 
+                </c:if>
 
-                            <textarea id="personal_comment_textarea"></textarea>
-                            <button id="personal_post_comment">Commenta</button> 
-                            <br/>
-                        </div>
-                    </c:if>  
-
-                    <br/>
-                </div> 
                 <br/>
             </div>
         </div>       

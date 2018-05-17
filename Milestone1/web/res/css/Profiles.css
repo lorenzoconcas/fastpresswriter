@@ -14,34 +14,73 @@ and open the template in the editor.
     border-style:solid;
     background: linear-gradient(#FCFCFC,#EFEFEF);
     padding:10px;
+    border-radius: 10px;
+    border-color:#333333;
 }
 
 #edit_button{
     background: linear-gradient(#FCFCFC,#EFEFEF);
-    width:70%;
+    width:50%;
     left:15%;
     border-style:solid;
+    border-radius: 10px;
+    border-color:#333333;
 }
 #edit_button:hover{
-    background: linear-gradient(#cccccc,#bbbbbb);
-    border-color: #666666;
+    background: #333333;
+    border-color: #333333;
     color:white;
 }
 #delete_button{
     background: linear-gradient(#FCFCFC,#EFEFEF);
-    width:70%;
+    width:50%;
     left:15%;
     border-style:solid;
+    border-radius: 10px;
+    border-color:#DD0000;
+}
+#delete_button:hover{
+    background:#DD0000;
+    color:white;
+    border-color: #DD0000;
 }
 .generic_input{
     width:60%;
     position:relative;
     float:right;
     right:10%;
+    
+    background: linear-gradient(#FCFCFC,#EFEFEF);
+    padding-left:8px;
+    border-style:solid;
+    border-radius: 10px;
+}
+.generic_input:hover{
+    background:#333333;
+    border-radius: 12px;
+    border-color:#333333;
+    color:white;
 }
 .generic_text{
     left:1%;
     position:relative;
     float:left;
     font-size:12px;
+
+}
+
+@media (max-width:480px){
+    #profile_section{
+        width: 100%;
+        right:10%;
+        
+    }
+}
+@media (max-width:1080px) and (-webkit-min-device-pixel-ratio: 2.0), (max-width:720) and (-webkit-min-device-pixel-ratio: 2.0){
+    #edit_button{
+        font-size:32px;
+    }
+    .generic_text{
+          font-size:32px;
+    }
 }

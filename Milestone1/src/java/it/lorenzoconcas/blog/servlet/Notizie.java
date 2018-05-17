@@ -55,6 +55,7 @@ public class Notizie extends HttpServlet {
                     request.setAttribute("emptyCategory", true);
                 }
             }
+           
         }
         else if (request.getParameter("author") != null) {
             User u = UsersFactory.getIstance().getUserById(Integer.parseInt(request.getParameter("author")));

@@ -19,6 +19,7 @@
         <link rel="shortcut icon" href="res/css/logo_old.png" type="image/x-icon" />
         <meta name="author" content="Lorenzo L. Concas">
         <meta name="keywords" content="fast,press,writer">
+        <meta name="viewport" content="width:device-width, target-densityDpi=device-dpi">
     </head>
 
 
