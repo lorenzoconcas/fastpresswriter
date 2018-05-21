@@ -9,16 +9,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-         <title>Fast Press Writer - Login</title>
+        <title>Fast Press Writer - Login</title>
         <link rel="stylesheet" type="text/css" href="res/css/style.css" media="screen"/>
         <link rel="stylesheet" type="text/css" href="res/css/login.css" media="screen"/>
         <link rel="shortcut icon" href="M2/logo_old.png" type="image/x-icon" />
         <meta name="author" content="Lorenzo L. Concas">
         <meta name="keywords" content="login,fast,press,writer">
     </head>
-    <body>
-         <jsp:include page="res/fixed_code/header.jsp" />
-         <div id="content">
+    <body>         
+        
+        <jsp:include page="res/fixed_code/header.jsp" />
+        <div id="content">           
             <div id="login_form">
                 <label id="loginTitle">Login</label>
                 <br/>
@@ -31,7 +32,7 @@
                     <br/>
                     <input class="input_box" type="password" name="password" id="password">
                     <br/>
-                    <button id="loginButton" type="submit">Login</button>
+                    <button id="loginButton" type="submit">LOGIN</button>
                 </form>
                 <br/>
                 <div id="secondBox">
@@ -40,7 +41,7 @@
                     <a href="">Password dimenticata</a>
                 </div>
             </div>
-            
+
             <c:if test="${invalidData == true}">
                 <label>Nome utente e/o password errati, riprova</label>
             </c:if>

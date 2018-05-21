@@ -22,42 +22,44 @@
         <meta name="viewport" content="width:device-width, target-densityDpi=device-dpi">
     </head>
 
-
-    <jsp:include page="res/fixed_code/header.jsp" />   
-    <jsp:include page="res/fixed_code/categories.jsp"/>
-    <jsp:include page="res/fixed_code/authors.jsp"/>
-    <div id="content">
-        <c:if test="${categorySearchedName != null}">   
-            <h1>Categoria : ${categorySearchedName}</h1>
-        </c:if>
-        <c:if test="${emptyCategory == true}">   
-            <h1>Nessun articolo in questa categoria</h1>
-        </c:if>
-        <c:if test="${authorResult == true}">   
-            <h1>Articoli scritti da ${authNameSurname}</h1>
-        </c:if>
-        <c:forEach var="Notizia" items="${newsList}">
-            <div id="post">
-                <a href="notizia.html?nid=${Notizia.getId()}">
-                    <!--icona utente, nome utente-->
-                    <img id="post_user_icon" src="<c:url value="${Notizia.getAuthor().getImgUrl()}"/>" alt=""/>
-                    <label id="post_author">${Notizia.getAuthor().getName()} ${Notizia.getAuthor().getSurname()}</label>
-                    <br/>
-                    <!--Immagine articolo, titolo articolo e link ad esso-->
-                    <img id="news_pic" src="<c:url value="${Notizia.getImageUrl()}"/>" alt="immagine"/>
-                    <br/>
-                    <label id="post_title">${Notizia.getTitle()}</label>
-                    <br/>
-                    <label id="post_content">${Notizia.getContentPreview()}</label>
-                    <br/>
-                    <label id="post_category">Scritto il ${Notizia.getDate()} <br/> Categorie : ${Notizia.getCategory()}</label>
-                    <br/>
-                    <a id="post_open" href="NewsDetails?id=${Notizia.getId()}">Apri Articolo</a>
-                    <br/>
-                </a>
-            </div>
-            <br/>
-        </c:forEach>
-    </div>
-    <br/>
+    <body>
+        <img id="bg" src="res/site_resources/backg.jpg"/>
+        <jsp:include page="res/fixed_code/header.jsp" />   
+        <jsp:include page="res/fixed_code/categories.jsp"/>
+        <jsp:include page="res/fixed_code/authors.jsp"/>
+        <div id="content">
+            <c:if test="${categorySearchedName != null}">   
+                <h1>Categoria : ${categorySearchedName}</h1>
+            </c:if>
+            <c:if test="${emptyCategory == true}">   
+                <h1>Nessun articolo in questa categoria</h1>
+            </c:if>
+            <c:if test="${authorResult == true}">   
+                <h1>Articoli scritti da ${authNameSurname}</h1>
+            </c:if>
+            <c:forEach var="Notizia" items="${newsList}">
+                <div id="post">
+                    <a href="notizia.html?nid=${Notizia.getId()}">
+                        <!--icona utente, nome utente-->
+                        <img id="post_user_icon" src="<c:url value="${Notizia.getAuthor().getImgUrl()}"/>" alt=""/>
+                        <label id="post_author">${Notizia.getAuthor().getName()} ${Notizia.getAuthor().getSurname()}</label>
+                        <br/>
+                        <!--Immagine articolo, titolo articolo e link ad esso-->
+                        <img id="news_pic" src="<c:url value="${Notizia.getImageUrl()}"/>" alt="immagine"/>
+                        <br/>
+                        <label id="post_title">${Notizia.getTitle()}</label>
+                        <br/>
+                        <label id="post_content">${Notizia.getContentPreview()}</label>
+                        <br/>
+                        <label id="post_category">Scritto il ${Notizia.getDate()} <br/> Categorie : ${Notizia.getCategory()}</label>
+                        <br/>
+                        <a id="post_open" href="NewsDetails?id=${Notizia.getId()}">Apri Articolo</a>
+                        <br/>
+                    </a>
+                </div>
+                <br/>
+            </c:forEach>
+        </div>
+        <br/>
+    </body>
 </html>

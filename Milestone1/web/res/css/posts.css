@@ -12,7 +12,9 @@ and open the template in the editor.
 #post{
     border-radius: 8px;
     position: relative;
-    background: linear-gradient(#FCFCFC, #EFEFEF);   
+    /*background: linear-gradient(#FCFCFC, #EFEFEF);   */
+     background: linear-gradient(#FCFCFC,#EFEFEF);
+
      border-color: #EFEFEF;
      border-style: solid;
 }
@@ -27,6 +29,7 @@ and open the template in the editor.
     width:100%;
     top:8px;
     left:0px;
+    z-index:2;
 }
 #post_user_icon{
     position: absolute;
@@ -34,19 +37,24 @@ and open the template in the editor.
     top: 2px;
     width:28px;
 }
-#post_title{
+#post_title{    
+  
+    text-align:center;
+    border-style: none;
     font-size: 28px;
     color:black;
     position: relative;
-    left:16px;
+    width: 100%;
     top:8px;
 }
 #post_content{
-    font-size: 18px;
+    font-size: 16px;
+    text-align:center;
     color:black;
     position: relative;
-    left:16px;
-    width: calc(100% - 40px);
+    left:0px;
+    top:8px;
+    width: 100%;
 
 }
 #post_open{
@@ -59,6 +67,7 @@ and open the template in the editor.
     color:black;
     position: relative;
     left:16px;
+    top:8px;
 
 
 }

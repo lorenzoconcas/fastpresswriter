@@ -20,7 +20,7 @@
         <meta name="keywords" content="Notizia, Fast, Press, Writer">
     </head>
     <body>
-
+        <img id="bg" src="res/site_resources/backg.jpg"/>
         <jsp:include page="res/fixed_code/header.jsp" /> 
         <jsp:include page="res/fixed_code/categories.jsp"/>
         <jsp:include page="res/fixed_code/authors.jsp"/>
@@ -38,12 +38,13 @@
                     <br/>
 
                     <label id="post_title">${News.getTitle()}</label>
+                    <br/>                    
+                    
+                    <label id="post_category">Scritto il ${News.getDate()} - Categorie : ${News.getCategory()}</label>
                     <br/>
-
+                    
                     <label id="post_content">${News.getContent()}</label>
                     <br/>
-
-                    <label id="post_category">Scritto il ${News.getDate()} - Categorie : ${News.getCategory()}</label>
                     <br/>
                 </div>
                 <!--Mostro questa sezione solo se sono loggato o se ci sono commenti-->

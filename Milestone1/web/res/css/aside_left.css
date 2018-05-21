@@ -14,7 +14,8 @@ and open the template in the editor.
     width: 15%;
     left: 5%;
     top: 80px;
-    background: linear-gradient(#FCFCFC,#EFEFEF);
+     background: linear-gradient(#FCFCFC,#EFEFEF);
+
     border-radius: 10px;
     border-color: #EFEFEF;
     border-style: solid;

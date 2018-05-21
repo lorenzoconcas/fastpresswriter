@@ -23,6 +23,8 @@ create table notizia(
     titolo varchar(200) not null,
     content varchar(2000),
     img varchar(200),
+    imgDesc varchar(200),
+    category varchar(128),
     autore bigint unsigned references utente(id) on delete cascade
                                                  on update cascade,
     categoria integer

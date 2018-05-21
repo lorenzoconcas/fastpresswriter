@@ -7,6 +7,7 @@ package it.lorenzoconcas.blog.database;
 
 import it.lorenzoconcas.blog.objects.*;
 import java.util.ArrayList;
+import java.util.Random;
 /**
  * @author lorec
  */
@@ -22,7 +23,23 @@ public class NewsFactory {
 
         n1.setId(0);
         n1.setCategory(Categories.getIstance().getCategoryByID(5));
-        n1.setContent("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
+        //n1.setContent("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
+        StringBuilder s = new StringBuilder();
+        
+        char c;
+        Random rnd = new Random();
+        for(int i = 0; i < 1024; i++){
+            if(rnd.nextBoolean())
+                c= (char) (rnd.nextInt(25)+65);
+            else
+                c = (char) (rnd.nextInt(25)+97);
+           if(rnd.nextBoolean())
+               s.append("\n");
+           s.append(c);
+           
+        }
+       
+        n1.setContent(s.toString());
         n1.setImageUrl("res/news_pictures/news.image.1.jpg");
         n1.setTitle("Articolo 1");
         n1.setAuthor(uF.getUserById(0));
@@ -32,7 +49,20 @@ public class NewsFactory {
         News n2 = new News();
         n2.setId(1);
         n2.setCategory(Categories.getIstance().getCategoryByID(2));
-        n2.setContent("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit tincidunt dolor");
+        
+        //n2.setContent("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit tincidunt dolor");
+        s.delete(0, s.length()-1);
+        for(int i = 0; i < 1024; i++){
+            if(rnd.nextBoolean())
+                c= (char) (rnd.nextInt(25)+65);
+            else
+                c = (char) (rnd.nextInt(25)+97);
+           if(rnd.nextBoolean())
+               s.append("\n");
+           s.append(c);
+           
+        }
+        n2.setContent(s.toString());
         n2.setImageUrl("res/news_pictures/news.image.2.jpg");
         n2.setTitle("Articolo 2");
         n2.setAuthor(uF.getUserById(1));
@@ -42,7 +72,19 @@ public class NewsFactory {
         News n3 = new News();
         n3.setId(2);
         n3.setCategory(Categories.getIstance().getCategoryByID(1));
-        n3.setContent("Lorem Ipsumdolor sit amet");
+       // n3.setContent("Lorem Ipsumdolor sit amet");
+        s.delete(0, s.length()-1);
+        for(int i = 0; i < 1024; i++){
+            if(rnd.nextBoolean())
+                c= (char) (rnd.nextInt(25)+65);
+            else
+                c = (char) (rnd.nextInt(25)+97);
+           if(rnd.nextBoolean())
+               s.append("\n");
+           s.append(c);
+           
+        }
+        n3.setContent(s.toString());
         n3.setImageUrl("res/news_pictures/news.image.3.jpg");
         n3.setTitle("Articolo 3");
         n3.setAuthor(uF.getUserById(2));

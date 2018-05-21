@@ -8,8 +8,9 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <header id="header"> 
+    
     <!--Tasto cerca-->
-    <div id="background"></div>
+  
     <a id="search_button" href="cerca.html"><img id="search_image" src="res/site_resources/search_icon.png" alt="Cerca"/></a>
     <!--Logo-->
     <a id="home_logo" href="notizie.html">Fast Press Writer</a>
