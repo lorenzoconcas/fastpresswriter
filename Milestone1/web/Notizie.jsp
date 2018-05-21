@@ -23,7 +23,7 @@
     </head>
 
     <body>
-        <img id="bg" src="res/site_resources/backg.jpg"/>
+      
         <jsp:include page="res/fixed_code/header.jsp" />   
         <jsp:include page="res/fixed_code/categories.jsp"/>
         <jsp:include page="res/fixed_code/authors.jsp"/>
