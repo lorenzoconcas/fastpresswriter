@@ -53,7 +53,7 @@
                         <br/>
                         <label id="post_category">Scritto il ${Notizia.getDate()} <br/> Categorie : ${Notizia.getCategory()}</label>
                         <br/>
-                        <a id="post_open" href="NewsDetails?id=${Notizia.getId()}">Apri Articolo</a>
+                        <a id="post_open" href="NewsDetails?nid=${Notizia.getId()}">Apri Articolo</a>
                         <br/>
                     </a>
                 </div>

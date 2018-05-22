@@ -19,6 +19,8 @@ public class UsersFactory {
 
     private static UsersFactory istance;
     private ArrayList<User> userList = new ArrayList<>();
+    private ArrayList<User> authorsList = new ArrayList<>();
+    
 
     public UsersFactory() {
 
@@ -123,12 +125,12 @@ public class UsersFactory {
     }
 
     public ArrayList<User> getAuthors() {
-        ArrayList<User> authorsList = new ArrayList<>();
-    
-        for (User a : userList) {
-            if(a.getIsAuthor())
-             authorsList.add(a);
-        }
+       if(authorsList.isEmpty()){
+            for (User a : userList) {
+                if(a.getIsAuthor())
+                 authorsList.add(a);
+            }
+       }
         return authorsList;
     }
 }

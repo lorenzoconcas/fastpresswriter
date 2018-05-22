@@ -49,7 +49,7 @@ public class NewsFactory {
                 Statement stmt = conn.createStatement();
                 String sql = "select * from notizia";
                 ResultSet set = stmt.executeQuery(sql);
-
+                System.out.println(set);
                 while (set.next()) {
                     News tempNews = new News();
                     tempNews.setId(set.getInt("id"));
@@ -59,7 +59,7 @@ public class NewsFactory {
                     tempNews.setCategory(set.getString("category"));
                     tempNews.setImageDescription(set.getString("imgDesc"));
                     tempNews.setAuthor(UsersFactory.getIstance().getAuthorByID(set.getInt("autore")));
-                    tempNews.setImageUrl(set.getString("urlImg"));
+                    tempNews.setImageUrl(set.getString("img"));
                    
                     newsList.add(tempNews);
                 }

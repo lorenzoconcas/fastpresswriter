@@ -62,7 +62,7 @@ public class NewsDetail extends HttpServlet {
                 request.getRequestDispatcher("NewsDetail.jsp").forward(request, response);
             }
             else {
-                //la notizia non è stata trovata quindi avviso l'utente4
+                //la notizia non è stata trovata quindi avviso l'utente
                 request.getRequestDispatcher("NotFound.jsp").forward(request, response);
             }
         }
