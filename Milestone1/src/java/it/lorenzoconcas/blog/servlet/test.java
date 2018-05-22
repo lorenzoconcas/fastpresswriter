@@ -6,10 +6,11 @@
 package it.lorenzoconcas.blog.servlet;
 
 import it.lorenzoconcas.blog.database.*;
+import it.lorenzoconcas.blog.objects.*;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.*;
-import java.util.logging.*;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,51 +21,18 @@ import javax.servlet.http.HttpServletResponse;
  * @author lorec
  */
 public class test extends HttpServlet {
-   
 
-    
-    
-   
-  
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            out.print("Tento la connessione... <br/>");
-            try {
-                out.print(DatabaseManager.getIstance().insertUser("Tony", "Stark", "tony@starkindustries.com", "jarvis", "n", 1)+"<br/>");
-                Connection conn = DatabaseManager.getIstance().getConnection();
-                
-                Statement stmt = conn.createStatement();
-                String sql = "select * from utente";
-
-                ResultSet set = stmt.executeQuery(sql);
-               
-                if(request.getParameter("email") != null &&  request.getParameter("password") != null){
-                    out.print("tento il login");
-                    out.print("<br/>");
-                     while(set.next()){
-                        out.print(set.getString("email"));
-                        out.print("<br/>");
-                    }
-                    set.first();
-                       while(set.next()){
-                        out.print(set.getString("nome"));
-                        out.print("<br/>");
-                    }
-                }
-                
-                else{
-                    out.print("mmm");
-                }
-                
-              
-               stmt.close();
-                conn.close();
-                
-            } catch (SQLException ex) {
-                Logger.getLogger(test.class.getName()).
-                        log(Level.SEVERE, null, ex);
+            ArrayList<News> urs = NewsFactory.getIstance().getNewsList();
+            out.print(urs.size());
+            for (News u : urs) {
+                out.print(u.getContent()+ "<br/>");
+                out.print(u.getTitle()+ "<br/>");
+                out.print(u.getAuthor().getName()+ "<br/>");
+                out.print(u.getAuthor().getSurname()+ "<br/>");
             }
         }
     }

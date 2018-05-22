@@ -20,9 +20,15 @@ and open the template in the editor.
     width:70%;
     position:relative;
     float:right;
-      border-radius:10px;
-      border-color: #DDDDDD;
+    border-style:solid;
+    border-radius:10px;
+    border-color: #DDDDDD;
     
+}
+.new_article_generic_input:hover{
+     background-color: #333333;
+    color:white;
+    border-color:#333333;
 }
 #new_article_text{
     position:relative;

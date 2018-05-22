@@ -39,36 +39,12 @@ public class DatabaseManager {
         try{
             conn = DriverManager.getConnection(conn_str, "fpw18_concaslorenzo", "lorenzoconcas");
         }
-        catch(SQLException ex){
-            ex.printStackTrace();
+        catch(SQLException e){
+            e.printStackTrace();
         }
        
         return conn;
        
     }
-    public boolean insertUser(String name, String surname, String email, String password, String urlImg, int isAuthor){
-        boolean insert = false;
-        try{
-            Connection conn = this.getConnection();
-            String sql = "insert into utente values(deafault, ?, ?, ?, ?,?, ?)";
-            PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1, name);
-            stmt.setString(2, surname);
-            stmt.setString(3, email);
-            stmt.setString(4, password);
-            stmt.setString(5, urlImg);
-            stmt.setInt(6, isAuthor);
-            int rows = stmt.executeUpdate();
-            if(rows==1){
-                insert = true;
-            }
-            stmt.close();
-            conn.close();
-            
-        }
-        catch(SQLException e){
-            Logger.getLogger(DatabaseManager.class.getName()).log(Level.SEVERE, null, e);
-        }
-        return insert;
-    }
+   
 }

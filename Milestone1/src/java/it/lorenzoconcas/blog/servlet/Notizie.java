@@ -9,8 +9,6 @@ import it.lorenzoconcas.blog.database.*;
 import it.lorenzoconcas.blog.objects.*;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -38,7 +36,7 @@ public class Notizie extends HttpServlet {
         HttpSession session = request.getSession();
 
         session.setAttribute("users", UsersFactory.getIstance().getUsers());
-        session.setAttribute("authors", Authors.getIstance().getAutori());
+        session.setAttribute("authors", UsersFactory.getIstance().getAuthors());
         session.setAttribute("categories", Categories.getIstance().getCategories());
         request.setAttribute("newsList", NewsFactory.getIstance().getNewsByDate(1));//ricordati di mostrarle dalla più vecchia alla più nuova
         //se mi viene chiesto di mostrare le categorie

@@ -42,7 +42,7 @@ public class Articles extends HttpServlet {
         //controllo che l'utente sia loggato e che sia un autore
         if (session != null) {
             int id = Integer.parseInt(session.getAttribute("userID").toString());
-            User u = Authors.getIstance().getAuthorByID(id);
+            User u = UsersFactory.getIstance().getAuthorByID(id);
             //poichè la funzione getAuthorByID restituisce null se l'utente richiesto non è un autore
             //aggiungiamo alle verifiche di login anche quella di essere un autore valido
             if (session.getAttribute("loggedIn") != null && session.getAttribute("loggedIn").equals(true) && u != null) {

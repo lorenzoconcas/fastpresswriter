@@ -5,10 +5,10 @@
  */
 package it.lorenzoconcas.blog.servlet;
 import it.lorenzoconcas.blog.database.*;
-import it.lorenzoconcas.blog.database.*;
+
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -52,17 +52,19 @@ public class Login extends HttpServlet {
                 session.setAttribute("userID", userID);
                 session.setAttribute("loggedIn", true);
                 session.setAttribute("user", uF.getUserById(userID));
-                if (Authors.getIstance().isAuthor(uF.getUserById(userID))) {
+                if (uF.getUserById(userID).getIsAuthor()) {
                     session.setAttribute("isAuthor", true);
                 }
                 //rimandiamo infine l'utente alla pagina principale
-                request.getRequestDispatcher("notizie.html").forward(request, response);
+                
+               request.getRequestDispatcher("notizie.html").forward(request, response);
 
             }
             //se i valori non sono stati inseriti o non validi, allora rimando alla pagina di login
             //questo caso viene raggiunto quando viene effettuata una richiesta di login che non provenga dal file login.jsp
 
             else {
+                
                 if (email != null || password != null) { //significa che i dati non sono null e sono sbagliati
                     request.setAttribute("invalidData", true);
                 }

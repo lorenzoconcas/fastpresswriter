@@ -8,8 +8,7 @@ package it.lorenzoconcas.blog.servlet;
 import it.lorenzoconcas.blog.database.*;
 import it.lorenzoconcas.blog.objects.*;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -42,7 +41,7 @@ public class NewArticle extends HttpServlet {
             if (session.getAttribute("userID") != null) {
                 int id = Integer.parseInt(session.getAttribute("userID").toString());
                 int lastID;
-                User u = Authors.getIstance().getAuthorByID(id);
+                User u = UsersFactory.getIstance().getAuthorByID(id);
                 if (session.getAttribute("loggedIn") != null && session.getAttribute("loggedIn").equals(true) && u != null) {
                     if (request.getParameter("edit") != null) {
                         id = Integer.parseInt(request.getParameter("edit"));
@@ -59,6 +58,7 @@ public class NewArticle extends HttpServlet {
                         request.setAttribute("date", request.getParameter("date"));
                         request.setAttribute("imageUrl", request.getParameter("imageUrl"));
                         request.setAttribute("content", request.getParameter("content"));
+                     
                         //calcoliamo l'id da assegnare
 
                         if (session.getAttribute("lastID") == null) {

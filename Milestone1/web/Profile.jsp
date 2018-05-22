@@ -14,7 +14,7 @@
          <link rel="stylesheet" type="text/css" href="res/css/style.css" media="screen"/>
         <link rel="stylesheet" type="text/css" href="res/css/aside_left.css" media="screen"/>
         <link rel="stylesheet" type="text/css" href="res/css/aside_right.css" media="screen"/>
-       
+       <link rel="shortcut icon" href="res/css/logo_old.png" type="image/x-icon" />
         <link rel="stylesheet" type="text/css" href="res/css/Profiles.css" media="screen"/>
                   <meta name="author" content="Lorenzo L. Concas">
         <meta name="keywords" content="profilo,fast,press,writer">

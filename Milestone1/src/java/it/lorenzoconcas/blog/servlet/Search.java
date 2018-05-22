@@ -69,7 +69,7 @@ public class Search extends HttpServlet {
             Boolean foundUsrBool = false;
             ArrayList<User> foundUsr = new ArrayList<>();
             for (User u : UsersFactory.getIstance().getUsers()) {
-                if (u.getName().contains(query) || u.getSurname().contains(query) || u.getUsername().contains(query)) {
+                if (u.getName().contains(query) || u.getSurname().contains(query)) {
                     foundUsr.add(u);
                     foundUsrBool = true;
                     tAuthFound++;

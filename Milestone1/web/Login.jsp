@@ -12,7 +12,7 @@
         <title>Fast Press Writer - Login</title>
         <link rel="stylesheet" type="text/css" href="res/css/style.css" media="screen"/>
         <link rel="stylesheet" type="text/css" href="res/css/login.css" media="screen"/>
-        <link rel="shortcut icon" href="M2/logo_old.png" type="image/x-icon" />
+        <link rel="shortcut icon" href="res/css/logo_old.png" type="image/x-icon" />
         <meta name="author" content="Lorenzo L. Concas">
         <meta name="keywords" content="login,fast,press,writer">
     </head>
@@ -39,12 +39,14 @@
                     <a href="Register.jsp">Non hai un account?Iscriviti qui</a>
                     <br/>                    
                     <a href="">Password dimenticata</a>
+                    <br/>
+                    <c:if test="${invalidData == true}">
+                        <h4 id="invalid">Nome utente e/o password errati, riprova</h4>
+                    </c:if>
                 </div>
             </div>
-
-            <c:if test="${invalidData == true}">
-                <label>Nome utente e/o password errati, riprova</label>
-            </c:if>
+             
+          
         </div>
         <jsp:include page="res/fixed_code/footer.jsp" />    
 

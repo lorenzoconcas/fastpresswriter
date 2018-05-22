@@ -6,8 +6,11 @@
 package it.lorenzoconcas.blog.database;
 
 import it.lorenzoconcas.blog.objects.*;
+import it.lorenzoconcas.blog.servlet.test;
+import java.sql.*;
 import java.util.ArrayList;
-import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  * @author lorec
  */
@@ -17,82 +20,7 @@ public class NewsFactory {
     private ArrayList<News> newsList = new ArrayList<>();
 
     NewsFactory() {
-        UsersFactory uF = UsersFactory.getIstance();
 
-        News n1 = new News();
-
-        n1.setId(0);
-        n1.setCategory(Categories.getIstance().getCategoryByID(5));
-        //n1.setContent("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
-        StringBuilder s = new StringBuilder();
-        
-        char c;
-        Random rnd = new Random();
-        for(int i = 0; i < 1024; i++){
-            if(rnd.nextBoolean())
-                c= (char) (rnd.nextInt(25)+65);
-            else
-                c = (char) (rnd.nextInt(25)+97);
-           if(rnd.nextBoolean())
-               s.append("\n");
-           s.append(c);
-           
-        }
-       
-        n1.setContent(s.toString());
-        n1.setImageUrl("res/news_pictures/news.image.1.jpg");
-        n1.setTitle("Articolo 1");
-        n1.setAuthor(uF.getUserById(0));
-        n1.setDate("12/04/2008");
-        n1.setImageDescription("Lorem Ipsumdolor sit amet");
-
-        News n2 = new News();
-        n2.setId(1);
-        n2.setCategory(Categories.getIstance().getCategoryByID(2));
-        
-        //n2.setContent("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit tincidunt dolor");
-        s.delete(0, s.length()-1);
-        for(int i = 0; i < 1024; i++){
-            if(rnd.nextBoolean())
-                c= (char) (rnd.nextInt(25)+65);
-            else
-                c = (char) (rnd.nextInt(25)+97);
-           if(rnd.nextBoolean())
-               s.append("\n");
-           s.append(c);
-           
-        }
-        n2.setContent(s.toString());
-        n2.setImageUrl("res/news_pictures/news.image.2.jpg");
-        n2.setTitle("Articolo 2");
-        n2.setAuthor(uF.getUserById(1));
-        n2.setDate("25/05/2012");
-        n2.setImageDescription("Lorem Ipsumdolor sit amet");
-
-        News n3 = new News();
-        n3.setId(2);
-        n3.setCategory(Categories.getIstance().getCategoryByID(1));
-       // n3.setContent("Lorem Ipsumdolor sit amet");
-        s.delete(0, s.length()-1);
-        for(int i = 0; i < 1024; i++){
-            if(rnd.nextBoolean())
-                c= (char) (rnd.nextInt(25)+65);
-            else
-                c = (char) (rnd.nextInt(25)+97);
-           if(rnd.nextBoolean())
-               s.append("\n");
-           s.append(c);
-           
-        }
-        n3.setContent(s.toString());
-        n3.setImageUrl("res/news_pictures/news.image.3.jpg");
-        n3.setTitle("Articolo 3");
-        n3.setAuthor(uF.getUserById(2));
-        n3.setDate("06/11/2017");
-        n3.setImageDescription("Lorem Ipsumdolor sit amet");
-        newsList.add(n1);
-        newsList.add(n2);
-        newsList.add(n3);
     }
 
     public static NewsFactory getIstance() {
@@ -103,10 +31,53 @@ public class NewsFactory {
     }
 
     public ArrayList<News> getNewsList() {
+         if (newsList.isEmpty()) {
+            getNewsFromServer();
+        }
         return newsList;
     }
 
+    private void getNewsFromServer(){
+          //otteniamo gli utenti dal server
+        try {
+            Connection conn = DatabaseManager.getIstance().getConnection();
+            if (conn == null) {
+                System.out.println("Problema di connessione");
+            }
+            else {
+
+                Statement stmt = conn.createStatement();
+                String sql = "select * from notizia";
+                ResultSet set = stmt.executeQuery(sql);
+
+                while (set.next()) {
+                    News tempNews = new News();
+                    tempNews.setId(set.getInt("id"));
+                    tempNews.setTitle(set.getString("titolo"));
+                    tempNews.setContent(set.getString("content"));
+                    tempNews.setDate(set.getString("dataC"));
+                    tempNews.setCategory(set.getString("category"));
+                    tempNews.setImageDescription(set.getString("imgDesc"));
+                    tempNews.setAuthor(UsersFactory.getIstance().getAuthorByID(set.getInt("autore")));
+                    tempNews.setImageUrl(set.getString("urlImg"));
+                   
+                    newsList.add(tempNews);
+                }
+                stmt.close();
+                conn.close();
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(test.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        }
+
+    }
+    
     public News getNewsById(int id) {
+        if (newsList.isEmpty()) {
+            getNewsFromServer();
+        }
         for (News n : newsList) {
             if (n.getId() == id) {
                 return n;
@@ -116,6 +87,9 @@ public class NewsFactory {
     }
 
     public ArrayList<News> getNewsByAuthor(User author, int order) {
+         if (newsList.isEmpty()) {
+            getNewsFromServer();
+        }
         ArrayList<News> listToReturn = new ArrayList<>();
 
         for (News n : newsList) {
@@ -143,6 +117,9 @@ public class NewsFactory {
     }
 
     public ArrayList<News> getNewsByCat(String cat, int order) {
+         if (newsList.isEmpty()) {
+            getNewsFromServer();
+        }
         ArrayList<News> listToReturn = new ArrayList<>();
 
         for (News n : newsList) {
@@ -169,6 +146,9 @@ public class NewsFactory {
     }
 
     public ArrayList<News> getNewsByDate(int order) {
+         if (newsList.isEmpty()) {
+            getNewsFromServer();
+        }
         //0 : dalla più vecchia alla più nuova
         //1 : viceversa
         switch (order) {

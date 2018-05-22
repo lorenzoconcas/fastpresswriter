@@ -6,79 +6,24 @@
 package it.lorenzoconcas.blog.database;
 
 import it.lorenzoconcas.blog.objects.User;
+import it.lorenzoconcas.blog.servlet.test;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author lorec
  */
 public class UsersFactory {
 
-    /**
-     * @return the db_str_connection
-     */
-    public String getDb_str_connection() {
-        return db_str_connection;
-    }
-
-    /**
-     * @param db_str_connection the db_str_connection to set
-     */
-    public void setDb_str_connection(String db_str_connection) {
-        this.db_str_connection = db_str_connection;
-    }
-
     private static UsersFactory istance;
-    private String db_str_connection;
     private ArrayList<User> userList = new ArrayList<>();
 
     public UsersFactory() {
-       
-        
-        User u1 = new User();
-        u1.setId(0);
-        u1.setName("Lord");
-        u1.setSurname("Fener");
-        u1.setEmail("lordfener@impero.com");
-        u1.setPassword("theforce");
-        u1.setImgUrl("res/user_pictures/header_user_icon.png");
-        u1.setUsername("vader");
-
-        User u2 = new User();
-        u2.setId(1);
-        u2.setName("Luke");
-        u2.setSurname("Skywalker");
-        u2.setEmail("lukeskywalker@resistenza.com");
-        u2.setPassword("resistence");
-        u2.setImgUrl("res/user_pictures/header_user_icon.png");
-        u2.setUsername("luke");
-
-        User u3 = new User();
-        u3.setId(2);
-        u3.setName("Lore");
-        u3.setSurname("Concas");
-        u3.setEmail("lore@glassfish.com");
-        u3.setPassword("test");
-        u3.setImgUrl("res/user_pictures/test_profile_pic.png");
-        u3.setUsername("lorec");
-
-        User u4 = new User();
-        u4.setId(3);
-        u4.setName("Han");
-        u4.setSurname("Solo");
-        u4.setEmail("hansolo@resistenza.com");
-        u4.setPassword("millenniumfalcon");
-        u4.setImgUrl("res/user_pictures/header_user_icon.png");
-        u4.setUsername("hansolo");
-
-        userList.add(u2);
-        userList.add(u1);
-        userList.add(u3);
-        userList.add(u4);
 
     }
 
-    
     public static UsersFactory getIstance() {
         if (istance == null) {
             istance = new UsersFactory();
@@ -87,12 +32,53 @@ public class UsersFactory {
 
     }
 
+    private void getUsersFromServer() {
+        //otteniamo gli utenti dal server
+        try {
+            Connection conn = DatabaseManager.getIstance().getConnection();
+            if (conn == null) {
+                System.out.println("Problema di connessione");
+            }
+            else {
+
+                Statement stmt = conn.createStatement();
+                String sql = "select * from utente";
+                ResultSet set = stmt.executeQuery(sql);
+
+                while (set.next()) {
+                    User tempUser = new User();
+                    tempUser.setId(set.getInt("id"));
+                    tempUser.setName(set.getString("nome"));
+                    tempUser.setSurname(set.getString("cognome"));
+                    tempUser.setEmail(set.getString("email"));
+                    tempUser.setPassword(set.getString("password"));
+                    tempUser.setImgUrl(set.getString("urlImg"));
+                    tempUser.setIsAuthor(set.getBoolean("isAuthor"));
+                    userList.add(tempUser);
+                }
+                stmt.close();
+                conn.close();
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(test.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        }
+
+    }
+
     public ArrayList<User> getUsers() {
+        if (userList.isEmpty()) {
+            getUsersFromServer();
+        }
         return userList;
 
     }
 
     public User getUserById(int id) {
+        if (userList.isEmpty()) {
+            getUsersFromServer();
+        }
         for (User u : userList) {
             if (u.getId() == id) {
                 return u;
@@ -103,6 +89,9 @@ public class UsersFactory {
     }
 
     public boolean login(String email, String password) {
+        if (userList.isEmpty()) {
+            getUsersFromServer();
+        }
         for (User u : userList) {
             if (u.getEmail().equals(email) && u.getPassword().equals(password)) {
                 return true;
@@ -112,13 +101,34 @@ public class UsersFactory {
         return false;
     }
 
-
     public User getUserByEmail(String email) {
+        if (userList.isEmpty()) {
+            getUsersFromServer();
+        }
         for (User u : userList) {
             if (u.getEmail().equals(email)) {
                 return u;
             }
         }
         return null;
+    }
+
+    public User getAuthorByID(int id) {
+        for (User u : userList) {
+            if (u.getId() == id && u.getIsAuthor()) {
+                return u;
+            }
+        }
+        return null;
+    }
+
+    public ArrayList<User> getAuthors() {
+        ArrayList<User> authorsList = new ArrayList<>();
+    
+        for (User a : userList) {
+            if(a.getIsAuthor())
+             authorsList.add(a);
+        }
+        return authorsList;
     }
 }

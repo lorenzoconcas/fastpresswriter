@@ -11,12 +11,26 @@ package it.lorenzoconcas.blog.objects;
  */
 public class User {
 
+    /**
+     * @return the isAuthor
+     */
+    public Boolean getIsAuthor() {
+        return isAuthor;
+    }
+
+    /**
+     * @param isAuthor the isAuthor to set
+     */
+    public void setIsAuthor(Boolean isAuthor) {
+        this.isAuthor = isAuthor;
+    }
+
     private String name, surname;
     private int id;
     private String password;
     private String email;
-    private String username;
     private String imgUrl;
+    private Boolean isAuthor;
     
     public User(){
         this.name = "";
@@ -24,8 +38,8 @@ public class User {
         this.id = -1;
         this.password = "";
         this.email = "";
-        this.username = "";
         this.imgUrl = "";
+        this.isAuthor = false;
     }
     
     
@@ -99,20 +113,7 @@ public class User {
         this.email = email;
     }
 
-    /**
-     * @return the username
-     */
-    public String getUsername() {
-        return username;
-    }
-
-    /**
-     * @param username the username to set
-     */
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
+  
     /**
      * @return the imgUrl
      */
