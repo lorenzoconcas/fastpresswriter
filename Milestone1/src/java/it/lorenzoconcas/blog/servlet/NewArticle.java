@@ -86,7 +86,8 @@ public class NewArticle extends HttpServlet {
                         ArrayList<News> newList = NewsFactory.getIstance().getNewsList();
                         for(int i = 0 ; i< newList.size(); i++){
                             if(newList.get(i).getContent().equals(request.getParameter("title")) && newList.get(i).getContent().equals(request.getParameter("content"))){
-                                lastID = newList.get(i).getId();
+                                session.setAttribute("lastID", newList.get(i).getId());
+                                
                             }
                         }
                         
