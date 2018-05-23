@@ -20,7 +20,7 @@
         <meta name="keywords" content="Notizia, Fast, Press, Writer">
     </head>
     <body>
-        <img id="bg" src="res/site_resources/backg.jpg"/>
+
         <jsp:include page="res/fixed_code/header.jsp" /> 
         <jsp:include page="res/fixed_code/categories.jsp"/>
         <jsp:include page="res/fixed_code/authors.jsp"/>
@@ -30,7 +30,7 @@
                     <!--icona utente, nome utente-->
                     <img id="post_user_icon" src="<c:url value="${News.getAuthor().getImgUrl()}"/>" alt=""/>
 
-                    <label id="post_author">Scritto da : ${News.getAuthor().getName()} ${News.getAuthor().getSurname()}</label>                         
+                    <label id="post_author">${News.getAuthor().getName()} ${News.getAuthor().getSurname()}</label>                         
 
                     <br/>
 
@@ -39,10 +39,10 @@
 
                     <label id="post_title">${News.getTitle()}</label>
                     <br/>                    
-                    
+
                     <label id="post_category">Scritto il ${News.getDate()} - Categorie : ${News.getCategory()}</label>
                     <br/>
-                    
+
                     <label id="post_content">${News.getContent()}</label>
                     <br/>
                     <br/>
@@ -67,12 +67,15 @@
                         <!--Sezione commento personale-->
                         <c:if test="${loggedIn == true}">
                             <div id="personal_comment">
-                                <label>Commenta (come ${user.getName()} ${user.getSurname()})</label>
-                                <br/>
-
-                                <textarea id="personal_comment_textarea"></textarea>
-                                <button id="personal_post_comment">Commenta</button> 
-                                <br/>
+                               
+                                <form action="sendComment?insComment=true">
+                                    <c:set var="News" value="${News}">  </c:set>
+                                     <label>Commenta (come ${user.getName()} ${user.getSurname()})</label>
+                                    <input name="persComment" id="personal_comment_textarea"></input>
+                                    <button id="personal_post_comment" >Commenta</button>
+                                    <br/>
+                                </form>
+                            
                             </div>
                         </c:if>  
 

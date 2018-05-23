@@ -34,7 +34,7 @@ public class Articles extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
+PrintWriter out = response.getWriter();
         //Questa servelt mostra solo agli autori la lista dei proprio articoli
         //chi non è autore viene respinto con un accesso negato
         //per ora la lista degli autori viene calcolata semplicemente controllando articolo per articolo quali sono gli autori
@@ -47,7 +47,8 @@ public class Articles extends HttpServlet {
             //aggiungiamo alle verifiche di login anche quella di essere un autore valido
             if (session.getAttribute("loggedIn") != null && session.getAttribute("loggedIn").equals(true) && u != null) {
                 //carico gli articoli dell'autore in una lista e la setto come attributo di request
-                ArrayList<News> newsList = NewsFactory.getIstance().getNewsByAuthor(u, 1);
+                ArrayList<News> newsList = NewsFactory.getIstance().getNewsByAuthor(u.getId(), 1);
+              
                 request.setAttribute("authorNewsList", newsList);
                 request.getRequestDispatcher("Articles.jsp").forward(request, response);
                 return;

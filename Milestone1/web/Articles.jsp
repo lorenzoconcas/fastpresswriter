@@ -17,7 +17,7 @@
         <link rel="stylesheet" type="text/css" href="res/css/aside_right.css" media="screen"/>
         <link rel="stylesheet" type="text/css" href="res/css/PersonalArticles.css" media="screen"/>
         <link rel="shortcut icon" href="res/css/logo_old.png" type="image/x-icon" />
-                   <meta name="author" content="Lorenzo L. Concas">
+        <meta name="author" content="Lorenzo L. Concas">
         <meta name="keywords" content="Nuovo,articolo,fast,press,writer">
     </head>
 
@@ -26,28 +26,32 @@
     <jsp:include page="res/fixed_code/categories.jsp"/>
     <jsp:include page="res/fixed_code/authors.jsp"/>
     <div id="content">
-        <table id="personal_articles_table">
-            <thead>
-                <tr>
-                    <th class="personal_articles_table_header">Data</th>
-                    <th class="personal_articles_table_header">Titolo</th>
-                    <th class="personal_articles_table_header">Modifica</th>
-                    <th class="personal_articles_table_header">Cancella</th>
-                </tr>
-            </thead>
-            <tbody>
-                <c:forEach var="Notizia" items="${authorNewsList}">   
+        <c:if test="${authorNewsList.size() > 0}">          
+
+            <table id="personal_articles_table">
+                <thead>
                     <tr>
-                        <td>${Notizia.getDate()}</td>
-                        <td><a href="notizia.html?nid=${Notizia.getId()}">${Notizia.getTitle()}</a></td>
-                        <td><a href="scriviArticolo.html?edit=${Notizia.getId()}"><img id="edit_button" src="res/site_resources/edit.png" alt="Modifica${Notizia.getTitle()}"></a></td>
-                        <td><a href="#"><img id="delete_button" src="res/site_resources/delete.png" alt="Modifica${Notizia.getTitle()}"></a></td>
+                        <th class="personal_articles_table_header">Data</th>
+                        <th class="personal_articles_table_header">Titolo</th>
+                        <th class="personal_articles_table_header">Modifica</th>
+                        <th class="personal_articles_table_header">Cancella</th>
                     </tr>
-                </c:forEach>
-            </tbody>
-        </table>
-        <br/>
+                </thead>
+                <tbody>
+                    <c:forEach var="Notizia" items="${authorNewsList}">   
+                        <tr>
+                            <td>${Notizia.getDate()}</td>
+                            <td><a href="notizia.html?nid=${Notizia.getId()}">${Notizia.getTitle()}</a></td>
+                            <td><a href="scriviArticolo.html?edit=${Notizia.getId()}"><img id="edit_button" src="res/site_resources/edit.png" alt="Modifica${Notizia.getTitle()}"></a></td>
+                            <td><a href="#"><img id="delete_button" src="res/site_resources/delete.png" alt="Modifica${Notizia.getTitle()}"></a></td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
+            <br/>
+        </c:if>
         <a href="scriviArticolo.html"><button id="new_article_button" >Crea un nuovo articolo</button></a>   
+
     </div>
     <br/>
 </html>

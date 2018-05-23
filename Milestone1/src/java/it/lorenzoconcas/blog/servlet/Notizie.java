@@ -34,9 +34,9 @@ public class Notizie extends HttpServlet {
             throws ServletException, IOException {
 
         HttpSession session = request.getSession();
-
-        session.setAttribute("users", UsersFactory.getIstance().getUsers());
-        session.setAttribute("authors", UsersFactory.getIstance().getAuthors());
+        UsersFactory uf = UsersFactory.getIstance();
+        session.setAttribute("users", uf.getUsers());
+        session.setAttribute("authors", uf.getAuthors());
         session.setAttribute("categories", Categories.getIstance().getCategories());
         request.setAttribute("newsList", NewsFactory.getIstance().getNewsByDate(1));//ricordati di mostrarle dalla più vecchia alla più nuova
         //se mi viene chiesto di mostrare le categorie
@@ -57,9 +57,11 @@ public class Notizie extends HttpServlet {
         }
         else if (request.getParameter("author") != null) {
             User u = UsersFactory.getIstance().getUserById(Integer.parseInt(request.getParameter("author")));
-            request.setAttribute("newsList", NewsFactory.getIstance().getNewsByAuthor(u, 1));
+            request.setAttribute("newsList", NewsFactory.getIstance().getNewsByAuthor(u.getId(), 1));
             request.setAttribute("authorResult", true);
             request.setAttribute("authNameSurname", (u.getName() + " " + u.getSurname()));
+            if( NewsFactory.getIstance().getNewsByAuthor(u.getId(), 1).isEmpty())
+                request.setAttribute("emptyCategory", true);
 
         }
         request.getRequestDispatcher("Notizie.jsp").forward(request, response);

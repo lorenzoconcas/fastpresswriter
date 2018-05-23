@@ -5,12 +5,11 @@
  */
 package it.lorenzoconcas.blog.servlet;
 
-import it.lorenzoconcas.blog.database.*;
-import it.lorenzoconcas.blog.objects.*;
-
+import it.lorenzoconcas.blog.database.CommentsFactory;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,7 +19,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author lorec
  */
-public class NewsDetail extends HttpServlet {
+@WebServlet(name = "sendComment", urlPatterns = {"/sendComment"})
+public class sendComment extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,42 +33,13 @@ public class NewsDetail extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        PrintWriter out = response.getWriter();
         HttpSession session = request.getSession(false);
-        int id; //id della notizia
-        /*Analizzo la richiesta e cerco il parametro "nid", lo trasformo in seguito in un intero*/
-        id = Integer.parseInt(request.getParameter("nid"));
-
-        //istanzio la Factory delle notizie
-        NewsFactory nF = NewsFactory.getIstance();
-        /*controllo che il valore inserito sia valido,
-            poichè la funzione size() in una lista rende il numero di elementi e la posizione massima in una lista è size-1
-            il valore è valido quando minore di size*/
-        if (id < nF.getNewsList().size()+1 && id > 0) {
-            
-            //Appurato che l'id è valido recuperiamo la notizia desiderata
-            News n = nF.getNewsById(id);
-
-            //e anche i commenti, sempre se presenti
-            CommentsFactory cF = CommentsFactory.getIstance();
-            if (cF.getCommentByNewsID(id).size() > 0) {
-                request.setAttribute("comments", cF.getCommentByNewsID(id));
-                request.setAttribute("isCommented", true);
-            }
-            else {
-                request.setAttribute("isCommented", false);
-            }
-
-            request.setAttribute("author", n.getAuthor());
-            request.setAttribute("News", n);
-
-            //chiamo infine la pagina che mostrerà la notizia
-            request.getRequestDispatcher("NewsDetail.jsp").forward(request, response);
-            return;
-        }
-        //la notizia non è stata trovata quindi avviso l'utente
-        request.getRequestDispatcher("NotFound.jsp").forward(request, response);
+        PrintWriter out = response.getWriter();
+        out.print(request.getParameter("persComment"));
+//       if(request.getParameter("insComment") != null && request.getParameter("persComment") != null){
+//                //CommentsFactory.getIstance().insertComment(session.getAttribute("userID"), Integer.parseInt(), Integer.parseInt());
+//                CommentsFactory.getIstance().insertComment(Integer.parseInt(session.getAttribute("userID").toString()), Integer.parseInt(request.getParameter("nid")), request.getParameter("persComment"));
+//            }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

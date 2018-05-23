@@ -8,6 +8,8 @@ package it.lorenzoconcas.blog.servlet;
 import it.lorenzoconcas.blog.database.*;
 import it.lorenzoconcas.blog.objects.*;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -45,6 +47,7 @@ public class NewArticle extends HttpServlet {
                 if (session.getAttribute("loggedIn") != null && session.getAttribute("loggedIn").equals(true) && u != null) {
                     if (request.getParameter("edit") != null) {
                         id = Integer.parseInt(request.getParameter("edit"));
+                        request.setAttribute("currentArticle",  NewsFactory.getIstance().getNewsById(id));
                         request.setAttribute("title", NewsFactory.getIstance().getNewsById(id).getTitle());
                         request.setAttribute("date", NewsFactory.getIstance().getNewsById(id).getDate());
                         request.setAttribute("imageUrl", NewsFactory.getIstance().getNewsById(id).getImageUrl());
@@ -58,23 +61,35 @@ public class NewArticle extends HttpServlet {
                         request.setAttribute("date", request.getParameter("date"));
                         request.setAttribute("imageUrl", request.getParameter("imageUrl"));
                         request.setAttribute("content", request.getParameter("content"));
-                     
+                        //ottengo la categoria
+                        Map params = request.getParameterMap();
+                        String category = "Tutte";
+                        for(int i = 0; i < Categories.getIstance().getCategories().size(); i++){
+                            if(params.containsKey(Categories.getIstance().getCategories().get(i))){
+                                category = Categories.getIstance().getCategories().get(i);
+                               
+                            }
+                        }
+                        NewsFactory.getIstance().insertNews
+                            (  
+                                request.getParameter("title"),
+                                request.getParameter("content"),
+                                request.getParameter("imageUrl"), 
+                                "", 
+                                request.getParameter("date"), 
+                                category,
+                                Integer.parseInt(session.getAttribute("userID").toString()) 
+                            );
+                        
+                        request.setAttribute(category, "on");
                         //calcoliamo l'id da assegnare
-
-                        if (session.getAttribute("lastID") == null) {
-
-                            //poichè gli id sono assegnati progressivamente, l'ultimo ID sarà:
-                            //dimensione lista news -1 
-                            lastID = NewsFactory.getIstance().getNewsList().size() - 1;
-                            lastID++;
-
+                        ArrayList<News> newList = NewsFactory.getIstance().getNewsList();
+                        for(int i = 0 ; i< newList.size(); i++){
+                            if(newList.get(i).getContent().equals(request.getParameter("title")) && newList.get(i).getContent().equals(request.getParameter("content"))){
+                                lastID = newList.get(i).getId();
+                            }
                         }
-                        else {
-                            lastID = Integer.parseInt(session.getAttribute("lastID").toString());
-                            lastID++;
-                        }
-                        session.setAttribute("lastID", lastID);
-
+                        
                     }
                     request.getRequestDispatcher("NewArticle.jsp").forward(request, response);
                     return;

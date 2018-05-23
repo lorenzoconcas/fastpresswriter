@@ -26,14 +26,8 @@ public class test extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            ArrayList<News> urs = NewsFactory.getIstance().getNewsList();
-            out.print(urs.size());
-            for (News u : urs) {
-                out.print(u.getContent()+ "<br/>");
-                out.print(u.getTitle()+ "<br/>");
-                out.print(u.getAuthor().getName()+ "<br/>");
-                out.print(u.getAuthor().getSurname()+ "<br/>");
-            }
+            out.print(request.getParameter("par"));
+            out.print(CommentsFactory.getIstance().insertComment(Integer.parseInt(request.getParameter("authID")), Integer.parseInt(request.getParameter("nid")), request.getParameter("comment")));
         }
     }
 

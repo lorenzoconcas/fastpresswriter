@@ -31,13 +31,13 @@ public class NewsFactory {
     }
 
     public ArrayList<News> getNewsList() {
-         if (newsList.isEmpty()) {
-            getNewsFromServer();
-        }
+       
+        getNewsFromServer();
         return newsList;
     }
 
     private void getNewsFromServer(){
+         newsList.clear();
           //otteniamo gli utenti dal server
         try {
             Connection conn = DatabaseManager.getIstance().getConnection();
@@ -52,13 +52,14 @@ public class NewsFactory {
                 System.out.println(set);
                 while (set.next()) {
                     News tempNews = new News();
+                    UsersFactory u = UsersFactory.getIstance();
                     tempNews.setId(set.getInt("id"));
                     tempNews.setTitle(set.getString("titolo"));
                     tempNews.setContent(set.getString("content"));
                     tempNews.setDate(set.getString("dataC"));
                     tempNews.setCategory(set.getString("category"));
                     tempNews.setImageDescription(set.getString("imgDesc"));
-                    tempNews.setAuthor(UsersFactory.getIstance().getAuthorByID(set.getInt("autore")));
+                    tempNews.setAuthor(u.getAuthorByID(set.getInt("autore")));
                     tempNews.setImageUrl(set.getString("img"));
                    
                     newsList.add(tempNews);
@@ -75,9 +76,9 @@ public class NewsFactory {
     }
     
     public News getNewsById(int id) {
-        if (newsList.isEmpty()) {
-            getNewsFromServer();
-        }
+        
+        getNewsFromServer();
+       
         for (News n : newsList) {
             if (n.getId() == id) {
                 return n;
@@ -86,14 +87,13 @@ public class NewsFactory {
         return null;
     }
 
-    public ArrayList<News> getNewsByAuthor(User author, int order) {
-         if (newsList.isEmpty()) {
-            getNewsFromServer();
-        }
+    public ArrayList<News> getNewsByAuthor(int authorID, int order) {
+       
+        getNewsFromServer();
         ArrayList<News> listToReturn = new ArrayList<>();
 
         for (News n : newsList) {
-            if (author.equals(n.getAuthor())) {
+            if (authorID == n.getId()) {
                 listToReturn.add(n);
             }
         }
@@ -117,9 +117,8 @@ public class NewsFactory {
     }
 
     public ArrayList<News> getNewsByCat(String cat, int order) {
-         if (newsList.isEmpty()) {
-            getNewsFromServer();
-        }
+       
+        getNewsFromServer();
         ArrayList<News> listToReturn = new ArrayList<>();
 
         for (News n : newsList) {
@@ -146,9 +145,8 @@ public class NewsFactory {
     }
 
     public ArrayList<News> getNewsByDate(int order) {
-         if (newsList.isEmpty()) {
-            getNewsFromServer();
-        }
+       
+        getNewsFromServer();
         //0 : dalla più vecchia alla più nuova
         //1 : viceversa
         switch (order) {
@@ -163,6 +161,55 @@ public class NewsFactory {
             }
         }
         return newsList;
+    }
+    public boolean insertNews(String title,String content,String imgUrl,String imgDesc, String articleDate ,String category, int authorID){
+         boolean insert_OK = false;
+        try
+        {
+            Connection conn = DatabaseManager.getIstance().getConnection();
+            String sql = "insert into notizia values (default, ?, ?, ?,?, ?, ?, ?) ";
+            
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1,title);
+            stmt.setString(2,content);
+            stmt.setString(3,imgUrl);
+            stmt.setString(4,imgDesc);
+            stmt.setString(5,category);
+            stmt.setString(6, articleDate);
+            stmt.setInt(7, authorID);
+            
+            int rows = stmt.executeUpdate();
+            if(rows == 1){              
+                insert_OK = true;
+            }
+            // chiudo lo statement
+            stmt.close();
+            // chiusura della connessione
+            conn.close();    
+            
+        }catch(SQLException e)
+        {
+            // nel caso la query fallisca (p.e. errori di sintassi)
+            // viene sollevata una SQLException
+             Logger.getLogger(test.class.getName()).
+                    log(Level.SEVERE, null, e);
+        }
+        return insert_OK; 
+        
+        
+        /*
+        insert into notizia values
+        (default,
+        
+        'Articolo2' , 
+        'Lorem ipsum dolor sit amet,  laborum.',        
+        'res/news_pictures/news.image.2.jpg', 
+        'none',
+        '12/04/2008',
+        'Esteri', 
+        5);
+
+        */
     }
 }
 

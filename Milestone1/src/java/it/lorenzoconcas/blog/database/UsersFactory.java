@@ -20,10 +20,17 @@ public class UsersFactory {
     private static UsersFactory istance;
     private ArrayList<User> userList = new ArrayList<>();
     private ArrayList<User> authorsList = new ArrayList<>();
-    
 
     public UsersFactory() {
-
+//        User u = new User();
+//        u.setEmail("lore@glassfish.com");
+//        u.setPassword("test");
+//        u.setId(0);
+//        u.setName("Lore");
+//        u.setSurname("concas");
+//        u.setIsAuthor(true);
+//        u.setImgUrl("res/user_pictures/test_profile_pic.png");
+//        userList.add(u);
     }
 
     public static UsersFactory getIstance() {
@@ -35,6 +42,7 @@ public class UsersFactory {
     }
 
     private void getUsersFromServer() {
+        userList.clear();
         //otteniamo gli utenti dal server
         try {
             Connection conn = DatabaseManager.getIstance().getConnection();
@@ -70,17 +78,15 @@ public class UsersFactory {
     }
 
     public ArrayList<User> getUsers() {
-        if (userList.isEmpty()) {
-            getUsersFromServer();
-        }
+
+        getUsersFromServer();
         return userList;
 
     }
 
     public User getUserById(int id) {
-        if (userList.isEmpty()) {
-            getUsersFromServer();
-        }
+
+         getUsersFromServer();
         for (User u : userList) {
             if (u.getId() == id) {
                 return u;
@@ -91,9 +97,8 @@ public class UsersFactory {
     }
 
     public boolean login(String email, String password) {
-        if (userList.isEmpty()) {
-            getUsersFromServer();
-        }
+
+        getUsersFromServer();
         for (User u : userList) {
             if (u.getEmail().equals(email) && u.getPassword().equals(password)) {
                 return true;
@@ -104,9 +109,8 @@ public class UsersFactory {
     }
 
     public User getUserByEmail(String email) {
-        if (userList.isEmpty()) {
-            getUsersFromServer();
-        }
+
+        // getUsersFromServer();
         for (User u : userList) {
             if (u.getEmail().equals(email)) {
                 return u;
@@ -116,21 +120,33 @@ public class UsersFactory {
     }
 
     public User getAuthorByID(int id) {
-        for (User u : userList) {
-            if (u.getId() == id && u.getIsAuthor()) {
+
+        // getUsersFromServer();
+        authorsList.clear();
+        buildAuthorsList();
+
+        for (User u : authorsList) {
+            if (u.getId() == id) {
                 return u;
             }
         }
         return null;
     }
 
-    public ArrayList<User> getAuthors() {
-       if(authorsList.isEmpty()){
-            for (User a : userList) {
-                if(a.getIsAuthor())
-                 authorsList.add(a);
+    private void buildAuthorsList() {
+        for (User a : userList) {
+            if (a.getIsAuthor()) {
+                authorsList.add(a);
             }
-       }
+        }
+    }
+
+    public ArrayList<User> getAuthors() {
+
+        authorsList.clear();
+        //getUsersFromServer();
+
+        buildAuthorsList();
         return authorsList;
     }
 }

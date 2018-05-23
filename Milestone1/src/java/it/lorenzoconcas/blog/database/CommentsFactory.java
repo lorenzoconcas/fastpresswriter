@@ -22,49 +22,7 @@ public class CommentsFactory {
     private ArrayList<Comment> commentList = new ArrayList<>();
 
     public CommentsFactory() {
-//        UsersFactory uF = UsersFactory.getIstance();
-//        Comment c1, c2, c3, c4, c5;
-//
-//        //commento dell'utente con id 0
-//        c1 = new Comment();
-//        c1.setCommentAuthor(uF.getUserById(0));
-//        c1.setComment("Lorem ipsum dolor sit amet, consectetur adipiscing elit. ");
-//        c1.setCommentID(0);
-//        c1.setNewsID(0); // si riferisce alla notizia 0
-//
-//        //commento dell'utente con id 1
-//        c2 = new Comment();
-//        c2.setCommentAuthor(uF.getUserById(1));
-//        c2.setComment("Lorem ipsum dolor sit amet, consectetur adipiscing elit. ");
-//        c2.setCommentID(1);
-//        c2.setNewsID(0); // si riferisce alla notizia 0
-//
-//        //commento dell'utente con id 2
-//        c3 = new Comment();
-//        c3.setCommentAuthor(uF.getUserById(2));
-//        c3.setComment("Lorem ipsum dolor sit amet, consectetur adipiscing elit. ");
-//        c3.setCommentID(2);
-//        c3.setNewsID(0);
-//
-//        //commento dell'utente con id 0
-//        c4 = new Comment();
-//        c4.setCommentAuthor(uF.getUserById(0));
-//        c4.setComment("Lorem ipsum dolor sit amet, consectetur adipiscing elit. ");
-//        c4.setCommentID(3);
-//        c4.setNewsID(1);
-//
-//        //commento dell'utente con id 1
-//        c5 = new Comment();
-//        c5.setCommentAuthor(uF.getUserById(1));
-//        c5.setComment("Lorem ipsum dolor sit amet, consectetur adipiscing elit. ");
-//        c5.setCommentID(1);
-//        c5.setNewsID(1);
-//
-//        commentList.add(c1);
-//        commentList.add(c2);
-//        commentList.add(c3);
-//        commentList.add(c4);
-//        commentList.add(c5);
+
     }
 
     public static CommentsFactory getIstance() {
@@ -75,6 +33,7 @@ public class CommentsFactory {
     }
 
     private void getCommentsFromServer() {
+         commentList.clear();
         //otteniamo gli utenti dal server
         try {
             Connection conn = DatabaseManager.getIstance().getConnection();
@@ -84,7 +43,7 @@ public class CommentsFactory {
             else {
 
                 Statement stmt = conn.createStatement();
-                String sql = "select * from utente";
+                String sql = "select * from commenti";
                 ResultSet set = stmt.executeQuery(sql);
 
                 while (set.next()) {
@@ -108,9 +67,9 @@ public class CommentsFactory {
 
     
     public ArrayList<Comment> getCommentByNewsID(int id) {
-         if (commentList.isEmpty()) {
+       
             getCommentsFromServer();
-        }
+        
         ArrayList<Comment> listToReturn = new ArrayList<>();
 
         for (Comment c : commentList) {
@@ -119,5 +78,37 @@ public class CommentsFactory {
             }
         }
         return listToReturn;
+    }
+    
+   
+    public boolean insertComment(int authorID, int newsID, String comment){
+        boolean insert_OK = false;
+        try
+        {
+            Connection conn = DatabaseManager.getIstance().getConnection();
+            String sql = "insert into commenti values (default, ?, ?, ?) ";
+            
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1,authorID);
+            stmt.setInt(2,newsID);
+            stmt.setString(3,comment);
+            
+            int rows = stmt.executeUpdate();
+            if(rows == 1){              
+                insert_OK = true;
+            }
+            // chiudo lo statement
+            stmt.close();
+            // chiusura della connessione
+            conn.close();    
+            
+        }catch(SQLException e)
+        {
+            // nel caso la query fallisca (p.e. errori di sintassi)
+            // viene sollevata una SQLException
+             Logger.getLogger(test.class.getName()).
+                    log(Level.SEVERE, null, e);
+        }
+        return insert_OK;     
     }
 }

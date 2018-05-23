@@ -28,15 +28,16 @@
         <jsp:include page="res/fixed_code/categories.jsp"/>
         <jsp:include page="res/fixed_code/authors.jsp"/>
         <div id="content">
+             <c:if test="${authorResult == true}">   
+                <h1>Articoli scritti da ${authNameSurname}</h1>
+            </c:if>
             <c:if test="${categorySearchedName != null}">   
                 <h1>Categoria : ${categorySearchedName}</h1>
             </c:if>
             <c:if test="${emptyCategory == true}">   
-                <h1>Nessun articolo in questa categoria</h1>
+                <h1>Nessun articolo disponibile</h1>
             </c:if>
-            <c:if test="${authorResult == true}">   
-                <h1>Articoli scritti da ${authNameSurname}</h1>
-            </c:if>
+           
             <c:forEach var="Notizia" items="${newsList}">
                 <div id="post">
                     <a href="notizia.html?nid=${Notizia.getId()}">
