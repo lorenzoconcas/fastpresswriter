@@ -14,9 +14,9 @@
          <link rel="stylesheet" type="text/css" href="res/css/style.css" media="screen"/>
         <link rel="stylesheet" type="text/css" href="res/css/aside_left.css" media="screen"/>
         <link rel="stylesheet" type="text/css" href="res/css/aside_right.css" media="screen"/>
-       <link rel="shortcut icon" href="res/css/logo_old.png" type="image/x-icon" />
         <link rel="stylesheet" type="text/css" href="res/css/Profiles.css" media="screen"/>
-                  <meta name="author" content="Lorenzo L. Concas">
+        <link rel="shortcut icon" href="res/site_resources/logo_old.png" type="image/x-icon" />
+        <meta name="author" content="Lorenzo L. Concas">
         <meta name="keywords" content="profilo,fast,press,writer">
     </head>
     <body>
@@ -58,7 +58,7 @@
 
                 <input type="button" id="edit_button" value="Salva"/>
                 <br/>
-                <input type="button" id="delete_button" value="Elimina Profilo"/>
+                <a href="profilo.html?deleteUser=true"><input type="button" id="delete_button" value="Elimina Profilo"/></a>
                 <br/>
             </div>
         </div>

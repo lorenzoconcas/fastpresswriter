@@ -26,12 +26,16 @@
 
     <!--Nome utente-->
     <c:if test="${loggedIn == true}">
+        <c:if test="${user.getIsAuthor() == true}">
+             <a class="navbar_buttons" href="scriviArticolo.html">Nuovo Articolo</a>
+        </c:if>
         <aside id="user">
             <a id="header_user_profile" href="profilo.html">${user.getName()} ${user.getSurname()}</a> 
             <a id="logout" name="logout" href="login.html?logout=true">Esci</a>
             <img id="header_user_icon" src="<c:url value="${user.getImgUrl()}"/>" alt="Immagine Utente"/>
         </aside>              
     </c:if>
+    
 
 
 </header>

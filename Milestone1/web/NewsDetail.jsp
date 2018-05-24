@@ -15,7 +15,7 @@
         <link rel="stylesheet" type="text/css" href="res/css/aside_right.css" media="screen"/>
         <link rel="stylesheet" type="text/css" href="res/css/posts.css" media="screen"/>
         <link rel="stylesheet" type="text/css" href="res/css/comments.css" media="screen"/>
-        <link rel="shortcut icon" href="res/css/logo_old.png" type="image/x-icon" />
+        <link rel="shortcut icon" href="res/site_resources/logo_old.png" type="image/x-icon" />
         <meta name="author" content="Lorenzo L. Concas">
         <meta name="keywords" content="Notizia, Fast, Press, Writer">
     </head>

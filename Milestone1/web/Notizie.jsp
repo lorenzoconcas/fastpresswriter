@@ -16,7 +16,8 @@
         <link rel="stylesheet" type="text/css" href="res/css/aside_left.css" media="screen"/>
         <link rel="stylesheet" type="text/css" href="res/css/aside_right.css" media="screen"/>
         <link rel="stylesheet" type="text/css" href="res/css/posts.css" media="screen"/>
-        <link rel="shortcut icon" href="res/css/logo_old.png" type="image/x-icon" />
+        <link rel="shortcut icon" href="res/site_resources/logo_old.png" type="image/x-icon" />
+        <meta http-equiv="refresh" content="10">
         <meta name="author" content="Lorenzo L. Concas">
         <meta name="keywords" content="fast,press,writer">
         <meta name="viewport" content="width:device-width, target-densityDpi=device-dpi">

@@ -12,7 +12,7 @@
         <title>Fast Press Writer - Login</title>
         <link rel="stylesheet" type="text/css" href="res/css/style.css" media="screen"/>
         <link rel="stylesheet" type="text/css" href="res/css/login.css" media="screen"/>
-        <link rel="shortcut icon" href="res/css/logo_old.png" type="image/x-icon" />
+        <link rel="shortcut icon" href="res/site_resources/logo_old.png" type="image/x-icon" />
         <meta name="author" content="Lorenzo L. Concas">
         <meta name="keywords" content="login,fast,press,writer">
     </head>
@@ -36,7 +36,7 @@
                 </form>
                 <br/>
                 <div id="secondBox">
-                    <a href="Register.jsp">Non hai un account?Iscriviti qui</a>
+                    <a href="login.html?register">Non hai un account?Iscriviti qui</a>
                     <br/>                    
                     <a href="">Password dimenticata</a>
                     <br/>

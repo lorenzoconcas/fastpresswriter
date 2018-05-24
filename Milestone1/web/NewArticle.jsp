@@ -17,7 +17,7 @@
         <link rel="stylesheet" type="text/css" href="res/css/aside_left.css" media="screen"/>
         <link rel="stylesheet" type="text/css" href="res/css/aside_right.css" media="screen"/>
         <link rel="stylesheet" type="text/css" href="res/css/NewArticle.css" media="screen"/>
-        <link rel="shortcut icon" href="res/css/logo_old.png" type="image/x-icon" />
+        <link rel="shortcut icon" href="res/site_resources/logo_old.png" type="image/x-icon" />
         <meta name="author" content="Lorenzo L. Concas">
         <meta name="keywords" content="Nuovo,articolo,fast,press,writer">
     </head>
@@ -36,13 +36,13 @@
                     </c:if>
                     <div class="personal_articles_data">
                         <label>Titolo</label>               
-                        <input class="new_article_generic_input" type="text" name="title"  placeholder="${title}"/>
+                        <input class="new_article_generic_input" type="text" name="title"  value="${title}"/>
                         <br/>
                         <label>Data</label>              
-                        <input class="new_article_generic_input" type="text" name="date"  placeholder="${date}"/>
+                        <input class="new_article_generic_input" type="text" name="date"  value="${date}"/>
                         <br/>
                         <label>Immagine</label>
-                        <input class="new_article_generic_input"  type="text" name="imageUrl" placeholder="${imageUrl}"/>                   <br/>                   
+                        <input class="new_article_generic_input"  type="text" name="imageUrl" value="${imageUrl}"/>                   <br/>                   
                         <label>Testo</label>
                         <br/>
                         <textarea id="new_article_text" name="content">${content}</textarea>

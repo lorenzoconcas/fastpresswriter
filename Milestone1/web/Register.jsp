@@ -22,7 +22,7 @@
             <div id="login_form">
                 <label id="loginTitle">Registrazione</label>
                 <br/>
-                <form action="register.html" method="post" >
+                <form action="login.html?register=true" method="post" >
                     <label class="input_title"l>Nome</label>
                     <br/>
                     <input class="input_box" type="text" name="nome" id="nome">
@@ -44,11 +44,12 @@
                     <input class="input_box" type="password" name="password" id="confirm_password">
                     <br/>
                     <button id="loginButton" type="submit"><label id="loginButtonText">Registrati</label></button>
+                     <div id="secondBox">
+                    <input type="checkbox" name="willBeAuthor">Iscriviti come autore per soli 99€/anno</input>                   
+                </div>
                 </form>
                 <br/>
-                <div id="secondBox">
-                    <input type="checkbox">Iscriviti come autore per soli 99€/anno</input>                   
-                </div>
+               
             </div>
             
             <c:if test="${invalidData == true}">

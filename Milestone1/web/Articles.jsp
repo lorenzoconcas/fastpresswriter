@@ -16,7 +16,7 @@
         <link rel="stylesheet" type="text/css" href="res/css/aside_left.css" media="screen"/>
         <link rel="stylesheet" type="text/css" href="res/css/aside_right.css" media="screen"/>
         <link rel="stylesheet" type="text/css" href="res/css/PersonalArticles.css" media="screen"/>
-        <link rel="shortcut icon" href="res/css/logo_old.png" type="image/x-icon" />
+        <link rel="shortcut icon" href="res/site_resources/logo_old.png" type="image/x-icon" />
         <meta name="author" content="Lorenzo L. Concas">
         <meta name="keywords" content="Nuovo,articolo,fast,press,writer">
     </head>
@@ -43,7 +43,7 @@
                             <td>${Notizia.getDate()}</td>
                             <td><a href="notizia.html?nid=${Notizia.getId()}">${Notizia.getTitle()}</a></td>
                             <td><a href="scriviArticolo.html?edit=${Notizia.getId()}"><img id="edit_button" src="res/site_resources/edit.png" alt="Modifica${Notizia.getTitle()}"></a></td>
-                            <td><a href="#"><img id="delete_button" src="res/site_resources/delete.png" alt="Modifica${Notizia.getTitle()}"></a></td>
+                            <td><a href="articoli.html?deletePost=${Notizia.getId()}"><img id="delete_button" src="res/site_resources/delete.png" alt="Modifica${Notizia.getTitle()}"></a></td>
                         </tr>
                     </c:forEach>
                 </tbody>
