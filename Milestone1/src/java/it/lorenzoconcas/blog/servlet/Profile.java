@@ -41,14 +41,17 @@ public class Profile extends HttpServlet {
             User u = UsersFactory.getIstance().getUserById(id);
             //è necessario solo che sia loggato, non serve essere anche autori
             if (session.getAttribute("loggedIn") != null && session.getAttribute("loggedIn").equals(true)) {
-                //gestire l'invio dei dati da parte della pagina
+                if(request.getParameter("deleteUser") != null && true){                    
+                    UsersFactory.getIstance().deleteUser(u.getId());
+                   request.getRequestDispatcher("login.html?logout=true").forward(request, response);
+                }
                 request.getRequestDispatcher("Profile.jsp").forward(request, response);
                 return;
             }
         } //se i requisiti non sono rispettati nego l'accesso
 
         request.setAttribute("errorMessage", "Spiacenti, accesso negato");
-        request.getRequestDispatcher("notAllowed.jsp").forward(request, response);;
+        request.getRequestDispatcher("notAllowed.jsp").forward(request, response);
 
     }
 

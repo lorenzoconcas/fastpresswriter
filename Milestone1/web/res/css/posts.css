@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 
 /*NEWS POSTS*/
-#post{
+.post{
     border-radius: 8px;
     position: relative;
     /*background: linear-gradient(#FCFCFC, #EFEFEF);   */
@@ -18,26 +18,26 @@ and open the template in the editor.
      border-color: #EFEFEF;
      border-style: solid;
 }
-#post_author{
+.post_author{
     color:black;
     position:absolute;
     left: 40px;
     top:3px;
 }
-#news_pic{
+.news_pic{
     position:relative;
     width:100%;
     top:8px;
     left:0px;
     z-index:2;
 }
-#post_user_icon{
+.post_user_icon{
     position: absolute;
     left:4px;
     top: 2px;
     width:28px;
 }
-#post_title{    
+.post_title{    
   
     text-align:center;
     border-style: none;
@@ -47,7 +47,7 @@ and open the template in the editor.
     width: 100%;
     top:8px;
 }
-#post_content{
+.post_content{
     font-size: 16px;
     text-align:center;
     color:black;
@@ -57,13 +57,13 @@ and open the template in the editor.
     width: 100%;
 
 }
-#post_open{
+.post_open{
     color:black;
     position: relative;
     left:16px;
 
 }
-#post_category{
+.post_category{
     color:black;
     position: relative;
     left:16px;
@@ -72,7 +72,7 @@ and open the template in the editor.
 
 }
 @media (max-width: 480px){
-    #post{
+    .post{
         width:100%;
     }
 }
@@ -81,31 +81,31 @@ and open the template in the editor.
     #content{        
         font-size:32px;
     }
-    #post{
+    .post{
         font-size:32px;
     }
    
-    #post_title{
+    .post_title{
         font-size: 64px;        
     }
-    #post_user_icon{
+    .post_user_icon{
         width:32px;
         height:32px;
         top:8px;
         left:8px;
     }
-    #post_author{       
+    .post_author{       
         left: 48px;
         top:6px;
         font-size:32px;
     }
-    #post_content{
+    .post_content{
         font-size:42px;
     }
-    #post_category{
+    .post_category{
         font-size:28px;
     }
-    #post_open{
+    .post_open{
         font-size:28px;
     }
 }

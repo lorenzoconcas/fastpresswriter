@@ -7,7 +7,6 @@
 package it.lorenzoconcas.blog.database;
 
 import it.lorenzoconcas.blog.objects.Comment;
-import it.lorenzoconcas.blog.servlet.test;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -59,7 +58,7 @@ public class CommentsFactory {
 
             }
         } catch (SQLException ex) {
-            Logger.getLogger(test.class.getName()).
+            Logger.getLogger(CommentsFactory.class.getName()).
                     log(Level.SEVERE, null, ex);
         }
 
@@ -106,7 +105,7 @@ public class CommentsFactory {
         {
             // nel caso la query fallisca (p.e. errori di sintassi)
             // viene sollevata una SQLException
-             Logger.getLogger(test.class.getName()).
+             Logger.getLogger(CommentsFactory.class.getName()).
                     log(Level.SEVERE, null, e);
         }
         return insert_OK;     

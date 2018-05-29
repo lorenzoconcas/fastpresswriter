@@ -15,6 +15,9 @@
         <link rel="stylesheet" type="text/css" href="res/css/aside_left.css" media="screen"/>
         <link rel="stylesheet" type="text/css" href="res/css/aside_right.css" media="screen"/>
         <link rel="stylesheet" type="text/css" href="res/css/search.css" media="screen"/>
+         <link rel="stylesheet" type="text/css" href="res/css/search.css"/>
+        <script type="text/javascript" src="js/jquery.js"></script>
+         <script type="text/javascript" src="js/Animations.js"></script>
         <link rel="shortcut icon" href="res/site_resources/logo_old.png" type="image/x-icon" />
           <meta name="author" content="Lorenzo L. Concas">
         <meta name="keywords" content="cerca,fast,press,writer">

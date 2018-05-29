@@ -6,7 +6,6 @@
 package it.lorenzoconcas.blog.database;
 
 import it.lorenzoconcas.blog.objects.User;
-import it.lorenzoconcas.blog.servlet.test;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -22,15 +21,43 @@ public class UsersFactory {
     private ArrayList<User> authorsList = new ArrayList<>();
 
     public UsersFactory() {
-//        User u = new User();
-//        u.setEmail("lore@glassfish.com");
-//        u.setPassword("test");
-//        u.setId(0);
-//        u.setName("Lore");
-//        u.setSurname("concas");
-//        u.setIsAuthor(true);
-//        u.setImgUrl("res/user_pictures/test_profile_pic.png");
-//        userList.add(u);
+        User u1 = new User();
+        u1.setId(0);
+        u1.setName("Lord");
+        u1.setSurname("Fener");
+        u1.setEmail("lordfener@impero.com");
+        u1.setPassword("theforce");
+        u1.setImgUrl("res/user_pictures/header_user_icon.png");
+        u1.setIsAuthor(true);
+        User u2 = new User();
+        u2.setId(1);
+        u2.setName("Luke");
+        u2.setSurname("Skywalker");
+        u2.setEmail("lukeskywalker@resistenza.com");
+        u2.setPassword("resistence");
+        u2.setImgUrl("res/user_pictures/header_user_icon.png");
+        u1.setIsAuthor(true);
+        User u3 = new User();
+        u3.setId(2);
+        u3.setName("Lore");
+        u3.setSurname("Concas");
+        u3.setEmail("lore@glassfish.com");
+        u3.setPassword("test");
+        u3.setImgUrl("res/user_pictures/test_profile_pic.png");
+        u3.setIsAuthor(true);
+        User u4 = new User();
+        u4.setId(3);
+        u4.setName("Han");
+        u4.setSurname("Solo");
+        u4.setEmail("hansolo@resistenza.com");
+        u4.setPassword("millenniumfalcon");
+        u4.setImgUrl("res/user_pictures/header_user_icon.png");
+
+
+        userList.add(u2);
+        userList.add(u1);
+        userList.add(u3);
+        userList.add(u4);
     }
 
     public static UsersFactory getIstance() {
@@ -42,7 +69,7 @@ public class UsersFactory {
     }
 
     private void getUsersFromServer() {
-        userList.clear();
+       // userList.clear();
         //otteniamo gli utenti dal server
         try {
             Connection conn = DatabaseManager.getIstance().getConnection();
@@ -71,7 +98,7 @@ public class UsersFactory {
 
             }
         } catch (SQLException ex) {
-            Logger.getLogger(test.class.getName()).
+            Logger.getLogger(UsersFactory.class.getName()).
                     log(Level.SEVERE, null, ex);
         }
 
@@ -86,7 +113,7 @@ public class UsersFactory {
 
     public User getUserById(int id) {
 
-         getUsersFromServer();
+        getUsersFromServer();
         for (User u : userList) {
             if (u.getId() == id) {
                 return u;
@@ -148,5 +175,88 @@ public class UsersFactory {
 
         buildAuthorsList();
         return authorsList;
+    }
+
+    public boolean deleteUser(int userID) {
+        Connection conn = null;
+
+        try {
+            conn = DatabaseManager.getIstance().getConnection();
+
+            conn.setAutoCommit(false);
+            String post = "DELETE FROM notizia WHERE autore = ?";
+            String comment = "DELETE FROM commenti WHERE commentAuthor = ?";
+            String user = "DELETE FROM utente WHERE id = ?";
+            PreparedStatement removePost, removeUser, removeComment;
+
+            removePost = conn.prepareStatement(post);
+            removePost.setInt(1, userID);
+            removePost.executeUpdate();
+
+            removeComment = conn.prepareStatement(comment);
+            removeComment.setInt(1, userID);
+            removeComment.executeUpdate();
+
+            removeUser = conn.prepareStatement(user);
+            removeUser.setInt(1, userID);
+            removeUser.executeUpdate();
+            conn.commit();
+            return true;
+        } catch (SQLException e) {
+            Logger.getLogger(UsersFactory.class.getName()).
+                    log(Level.SEVERE, null, e);
+            if (conn != null) {
+                try {
+                    conn.rollback();
+                } catch (SQLException ex) {
+                    Logger.getLogger(UsersFactory.class.getName()).
+                            log(Level.SEVERE, null, ex);
+                }
+            }
+            return false;
+        }
+
+    }
+
+    public boolean insertUser(String nome, String cognome, String email,
+            String password, boolean isAuthor) {
+        boolean insert_OK = false;
+        try {
+            Connection conn = DatabaseManager.getIstance().getConnection();
+            String sql = "insert into utente values (default, ?, ?, ?, ?, ?, ?) ";
+            /*
+             id serial primary key,
+            nome varchar(100),
+            cognome varchar(100),
+            email varchar(100) not null,
+            password varchar(100) not null,
+            urlImg varchar(100),
+            isAuthor integer
+             */
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, nome);
+            stmt.setString(2, cognome);
+            stmt.setString(3, email);
+            stmt.setString(4, password);
+            stmt.setString(5, "res/user_pictures/header_user_icon.png");
+            stmt.setBoolean(6, isAuthor);
+
+            int rows = stmt.executeUpdate();
+            if (rows == 1) {
+
+                insert_OK = true;
+            }
+            // chiudo lo statement
+            stmt.close();
+            // chiusura della connessione
+            conn.close();
+
+        } catch (SQLException e) {
+            // nel caso la query fallisca (p.e. errori di sintassi)
+            // viene sollevata una SQLException
+            Logger.getLogger(UsersFactory.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return insert_OK;
+
     }
 }

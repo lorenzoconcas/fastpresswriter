@@ -7,8 +7,6 @@ package it.lorenzoconcas.blog.servlet;
 import it.lorenzoconcas.blog.database.*;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,6 +23,19 @@ public class Login extends HttpServlet {
             throws ServletException, IOException {
         
         HttpSession session = request.getSession();
+        if(request.getParameter("register")!= null){
+            if(request.getParameter("register").equals("true")){
+                boolean isAuthor = false;
+                if(request.getParameter("willBeAuthor").equals("on"))
+                    isAuthor = true;
+                UsersFactory.getIstance().insertUser(request.getParameter("nome"), request.getParameter("cognome"), request.getParameter("email"), request.getParameter("password"),isAuthor);
+                request.getRequestDispatcher("Login.jsp").forward(request, response);
+                return;
+            }
+             request.getRequestDispatcher("Register.jsp").forward(request, response);
+             return;
+                    
+        }
         //richiesta di logout
         if (request.getParameter("logout") != null) {
             session.invalidate();

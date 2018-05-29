@@ -11,7 +11,9 @@
     
     <!--Tasto cerca-->
   
-    <a id="search_button" href="cerca.html"><img id="search_image" src="res/site_resources/search_icon.png" alt="Cerca"/></a>
+    <a id="search_button" href="#" onClick="showSearch()" ><img id="search_image" src="res/site_resources/search_icon.png" alt="Cerca"/></a>
+     
+    <input id="querybox" onKeyPress="return runScript(event)" name="query" type="text" placeholder="Cerca nel sito...">
     <!--Logo-->
     <a id="home_logo" href="notizie.html">Fast Press Writer</a>
   

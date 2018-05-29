@@ -7,5 +7,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
  <footer id="footer">
   
-    <label id ="info_text">Progetto di FPW - Milestone 3 - Made By L.L.C.</label>
+    <label id ="info_text">Progetto di FPW - Milestone 4 - Made By L.L.C.</label>
 </footer>

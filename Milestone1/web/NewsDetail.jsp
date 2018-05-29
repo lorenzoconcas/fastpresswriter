@@ -15,35 +15,40 @@
         <link rel="stylesheet" type="text/css" href="res/css/aside_right.css" media="screen"/>
         <link rel="stylesheet" type="text/css" href="res/css/posts.css" media="screen"/>
         <link rel="stylesheet" type="text/css" href="res/css/comments.css" media="screen"/>
+        <link rel="stylesheet" type="text/css" href="res/css/search.css"/>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/Animations.js"></script>
+        <script type="text/javascript" src="js/ColorMode.js"></script>
+         <script type="text/javascript" src="js/Scripts.js"></script>
         <link rel="shortcut icon" href="res/site_resources/logo_old.png" type="image/x-icon" />
         <meta name="author" content="Lorenzo L. Concas">
         <meta name="keywords" content="Notizia, Fast, Press, Writer">
     </head>
-    <body>
+    <body onLoad="routineThings()">
 
         <jsp:include page="res/fixed_code/header.jsp" /> 
         <jsp:include page="res/fixed_code/categories.jsp"/>
         <jsp:include page="res/fixed_code/authors.jsp"/>
         <div id="content">
             <div id="news">            
-                <div id="post">
+                <div class="post">
                     <!--icona utente, nome utente-->
-                    <img id="post_user_icon" src="<c:url value="${News.getAuthor().getImgUrl()}"/>" alt=""/>
+                    <img class="post_user_icon" src="<c:url value="${News.getAuthor().getImgUrl()}"/>" alt=""/>
 
-                    <label id="post_author">${News.getAuthor().getName()} ${News.getAuthor().getSurname()}</label>                         
+                    <label class="post_author">${News.getAuthor().getName()} ${News.getAuthor().getSurname()}</label>                         
 
                     <br/>
 
-                    <img id="news_pic" src="<c:url value="${News.getImageUrl()}"/>" alt="Immagine"/>                        
+                    <img class="news_pic" src="<c:url value="${News.getImageUrl()}"/>" alt="Immagine"/>                        
                     <br/>
 
-                    <label id="post_title">${News.getTitle()}</label>
+                    <label class="post_title">${News.getTitle()}</label>
                     <br/>                    
 
-                    <label id="post_category">Scritto il ${News.getDate()} - Categorie : ${News.getCategory()}</label>
+                    <label class="post_category">Scritto il ${News.getDate()} - Categorie : ${News.getCategory()}</label>
                     <br/>
 
-                    <label id="post_content">${News.getContent()}</label>
+                    <label class="post_content">${News.getContent()}</label>
                     <br/>
                     <br/>
                 </div>
@@ -67,15 +72,15 @@
                         <!--Sezione commento personale-->
                         <c:if test="${loggedIn == true}">
                             <div id="personal_comment">
-                               
+
                                 <form action="sendComment?insComment=true">
                                     <c:set var="News" value="${News}">  </c:set>
-                                     <label>Commenta (come ${user.getName()} ${user.getSurname()})</label>
+                                    <label>Commenta (come ${user.getName()} ${user.getSurname()})</label>
                                     <input name="persComment" id="personal_comment_textarea"></input>
                                     <button id="personal_post_comment" >Commenta</button>
                                     <br/>
                                 </form>
-                            
+
                             </div>
                         </c:if>  
 

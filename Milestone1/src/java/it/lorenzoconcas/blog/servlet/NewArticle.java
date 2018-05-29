@@ -41,6 +41,9 @@ public class NewArticle extends HttpServlet {
         if (session != null) {
             //seguiamo gli stessi ragionamenti di Articles.java
             if (session.getAttribute("userID") != null) {
+                
+               
+              
                 int id = Integer.parseInt(session.getAttribute("userID").toString());
                 int lastID;
                 User u = UsersFactory.getIstance().getAuthorByID(id);
@@ -84,12 +87,12 @@ public class NewArticle extends HttpServlet {
                         request.setAttribute(category, "on");
                         //calcoliamo l'id da assegnare
                         ArrayList<News> newList = NewsFactory.getIstance().getNewsList();
-                        for(int i = 0 ; i< newList.size(); i++){
-                            if(newList.get(i).getContent().equals(request.getParameter("title")) && newList.get(i).getContent().equals(request.getParameter("content"))){
-                                session.setAttribute("lastID", newList.get(i).getId());
-                                
-                            }
+                        
+                        for(News n : newList){
+                            if(n.getTitle().equals(request.getParameter("title")) && n.getContent().equals(request.getParameter("content")))
+                                request.setAttribute("lastID", n.getId());
                         }
+                            
                         
                     }
                     request.getRequestDispatcher("NewArticle.jsp").forward(request, response);

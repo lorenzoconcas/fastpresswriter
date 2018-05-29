@@ -16,14 +16,19 @@
         <link rel="stylesheet" type="text/css" href="res/css/aside_left.css" media="screen"/>
         <link rel="stylesheet" type="text/css" href="res/css/aside_right.css" media="screen"/>
         <link rel="stylesheet" type="text/css" href="res/css/posts.css" media="screen"/>
+        <link rel="stylesheet" type="text/css" href="res/css/search.css"/>
+        <script type="text/javascript" src="js/jquery.js"></script>
+         <script type="text/javascript" src="js/Animations.js"></script>
+         <script type="text/javascript" src="js/ColorMode.js"></script>
+         <script type="text/javascript" src="js/Scripts.js"></script>
         <link rel="shortcut icon" href="res/site_resources/logo_old.png" type="image/x-icon" />
-        <meta http-equiv="refresh" content="10">
+   
         <meta name="author" content="Lorenzo L. Concas">
         <meta name="keywords" content="fast,press,writer">
-        <meta name="viewport" content="width:device-width, target-densityDpi=device-dpi">
+      
     </head>
 
-    <body>
+    <body onLoad="routineThings()">
       
         <jsp:include page="res/fixed_code/header.jsp" />   
         <jsp:include page="res/fixed_code/categories.jsp"/>
@@ -40,22 +45,22 @@
             </c:if>
            
             <c:forEach var="Notizia" items="${newsList}">
-                <div id="post">
+                <div class="post">
                     <a href="notizia.html?nid=${Notizia.getId()}">
                         <!--icona utente, nome utente-->
-                        <img id="post_user_icon" src="<c:url value="${Notizia.getAuthor().getImgUrl()}"/>" alt=""/>
-                        <label id="post_author">${Notizia.getAuthor().getName()} ${Notizia.getAuthor().getSurname()}</label>
+                        <img class="post_user_icon" src="<c:url value="${Notizia.getAuthor().getImgUrl()}"/>" alt=""/>
+                        <label class="post_author">${Notizia.getAuthor().getName()} ${Notizia.getAuthor().getSurname()}</label>
                         <br/>
                         <!--Immagine articolo, titolo articolo e link ad esso-->
-                        <img id="news_pic" src="<c:url value="${Notizia.getImageUrl()}"/>" alt="immagine"/>
+                        <img class="news_pic" src="<c:url value="${Notizia.getImageUrl()}"/>" alt="immagine"/>
                         <br/>
-                        <label id="post_title">${Notizia.getTitle()}</label>
+                        <label class="post_title">${Notizia.getTitle()}</label>
                         <br/>
-                        <label id="post_content">${Notizia.getContentPreview()}</label>
+                        <label class="post_content">${Notizia.getContentPreview()}</label>
                         <br/>
-                        <label id="post_category">Scritto il ${Notizia.getDate()} <br/> Categorie : ${Notizia.getCategory()}</label>
+                        <label class="post_category">Scritto il ${Notizia.getDate()} <br/> Categorie : ${Notizia.getCategory()}</label>
                         <br/>
-                        <a id="post_open" href="NewsDetails?nid=${Notizia.getId()}">Apri Articolo</a>
+                        <a class="post_open" href="NewsDetails?nclass=${Notizia.getId()}">Apri Articolo</a>
                         <br/>
                     </a>
                 </div>

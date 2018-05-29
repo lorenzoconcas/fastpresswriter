@@ -9,7 +9,7 @@
 <!DOCTYPE html> 
  <aside id="aside_right">
     <div class="aside_content_auth">
-        <h3>Autori</h3>
+        <h3 id="ciao" >Autori</h3>
         <ul>
             <c:forEach var="a" items="${authors}">
                 <li><a href="notizie.html?author=${a.getId()}">${a.getName()} ${a.getSurname()}</a></li>

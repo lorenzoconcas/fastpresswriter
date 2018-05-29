@@ -9,16 +9,21 @@
 <!DOCTYPE html>
 <html>
     <head>
-         <title>Fast Press Writer - Login</title>
+        <title>Fast Press Writer - Login</title>
         <link rel="stylesheet" type="text/css" href="res/css/style.css" media="screen"/>
         <link rel="stylesheet" type="text/css" href="res/css/login.css" media="screen"/>
+        <link rel="stylesheet" type="text/css" href="res/css/search.css"/>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/Animations.js"></script>         
+        <script type="text/javascript" src="js/ColorMode.js"></script>
+         <script type="text/javascript" src="js/Scripts.js"></script>
         <link rel="shortcut icon" href="res/site_resources/logo_old.png" type="image/x-icon" />
         <meta name="author" content="Lorenzo L. Concas">
         <meta name="keywords" content="login,fast,press,writer">
     </head>
-    <body>
-         <jsp:include page="res/fixed_code/header.jsp" />
-         <div id="content">
+    <body onLoad="routineThings()">
+        <jsp:include page="res/fixed_code/header.jsp" />
+        <div id="content">
             <div id="login_form">
                 <label id="loginTitle">Registrazione</label>
                 <br/>
@@ -27,7 +32,7 @@
                     <br/>
                     <input class="input_box" type="text" name="nome" id="nome">
                     <br/>
-                     <label class="input_title"l>Cognome</label>
+                    <label class="input_title"l>Cognome</label>
                     <br/>
                     <input class="input_box" type="text" name="cognome" id="nome">
                     <br/>
@@ -44,14 +49,14 @@
                     <input class="input_box" type="password" name="password" id="confirm_password">
                     <br/>
                     <button id="loginButton" type="submit"><label id="loginButtonText">Registrati</label></button>
-                     <div id="secondBox">
-                    <input type="checkbox" name="willBeAuthor">Iscriviti come autore per soli 99€/anno</input>                   
-                </div>
+                    <div id="secondBox">
+                        <input type="checkbox" name="willBeAuthor">Iscriviti come autore per soli 99€/anno</input>                   
+                    </div>
                 </form>
                 <br/>
-               
+
             </div>
-            
+
             <c:if test="${invalidData == true}">
                 <label>Nome utente e/o password errati, riprova</label>
             </c:if>

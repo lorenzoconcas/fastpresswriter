@@ -13,11 +13,16 @@
         <link rel="stylesheet" type="text/css" href="res/css/style.css" media="screen"/>
         <link rel="stylesheet" type="text/css" href="res/css/login.css" media="screen"/>
         <link rel="shortcut icon" href="res/site_resources/logo_old.png" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="res/css/search.css"/>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/Animations.js"></script>
+         <script type="text/javascript" src="js/ColorMode.js"></script>
+         <script type="text/javascript" src="js/Scripts.js"></script>
         <meta name="author" content="Lorenzo L. Concas">
         <meta name="keywords" content="login,fast,press,writer">
     </head>
-    <body>         
-        
+    <body onLoad="routineThings()">         
+       
         <jsp:include page="res/fixed_code/header.jsp" />
         <div id="content">           
             <div id="login_form">
@@ -41,7 +46,7 @@
                     <a href="">Password dimenticata</a>
                     <br/>
                     <c:if test="${invalidData == true}">
-                        <h4 id="invalid">Nome utente e/o password errati, riprova</h4>
+                        <h4  id="invalid">Nome utente e/o password errati, riprova</h4>
                     </c:if>
                 </div>
             </div>
