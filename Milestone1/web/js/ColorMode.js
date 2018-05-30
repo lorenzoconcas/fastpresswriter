@@ -1,5 +1,3 @@
-
-
 function ColorMode() {
     //imposto il tema che verrà attivato se necessario
     change();
@@ -11,7 +9,7 @@ function ColorMode() {
      if(new Date().getHours() > 17 && new Date().getHours() > 6){
         clearInterval(test);
     }
-    window.setInterval(magic, 1000);
+    
 }
 function change(){
     if (isNight()) {
@@ -28,6 +26,7 @@ function isNight() {
     return  (time < 7 || time > 17);
 }
 function tintItBlack() {
+    $('#metaelement').attr('theme-color', '#333333');
     $('body').css("background", "#333333");
     $('#background').css("background", "black");
     $('#header').css("background", "rgba(0,0, 0, 0.6)");
@@ -119,15 +118,15 @@ function tintItBlack() {
    
 }
 
-function getRandomColor(){
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    
-    for(var i = 0 ; i<6; i++){
-        color += letters[Math.floor(Math.random()*16)];        
-    }
-    return color;
-}
-function magic(){
-     $('body').css("background", getRandomColor());
-}
+//function getRandomColor(){
+//    var letters = '0123456789ABCDEF';
+//    var color = '#';
+//    
+//    for(var i = 0 ; i<6; i++){
+//        color += letters[Math.floor(Math.random()*16)];        
+//    }
+//    return color;
+//}
+//function magic(){
+//     $('body').css("background", getRandomColor());
+//}

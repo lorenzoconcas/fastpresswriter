@@ -16,6 +16,13 @@ a:hover{
 
     color:#AAAAAA;
 }
+.aside_title{
+    position:relative;
+   font-weight: bold;
+   font-size: 20px;
+   left:16px;
+   
+}
 #background{
     z-index:-1;
     position:absolute;
@@ -129,7 +136,15 @@ a:hover{
     right:48px;    
 }
 
-
+#hideCat, #hideAuth{
+    border-style: solid;
+    border-radius: 50px;
+    border-color: #666666;
+    background-color : #FAFAFA;
+    width:24px;
+    height:24px;
+    
+}
 
 #content{
     color:black;
@@ -141,6 +156,10 @@ a:hover{
     top : 72px;
     height: calc(100% - 160px);
 
+      -webkit-transition:all 0.5s ease-out;
+    -moz-transition:all 0.5s ease-out;
+    -o-transition:all 0.5s ease-out;
+    transition:all 0.5s ease-out;
 }
 
 @media (max-width: 1024px){
@@ -156,7 +175,7 @@ a:hover{
 
     #content{
         position: relative;
-        top: 64px;
+        
         width:90%;
         left:5%;
         right:5%;
@@ -208,8 +227,7 @@ a:hover{
         height:128px;
     }
     .navbar_buttons{
-        
-        
+        left:-48px;
         top:24px;
         font-size:64px;
     }
@@ -247,6 +265,9 @@ a:hover{
         top:4px;
         right:0px;
         height:64px;
+    }
+    #querybox{
+        visibility:hidden;
     }
 }
 

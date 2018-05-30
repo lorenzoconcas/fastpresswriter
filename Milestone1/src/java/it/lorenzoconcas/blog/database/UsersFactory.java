@@ -21,43 +21,7 @@ public class UsersFactory {
     private ArrayList<User> authorsList = new ArrayList<>();
 
     public UsersFactory() {
-        User u1 = new User();
-        u1.setId(0);
-        u1.setName("Lord");
-        u1.setSurname("Fener");
-        u1.setEmail("lordfener@impero.com");
-        u1.setPassword("theforce");
-        u1.setImgUrl("res/user_pictures/header_user_icon.png");
-        u1.setIsAuthor(true);
-        User u2 = new User();
-        u2.setId(1);
-        u2.setName("Luke");
-        u2.setSurname("Skywalker");
-        u2.setEmail("lukeskywalker@resistenza.com");
-        u2.setPassword("resistence");
-        u2.setImgUrl("res/user_pictures/header_user_icon.png");
-        u1.setIsAuthor(true);
-        User u3 = new User();
-        u3.setId(2);
-        u3.setName("Lore");
-        u3.setSurname("Concas");
-        u3.setEmail("lore@glassfish.com");
-        u3.setPassword("test");
-        u3.setImgUrl("res/user_pictures/test_profile_pic.png");
-        u3.setIsAuthor(true);
-        User u4 = new User();
-        u4.setId(3);
-        u4.setName("Han");
-        u4.setSurname("Solo");
-        u4.setEmail("hansolo@resistenza.com");
-        u4.setPassword("millenniumfalcon");
-        u4.setImgUrl("res/user_pictures/header_user_icon.png");
 
-
-        userList.add(u2);
-        userList.add(u1);
-        userList.add(u3);
-        userList.add(u4);
     }
 
     public static UsersFactory getIstance() {
@@ -69,7 +33,7 @@ public class UsersFactory {
     }
 
     private void getUsersFromServer() {
-       // userList.clear();
+       userList.clear();
         //otteniamo gli utenti dal server
         try {
             Connection conn = DatabaseManager.getIstance().getConnection();
@@ -137,7 +101,7 @@ public class UsersFactory {
 
     public User getUserByEmail(String email) {
 
-        // getUsersFromServer();
+         getUsersFromServer();
         for (User u : userList) {
             if (u.getEmail().equals(email)) {
                 return u;
@@ -148,7 +112,7 @@ public class UsersFactory {
 
     public User getAuthorByID(int id) {
 
-        // getUsersFromServer();
+         getUsersFromServer();
         authorsList.clear();
         buildAuthorsList();
 
@@ -171,7 +135,7 @@ public class UsersFactory {
     public ArrayList<User> getAuthors() {
 
         authorsList.clear();
-        //getUsersFromServer();
+        getUsersFromServer();
 
         buildAuthorsList();
         return authorsList;
@@ -224,15 +188,7 @@ public class UsersFactory {
         try {
             Connection conn = DatabaseManager.getIstance().getConnection();
             String sql = "insert into utente values (default, ?, ?, ?, ?, ?, ?) ";
-            /*
-             id serial primary key,
-            nome varchar(100),
-            cognome varchar(100),
-            email varchar(100) not null,
-            password varchar(100) not null,
-            urlImg varchar(100),
-            isAuthor integer
-             */
+          
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, nome);
             stmt.setString(2, cognome);

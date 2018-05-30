@@ -1,9 +1,10 @@
 function showSearch() {
 
     if ($("#querybox").css("visibility") === "visible") {
-        $("#querybox").css("visibility", "hidden");
+        
         $('#home_logo').css('left', '-=232px');
         $('.navbar_buttons').css('left', '-=232px');
+        $("#querybox").css("visibility", "hidden");
 
     } else {
         $('#home_logo').css('left', '+=232px');

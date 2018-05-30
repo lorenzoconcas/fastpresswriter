@@ -9,11 +9,12 @@
 <!DOCTYPE html> 
  <aside id="aside_right">
     <div class="aside_content_auth">
-        <h3 id="ciao" >Autori</h3>
-        <ul>
+        <label class="aside_title">Autori</label>
+        <ul id="authList">
             <c:forEach var="a" items="${authors}">
                 <li><a href="notizie.html?author=${a.getId()}">${a.getName()} ${a.getSurname()}</a></li>
             </c:forEach>
         </ul>
+      
     </div>
 </aside>

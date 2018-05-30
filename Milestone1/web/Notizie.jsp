@@ -22,7 +22,7 @@
          <script type="text/javascript" src="js/ColorMode.js"></script>
          <script type="text/javascript" src="js/Scripts.js"></script>
         <link rel="shortcut icon" href="res/site_resources/logo_old.png" type="image/x-icon" />
-   
+   <meta name="theme-color" content="#333333" />
         <meta name="author" content="Lorenzo L. Concas">
         <meta name="keywords" content="fast,press,writer">
       

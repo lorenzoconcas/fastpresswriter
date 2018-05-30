@@ -20,39 +20,39 @@ public class NewsFactory {
     private ArrayList<News> newsList = new ArrayList<>();
 
     NewsFactory() {
-        News n1 = new News();
-        UsersFactory uF = UsersFactory.getIstance();
-        n1.setId(0);
-        n1.setCategory(Categories.getIstance().getCategoryByID(5));
-        n1.setContent("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
-        n1.setImageUrl("res/news_pictures/news.image.1.jpg");
-        n1.setTitle("Articolo 1");
-        n1.setAuthor(uF.getUserById(0));
-        n1.setDate("12/04/2008");
-        n1.setImageDescription("Lorem Ipsumdolor sit amet");
-        
-        News n2 = new News();
-        n2.setId(1);
-        n2.setCategory(Categories.getIstance().getCategoryByID(2));
-        n2.setContent("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit tincidunt dolor");
-        n2.setImageUrl("res/news_pictures/news.image.2.jpg");
-        n2.setTitle("Articolo 2");
-        n2.setAuthor(uF.getUserById(1));
-        n2.setDate("25/05/2012");
-        n2.setImageDescription("Lorem Ipsumdolor sit amet");
-        
-        News n3 = new News();
-        n3.setId(2);
-        n3.setCategory(Categories.getIstance().getCategoryByID(1));
-        n3.setContent("Lorem Ipsumdolor sit amet");
-        n3.setImageUrl("res/news_pictures/news.image.3.jpg");
-        n3.setTitle("Articolo 3");
-        n3.setAuthor(uF.getUserById(2));
-        n3.setDate("6/11/2017");
-        n3.setImageDescription("Lorem Ipsumdolor sit amet");
-        newsList.add(n1);
-        newsList.add(n2);
-        newsList.add(n3);
+//        News n1 = new News();
+//        UsersFactory uF = UsersFactory.getIstance();
+//        n1.setId(0);
+//        n1.setCategory(Categories.getIstance().getCategoryByID(5));
+//        n1.setContent("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
+//        n1.setImageUrl("res/news_pictures/news.image.1.jpg");
+//        n1.setTitle("Articolo 1");
+//        n1.setAuthor(uF.getUserById(0));
+//        n1.setDate("12/04/2008");
+//        n1.setImageDescription("Lorem Ipsumdolor sit amet");
+//        
+//        News n2 = new News();
+//        n2.setId(1);
+//        n2.setCategory(Categories.getIstance().getCategoryByID(2));
+//        n2.setContent("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit tincidunt dolor");
+//        n2.setImageUrl("res/news_pictures/news.image.2.jpg");
+//        n2.setTitle("Articolo 2");
+//        n2.setAuthor(uF.getUserById(1));
+//        n2.setDate("25/05/2012");
+//        n2.setImageDescription("Lorem Ipsumdolor sit amet");
+//        
+//        News n3 = new News();
+//        n3.setId(2);
+//        n3.setCategory(Categories.getIstance().getCategoryByID(1));
+//        n3.setContent("Lorem Ipsumdolor sit amet");
+//        n3.setImageUrl("res/news_pictures/news.image.3.jpg");
+//        n3.setTitle("Articolo 3");
+//        n3.setAuthor(uF.getUserById(2));
+//        n3.setDate("6/11/2017");
+//        n3.setImageDescription("Lorem Ipsumdolor sit amet");
+//        newsList.add(n1);
+//        newsList.add(n2);
+//        newsList.add(n3);
     }
 
     public static NewsFactory getIstance() {
@@ -69,7 +69,7 @@ public class NewsFactory {
     }
 
     private void getNewsFromServer() {
-        //newsList.clear();
+        newsList.clear();
         //otteniamo gli utenti dal server
         try {
             Connection conn = DatabaseManager.getIstance().getConnection();
@@ -239,19 +239,7 @@ public class NewsFactory {
         }
         return insert_OK;
 
-        /*
-        insert into notizia values
-        (default,
         
-        'Articolo2' , 
-        'Lorem ipsum dolor sit amet,  laborum.',        
-        'res/news_pictures/news.image.2.jpg', 
-        'none',
-        '12/04/2008',
-        'Esteri', 
-        5);
-
-         */
     }
 
     public boolean deleteNews(int newsID) {
