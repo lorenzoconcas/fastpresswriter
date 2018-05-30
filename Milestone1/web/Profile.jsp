@@ -9,20 +9,12 @@
 <!DOCTYPE html>
 <html>  
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>${user.getName()} ${user.getSurname()} - Fast Press Writer</title>
-         <link rel="stylesheet" type="text/css" href="res/css/style.css" media="screen"/>
-        <link rel="stylesheet" type="text/css" href="res/css/aside_left.css" media="screen"/>
-        <link rel="stylesheet" type="text/css" href="res/css/aside_right.css" media="screen"/>
+       <jsp:include page="res/fixed_code/head.jsp" /> 
+        
+        
         <link rel="stylesheet" type="text/css" href="res/css/Profiles.css" media="screen"/>
-         <link rel="stylesheet" type="text/css" href="res/css/search.css"/>
-        <script type="text/javascript" src="js/jquery.js"></script>
-         <script type="text/javascript" src="js/Animations.js"></script>
-         <script type="text/javascript" src="js/ColorMode.js"></script>
-         <script type="text/javascript" src="js/Scripts.js"></script>
-        <link rel="shortcut icon" href="res/site_resources/logo_old.png" type="image/x-icon" />
-        <meta name="author" content="Lorenzo L. Concas">
-        <meta name="keywords" content="profilo,fast,press,writer">
+       
     </head>
     <body onLoad="routineThings()">
         <jsp:include page="res/fixed_code/header.jsp" />  

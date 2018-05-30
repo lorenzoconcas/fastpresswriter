@@ -10,21 +10,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- non viene utilizzato <base href> perch0è va in conflitto con la ricerca delle varie jsp-->
-        <title>Fast Press Writer</title>
-        <link rel="stylesheet" type="text/css" href="res/css/style.css" media="screen"/>
-        <link rel="stylesheet" type="text/css" href="res/css/aside_left.css" media="screen"/>
-        <link rel="stylesheet" type="text/css" href="res/css/aside_right.css" media="screen"/>
-        <link rel="stylesheet" type="text/css" href="res/css/PersonalArticles.css" media="screen"/>
-        
-        <link rel="stylesheet" type="text/css" href="res/css/search.css"/>
-        <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="js/Animations.js"></script>    
-        <script type="text/javascript" src="js/ColorMode.js"></script>
-         <script type="text/javascript" src="js/Scripts.js"></script>
-        <link rel="shortcut icon" href="res/site_resources/logo_old.png" type="image/x-icon" />
-        <meta name="author" content="Lorenzo L. Concas">
-        <meta name="keywords" content="Nuovo,articolo,fast,press,writer">
+        <!-- non viene utilizzato <base href> perch0è va in conflitto con la ricerca delle varie jsp-->  
+        <jsp:include page="res/fixed_code/head.jsp" />        
+        <link rel="stylesheet" type="text/css" href="res/css/PersonalArticles.css" media="screen"/>      
     </head>
 
     <body onLoad="routineThings()">

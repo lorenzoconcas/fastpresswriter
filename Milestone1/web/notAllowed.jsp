@@ -7,21 +7,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+       
         <title>Oooops!</title>
-        <meta http-equiv="" content="30">
-        <link rel="stylesheet" type="text/css" href="res/css/style.css" media="screen"/>
-        <link rel="stylesheet" type="text/css" href="res/css/aside_left.css" media="screen"/>
-        <link rel="stylesheet" type="text/css" href="res/css/aside_right.css" media="screen"/>
-        <link rel="stylesheet" type="text/css" href="res/css/search.css"/>
-        
-         <script type="text/javascript" src="js/Scripts.js"></script>
-        <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="js/Animations.js"></script>
-        <script type="text/javascript" src="js/ColorMode.js"></script>
-        <link rel="shortcut icon" href="res/site_resources/logo_old.png" type="image/x-icon" />
-        <meta name="author" content="Lorenzo L. Concas">
-        <meta name="keywords" content="Non,trovato,fast,press,writer">
+        <jsp:include page="res/fixed_code/head.jsp" /> 
     </head>
     <body onLoad="routineThings()">
         <jsp:include page="res/fixed_code/header.jsp" />   
