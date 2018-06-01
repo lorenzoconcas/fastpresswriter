@@ -21,8 +21,12 @@
         <jsp:include page="res/fixed_code/header.jsp" />   
         <jsp:include page="res/fixed_code/categories.jsp"/>
         <jsp:include page="res/fixed_code/authors.jsp"/>
+        <jsp:include page="res/fixed_code/SearchBox.jsp" /> 
         <div id="content">
-             <c:if test="${authorResult == true}">   
+              
+            
+            
+            <c:if test="${authorResult == true}">   
                 <h1>Articoli scritti da ${authNameSurname}</h1>
             </c:if>
             <c:if test="${categorySearchedName != null}">   
@@ -48,7 +52,7 @@
                         <br/>
                         <label class="post_category">Scritto il ${Notizia.getDate()} <br/> Categorie : ${Notizia.getCategory()}</label>
                         <br/>
-                        <a class="post_open" href="NewsDetails?nclass=${Notizia.getId()}">Apri Articolo</a>
+                        <a class="post_open" href="notizia.html?nid=${Notizia.getId()}">Apri Articolo</a>
                         <br/>
                     </a>
                 </div>

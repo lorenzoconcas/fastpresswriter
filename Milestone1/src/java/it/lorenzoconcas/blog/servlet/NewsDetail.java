@@ -39,13 +39,13 @@ public class NewsDetail extends HttpServlet {
         int id; //id della notizia
         /*Analizzo la richiesta e cerco il parametro "nid", lo trasformo in seguito in un intero*/
         id = Integer.parseInt(request.getParameter("nid"));
-
+        System.out.println(id);
         //istanzio la Factory delle notizie
         NewsFactory nF = NewsFactory.getIstance();
         /*controllo che il valore inserito sia valido,
             poichè la funzione size() in una lista rende il numero di elementi e la posizione massima in una lista è size-1
             il valore è valido quando minore di size*/
-        if (id < nF.getNewsList().size()+1 && id > 0) {
+        if (id < nF.getNewsList().size()+1 && id >= 0 && nF.getNewsById(id) != null) {
             
             //Appurato che l'id è valido recuperiamo la notizia desiderata
             News n = nF.getNewsById(id);
@@ -68,7 +68,8 @@ public class NewsDetail extends HttpServlet {
             return;
         }
         //la notizia non è stata trovata quindi avviso l'utente
-        request.getRequestDispatcher("NotFound.jsp").forward(request, response);
+        request.setAttribute("errorMessage", "Notizia non trovata");
+        request.getRequestDispatcher("notAllowed.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

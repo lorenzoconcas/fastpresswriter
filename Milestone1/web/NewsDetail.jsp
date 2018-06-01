@@ -20,6 +20,7 @@
         <jsp:include page="res/fixed_code/categories.jsp"/>
         <jsp:include page="res/fixed_code/authors.jsp"/>
         <div id="content">
+             <jsp:include page="res/fixed_code/SearchBox.jsp" />  
             <div id="news">            
                 <div class="post">
                     <!--icona utente, nome utente-->
@@ -65,7 +66,7 @@
 
                                 <form action="sendComment?insComment=true">
                                     <c:set var="News" value="${News}">  </c:set>
-                                    <label>Commenta (come ${user.getName()} ${user.getSurname()})</label>
+                                    <label id="pers_comment_title">Commenta (come ${user.getName()} ${user.getSurname()})</label>
                                     <input name="persComment" id="personal_comment_textarea"></input>
                                     <button id="personal_post_comment" >Commenta</button>
                                     <br/>

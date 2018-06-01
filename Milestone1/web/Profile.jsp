@@ -21,6 +21,8 @@
         <jsp:include page="res/fixed_code/categories.jsp"/>
         <jsp:include page="res/fixed_code/authors.jsp"/>
         <div id="content">
+            <jsp:include page="res/fixed_code/SearchBox.jsp" />  
+
             <div id="profile_section">
                 <h3>Il tuo profilo, ${user.getName()} ${user.getSurname()}</h3>
                 <img src="<c:url value="${user.getImgUrl()}"/>" alt="Immagine Profilo" width="160"/>

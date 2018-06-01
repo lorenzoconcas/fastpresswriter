@@ -14,10 +14,11 @@
        
         <link rel="stylesheet" type="text/css" href="res/css/login.css" media="screen"/>
     </head>
-    <body onLoad="routineThings()">         
-       
-        <jsp:include page="res/fixed_code/header.jsp" />
-        <div id="content">           
+    <body onLoad="routineThings()">                
+        <jsp:include page="res/fixed_code/header.jsp" />             
+        <div id="content">
+            <jsp:include page="res/fixed_code/SearchBox.jsp" />  
+
             <div id="login_form">
                 <label id="loginTitle">Login</label>
                 <br/>

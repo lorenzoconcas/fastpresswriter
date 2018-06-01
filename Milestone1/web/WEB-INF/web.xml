@@ -28,12 +28,8 @@
         <servlet-class>it.lorenzoconcas.blog.servlet.Profile</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>cerca.html</servlet-name>
-        <servlet-class>it.lorenzoconcas.blog.servlet.Search</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>testlet</servlet-name>
-        <servlet-class>it.lorenzoconcas.blog.servlet.testlet</servlet-class>
+        <servlet-name>filter.json</servlet-name>
+        <servlet-class>it.lorenzoconcas.blog.servlet.Filter</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>login.html</servlet-name>
@@ -60,12 +56,8 @@
         <url-pattern>/profilo.html</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>cerca.html</servlet-name>
-        <url-pattern>/cerca.html</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>testlet</servlet-name>
-        <url-pattern>/testlet</url-pattern>
+        <servlet-name>filter.json</servlet-name>
+        <url-pattern>/filter.json</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

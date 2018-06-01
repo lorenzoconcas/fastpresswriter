@@ -82,51 +82,49 @@ function tintItBlack() {
     $('#new_article_upload_button').css("background", '#333333');    
     $('#new_article_upload_button').css("color", 'white');
     
-    $('#profile_section').css("background", 'black');
+    $('#profile_section').css("background", 'black')    ;
     $('#profile_section').css("border-color", '#202020');
     $('.generic_input').css("border-color", '#202020');
     $('.generic_input').css("background", 'black');
     $('.generic_input').css("color", 'white');
    
-   if(document.getElementById("edit_button").value === "Salva"){
-         $('#edit_button').css("background", '#333333');
-        $('#edit_button').css("color", 'white');
+    $('#comment_section').css("background", 'black');
+    $('#comment_section').css("border-color", '#202020');
+    $('#comment_section').css("color", 'white');
+    
+    
+    
+    $('#personal_comment_textarea').css("background", 'black');
+    $('#personal_comment_textarea').css("border-color", '#202020');
+    $('#personal_comment_textarea').css("color", 'white');
+    $('#pers_comment_title').css("color", 'white');
+    
+    $('#personal_post_comment').css("background", 'black');
+    $('#personal_post_comment').css("border-color", '#202020');
+    $('#personal_post_comment').css("color", 'white');
+    
+    $('#resultBox').css("background", 'rgba(0, 0, 0, 0.8)');    
+    $('#resultBox').css("color", 'white');
+     $('.searchLink').css("text-color", 'white');
+    
+    
+    $('#personal_comment').css("color", 'black');
+    
+    $('#personal_post_comment').css("background", 'rgba(0, 0, 0, 0.8)');
+      
+   
+   if(document.getElementById("edit_button") !== null){
+        if(document.getElementById("edit_button").value === "Salva"){
+             $('#edit_button').css("background", '#333333');
+            $('#edit_button').css("color", 'white');
+       }
    }
     if(document.getElementById("delete_button").value === "Elimina Profilo"){
       $('#delete_button').css("background", 'red');
       $('#delete_button').css("color", 'white');
    }
    
-    $('#comment_section').css("background", 'black');
-    $('#comment_section').css("border-color", '#202020');
-    $('#comment_section').css("color", 'white');
-    
-    $('#comment_section').css("background", 'black');
-    $('#comment_section').css("border-color", '#202020');
-    $('#comment_section').css("color", 'white');
-    
-    $('#personal_comment_textarea').css("background", 'black');
-    $('#personal_comment_textarea').css("border-color", '#202020');
-    $('#personal_comment_textarea').css("color", 'white');
-    
-     $('#personal_post_comment').css("background", 'black');
-    $('#personal_post_comment').css("border-color", '#202020');
-    $('#personal_post_comment').css("color", 'white');
-    
-
    
    
 }
 
-//function getRandomColor(){
-//    var letters = '0123456789ABCDEF';
-//    var color = '#';
-//    
-//    for(var i = 0 ; i<6; i++){
-//        color += letters[Math.floor(Math.random()*16)];        
-//    }
-//    return color;
-//}
-//function magic(){
-//     $('body').css("background", getRandomColor());
-//}

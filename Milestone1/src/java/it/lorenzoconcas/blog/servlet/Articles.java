@@ -39,7 +39,7 @@ public class Articles extends HttpServlet {
         //per ora la lista degli autori viene calcolata semplicemente controllando articolo per articolo quali sono gli autori
         HttpSession session = request.getSession(false);
         //controllo che l'utente sia loggato e che sia un autore
-        if (session != null) {
+        if (session != null && session.getAttribute("userID") != null) {
             int id = Integer.parseInt(session.getAttribute("userID").toString());
             User u = UsersFactory.getIstance().getAuthorByID(id);
             //poichè la funzione getAuthorByID restituisce null se l'utente richiesto non è un autore
@@ -58,10 +58,10 @@ public class Articles extends HttpServlet {
             }
         }
         //se i requisiti non sono rispettati nego l'accesso
-
-        request.setAttribute("errorMessage", "Spiacenti, accesso negato");
-        request.getRequestDispatcher("notAllowed.jsp").forward(request, response);
-
+        else{
+            request.setAttribute("errorMessage", "Spiacenti, accesso negato");
+            request.getRequestDispatcher("notAllowed.jsp").forward(request, response);
+            }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

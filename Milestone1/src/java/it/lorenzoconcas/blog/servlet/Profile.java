@@ -35,8 +35,9 @@ public class Profile extends HttpServlet {
 
         HttpSession session = request.getSession(false);
         //controllo che l'utente sia loggato e che sia un autore
-        if (session != null) {
+        if (session != null && session.getAttribute("userID") != null) {
             //seguiamo gli stessi ragionamenti di Articles.java
+            
             int id = Integer.parseInt(session.getAttribute("userID").toString());
             User u = UsersFactory.getIstance().getUserById(id);
             //è necessario solo che sia loggato, non serve essere anche autori
@@ -49,10 +50,10 @@ public class Profile extends HttpServlet {
                 return;
             }
         } //se i requisiti non sono rispettati nego l'accesso
-
+        
         request.setAttribute("errorMessage", "Spiacenti, accesso negato");
         request.getRequestDispatcher("notAllowed.jsp").forward(request, response);
-
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -5,11 +5,14 @@
  */
 package it.lorenzoconcas.blog.servlet;
 
+import it.lorenzoconcas.blog.database.Categories;
 import it.lorenzoconcas.blog.database.NewsFactory;
+import it.lorenzoconcas.blog.database.UsersFactory;
+import it.lorenzoconcas.blog.objects.News;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,8 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author lorec
  */
-@WebServlet(name = "test", urlPatterns = {"/test"})
-public class test extends HttpServlet {
+public class Filter extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,11 +34,38 @@ public class test extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.print(NewsFactory.getIstance().getNewsById(Integer.parseInt(request.getParameter("nid"))).getContent());
+      
+        
+        String command = request.getParameter("cmd");
+        
+        if(command != null){
+            switch(command){
+                case "search":{
+                    String query_string = request.getParameter("q");  
+                    ArrayList<News> all_news = NewsFactory.getIstance().searchNews(query_string);
+                    request.setAttribute("foundNews", all_news);    
+                      response.setContentType("application/json");
+                    response.setHeader("Expires", "Sat, 6 May 1995 12:00:00 GMT");
+                    response.setHeader("Cache-Control", "no-store, no-cache, must-revalidate"); 
+                    request.getRequestDispatcher("res/JSONResults/SearchCore.jsp").forward(request, response);
+                    break;
+                }
+                case "getCat":{
+                    request.setAttribute("categories", Categories.getIstance().getCategories());                    
+                    request.getRequestDispatcher("res/JSONResults/CatJSON.jsp").forward(request, response);
+                    break;
+                }
+                case "getAuths":{
+                   
+                    request.setAttribute("authors", UsersFactory.getIstance().getAuthors());
+                    request.getRequestDispatcher("res/JSONResults/AuthJSON.jsp").forward(request, response);
+                    break;
+                }
+            }
+           
         }
+       
+    
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

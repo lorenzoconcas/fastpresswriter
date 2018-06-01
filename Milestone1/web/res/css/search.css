@@ -26,22 +26,32 @@ and open the template in the editor.
     -o-transition:all 0.5s ease-out;
     transition:all 0.5s ease-out;
 }
-#submit_search{
-    width:16px;
-    position:relative;
-    left: calc(50% - 128px);
-    top: 10px;
-    background: linear-gradient( #FCFCFC,#EFEFEF);
-    border-radius: 100%;
+#resultBox{
+    
+    visibility: hidden;
+    z-index:10;
+    position:fixed;
+    left : 64px;
+    width:50%;
+    top:48px;
+    
+    background: linear-gradient(rgba(251,251,251, 0.8),#EFEFEF);
     border-style:solid;
-    border-width:2px;
-    padding:4px;
-    border-color: #EFEFEF;    
+    border-radius:10px;
+    border-color:#AAAAAA;
+    
+    -webkit-transition:all 0.5s ease-out;
+    -moz-transition:all 0.5s ease-out;
+    -o-transition:all 0.5s ease-out;
+    transition:all 0.5s ease-out;
 }
-#searchResultSection{
-    background: linear-gradient( #FCFCFC,#EFEFEF);
-    text-align:center;
+#resultCore{
+    position: relative;
+    left:16px;
+    width: 90%;
+    
 }
+
 @media (max-width:1080px) and (-webkit-min-device-pixel-ratio: 2.0), (max-width:720) and (-webkit-min-device-pixel-ratio: 2.0){
     #querybox{ 
         position:relative;

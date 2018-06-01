@@ -36,12 +36,12 @@ public class Notizie extends HttpServlet {
         HttpSession session = request.getSession();
         UsersFactory uf = UsersFactory.getIstance();
         session.setAttribute("users", uf.getUsers());
-        session.setAttribute("authors", uf.getAuthors());
-        session.setAttribute("categories", Categories.getIstance().getCategories());
+        //session.setAttribute("authors", uf.getAuthors());
+        //session.setAttribute("categories", Categories.getIstance().getCategories());
         request.setAttribute("newsList", NewsFactory.getIstance().getNewsByDate(1));//ricordati di mostrarle dalla più vecchia alla più nuova
         //se mi viene chiesto di mostrare le categorie
         if (request.getParameter("category") != null) {
-
+            System.out.println(request.getParameter("category"));
             if (request.getParameter("category").equals("Tutte")) {
                 request.setAttribute("newsList", NewsFactory.getIstance().getNewsByDate(1));//ricordati di mostrarle dalla più vecchia alla più nuova
             }
@@ -53,6 +53,7 @@ public class Notizie extends HttpServlet {
                     request.setAttribute("emptyCategory", true);
                 }
             }
+             request.getRequestDispatcher("res/JSONResults/FilteredNewsJSON.jsp").forward(request, response);
            
         }
         else if (request.getParameter("author") != null) {
@@ -62,7 +63,7 @@ public class Notizie extends HttpServlet {
             request.setAttribute("authNameSurname", (u.getName() + " " + u.getSurname()));
             if( NewsFactory.getIstance().getNewsByAuthor(u.getId(), 1).isEmpty())
                 request.setAttribute("emptyCategory", true);
-
+             request.getRequestDispatcher("res/JSONResults/FilteredNewsJSON.jsp").forward(request, response);
         }
         request.getRequestDispatcher("Notizie.jsp").forward(request, response);
     }
