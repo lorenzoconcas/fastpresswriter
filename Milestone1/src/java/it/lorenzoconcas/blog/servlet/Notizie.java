@@ -36,10 +36,15 @@ public class Notizie extends HttpServlet {
         HttpSession session = request.getSession();
         UsersFactory uf = UsersFactory.getIstance();
         session.setAttribute("users", uf.getUsers());
+        //non più necessari, gestiti da JavaScript
         //session.setAttribute("authors", uf.getAuthors());
         //session.setAttribute("categories", Categories.getIstance().getCategories());
-        request.setAttribute("newsList", NewsFactory.getIstance().getNewsByDate(1));//ricordati di mostrarle dalla più vecchia alla più nuova
-        //se mi viene chiesto di mostrare le categorie
+        
+        
+        
+        ///questo codice gestisce la richiesta JSON da parte di javascript, il codice vecchio è stato riutilizzato
+        
+         //se mi viene chiesto di mostrare le categorie
         if (request.getParameter("category") != null) {
             System.out.println(request.getParameter("category"));
             if (request.getParameter("category").equals("Tutte")) {
@@ -65,6 +70,9 @@ public class Notizie extends HttpServlet {
                 request.setAttribute("emptyCategory", true);
              request.getRequestDispatcher("res/JSONResults/FilteredNewsJSON.jsp").forward(request, response);
         }
+        
+        request.setAttribute("newsList", NewsFactory.getIstance().getNewsByDate(1));//ricordati di mostrarle dalla più vecchia alla più nuova
+       
         request.getRequestDispatcher("Notizie.jsp").forward(request, response);
     }
 
