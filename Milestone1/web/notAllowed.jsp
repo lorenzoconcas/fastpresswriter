@@ -11,7 +11,7 @@
         <title>Oooops!</title>
         <jsp:include page="res/fixed_code/head.jsp" /> 
     </head>
-    <body onLoad="routineThings()">
+    <body>
         <jsp:include page="res/fixed_code/header.jsp" />   
         <jsp:include page="res/fixed_code/categories.jsp"/>
         <jsp:include page="res/fixed_code/authors.jsp"/>

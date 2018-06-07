@@ -32,6 +32,13 @@ public class Categories {
     public ArrayList<String> getCategories(){
         return categoriesList;
     }
+     public ArrayList<String> getCategories(String name){
+         ArrayList<String> tempList = new ArrayList<>();
+         for(String s : categoriesList){
+             if(s.contains(name))tempList.add(s);
+         }
+        return tempList;
+    }
     public String getCategoryByID(int id){
         if(id > categoriesList.size())
             return "Senza Categoria";

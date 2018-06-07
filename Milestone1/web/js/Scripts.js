@@ -1,9 +1,4 @@
-function routineThings() {
-    populateCategories();
-    populateAuthors();
-    putHideButtons();
-    ColorMode();
-}
+
 function getDate() {
     return  new Date().getDay() + "/" + new Date().getMonth() + "/" + new Date().getYear();
 }
@@ -59,7 +54,6 @@ function populateCategories() {
 
 
 }
-
 function populateAuthors() {
     $.ajax({
         url: "filter.json",
@@ -86,7 +80,6 @@ function insertAuthLI(item) {
 
     return $("<li>").append(auths);
 }
-
 function insertCatLI(item) {
    
     var cat = $("<label onClick='loadNewsByCat(\"" + item.catName + "\")'>").html(item.catName);
@@ -94,8 +87,6 @@ function insertCatLI(item) {
     return $("<li>").append(cat);
 
 }
-
-
 function loadNewsByAuth(filter, authName) {
     $("#content").empty();
 
@@ -117,7 +108,6 @@ function loadNewsByAuth(filter, authName) {
     });
 
 }
-
 function loadNewsByCat(filter) {
     $("#content").empty();
     if(filter !== "Tutte")
@@ -139,57 +129,4 @@ function loadNewsByCat(filter) {
     });
 
 }
-
-
-function populateNews(newsList) {
-   
-    for (var instance in newsList) {
-
-        $("#content").append(putNews(newsList[instance]));
-        $("#content").append("<br/>");
-    }
-   if(newsList.length === 0){
-        $("#content").append("<h4>Non ho trovato niente qui...</h4>");
-   }
-
-}
-
-function putNews(news) {
-
-
-    var titolo = '<label class="post_title">' + news.post_title + '</label>';
-    var author = '<label class="post_author">' + news.post_author + '</label>';
-    var author_icon = '<img class="post_user_icon" src=' + news.post_user_icon + ' alt="immagine"/>';
-    var pic = '<img class="news_pic" src="' + news.news_pic + '"/>';
-    var content = '<label class="post_content">' + news.post_content + '</label>';
-    var date = '<label class="post_category">' + news.post_date + '</label>';
-    var category = '<label class="post_category">' + news.post_category + '</label>';
-    var link = news.post_open;//'<label class="post_open"' + news.post_open + '></label>';
-    var nLine = '<br/>';
-    var innerPost = '<a href=' + link + '>';
-
-
-    var oneLine = "<div class='post'>" 
-            + innerPost
-            + author_icon 
-            + author
-            + nLine 
-            + pic 
-            + nLine 
-            + titolo
-            + nLine
-            + content
-            + nLine 
-            + category 
-            + nLine 
-            + date
-            + nLine
-            +innerPost
-            + "Apri Articolo</a>";
-            +"</a></div>";
-         
-    return oneLine;
-
-}
-
 

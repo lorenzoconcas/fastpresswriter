@@ -16,7 +16,7 @@
         <link rel="stylesheet" type="text/css" href="res/css/posts.css" media="screen"/>
     </head>
 
-    <body onLoad="routineThings()">
+    <body>
       
         <jsp:include page="res/fixed_code/header.jsp" />   
         <jsp:include page="res/fixed_code/categories.jsp"/>

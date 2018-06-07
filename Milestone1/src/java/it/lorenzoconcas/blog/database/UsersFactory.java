@@ -140,6 +140,21 @@ public class UsersFactory {
         buildAuthorsList();
         return authorsList;
     }
+    
+     public ArrayList<User> getAuthors(String name) {
+
+        authorsList.clear();
+        getUsersFromServer();
+
+        buildAuthorsList();
+        ArrayList<User> tempList = new ArrayList<>();
+        for(User a : authorsList){
+            if(a.getName().contains(name) || a.getSurname().contains(name))
+                tempList.add(a);
+        }
+       
+        return tempList;
+    }
 
     public boolean deleteUser(int userID) {
         Connection conn = null;

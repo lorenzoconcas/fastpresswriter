@@ -41,23 +41,30 @@ public class Filter extends HttpServlet {
         if(command != null){
             switch(command){
                 case "search":{
-                    String query_string = request.getParameter("q");  
-                    ArrayList<News> all_news = NewsFactory.getIstance().searchNews(query_string);
-                    request.setAttribute("foundNews", all_news);    
+                    String query_string = request.getParameter("q"); 
+                    ArrayList<News> all_news = NewsFactory.getIstance().searchNews(query_string);                   
+                    request.setAttribute("newsList", all_news);    
                       response.setContentType("application/json");
                     response.setHeader("Expires", "Sat, 6 May 1995 12:00:00 GMT");
                     response.setHeader("Cache-Control", "no-store, no-cache, must-revalidate"); 
-                    request.getRequestDispatcher("res/JSONResults/SearchCore.jsp").forward(request, response);
+                    request.getRequestDispatcher("res/JSONResults/FilteredNewsJSON.jsp").forward(request, response);
                     break;
                 }
                 case "getCat":{
-                    request.setAttribute("categories", Categories.getIstance().getCategories());                    
+                    if(request.getParameter("q")!= null)
+                        request.setAttribute("categories", Categories.getIstance().getCategories(request.getParameter("q")));
+                    else
+                         request.setAttribute("categories", Categories.getIstance().getCategories());                    
                     request.getRequestDispatcher("res/JSONResults/CatJSON.jsp").forward(request, response);
                     break;
                 }
                 case "getAuths":{
-                   
-                    request.setAttribute("authors", UsersFactory.getIstance().getAuthors());
+                   if(request.getParameter("q")!= null)
+                       request.setAttribute("authors", UsersFactory.getIstance().getAuthors(request.getParameter("q")));
+                     
+                    else
+                         request.setAttribute("authors", UsersFactory.getIstance().getAuthors());
+                    
                     request.getRequestDispatcher("res/JSONResults/AuthJSON.jsp").forward(request, response);
                     break;
                 }

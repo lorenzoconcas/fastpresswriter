@@ -153,7 +153,7 @@ public class NewsFactory {
                 }
             }
         }
-        return true;
+        return false;
     }
 
     public ArrayList<News> getNewsByDate(int order) {
@@ -245,7 +245,7 @@ public class NewsFactory {
     public ArrayList<News> searchNews(String param){
         ArrayList<News> foundNews = new ArrayList<>();
         for(News n : newsList){
-            if(n.getContent().contains(param))
+            if(n.getContent().contains(param) || n.getTitle().contains(param))
                 foundNews.add(n);
         }
         return foundNews;

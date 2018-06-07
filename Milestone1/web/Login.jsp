@@ -14,7 +14,7 @@
        
         <link rel="stylesheet" type="text/css" href="res/css/login.css" media="screen"/>
     </head>
-    <body onLoad="routineThings()">                
+    <body>                
         <jsp:include page="res/fixed_code/header.jsp" />             
         <div id="content">
             <jsp:include page="res/fixed_code/SearchBox.jsp" />  
