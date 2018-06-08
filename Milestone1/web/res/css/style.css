@@ -162,6 +162,25 @@ a:hover{
     transition:all 0.5s ease-out;
 }
 
+#querybox{ 
+    visibility: hidden;
+    width:200px;
+    position:absolute;
+    left: 64px;
+    top:16px;
+    background: linear-gradient( #FCFCFC,#EFEFEF);
+    border-style:solid;
+    border-width:2px;
+    padding:4px;
+    border-color: #EFEFEF;
+    border-radius: 16px;
+    
+    -webkit-transition:all 0.5s ease-out;
+    -moz-transition:all 0.5s ease-out;
+    -o-transition:all 0.5s ease-out;
+    transition:all 0.5s ease-out;
+}
+
 @media (max-width: 1024px){
     #content{
         top: 72px;
@@ -266,8 +285,14 @@ a:hover{
         right:0px;
         height:64px;
     }
-    #querybox{
-        visibility:hidden;
+    
+     #querybox{ 
+           visibility:hidden;
+        position:relative;
+        width:50%;
+        font-size:48px;
+        border-radius:32px;
     }
+   
 }
 

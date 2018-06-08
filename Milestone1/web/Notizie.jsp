@@ -15,27 +15,11 @@
         <jsp:include page="res/fixed_code/head.jsp" /> 
         <link rel="stylesheet" type="text/css" href="res/css/posts.css" media="screen"/>
     </head>
-
     <body>
-      
         <jsp:include page="res/fixed_code/header.jsp" />   
         <jsp:include page="res/fixed_code/categories.jsp"/>
         <jsp:include page="res/fixed_code/authors.jsp"/>
-        <jsp:include page="res/fixed_code/SearchBox.jsp" /> 
         <div id="content">
-              
-            
-            
-            <c:if test="${authorResult == true}">   
-                <h1>Articoli scritti da ${authNameSurname}</h1>
-            </c:if>
-            <c:if test="${categorySearchedName != null}">   
-                <h1>Categoria : ${categorySearchedName}</h1>
-            </c:if>
-            <c:if test="${emptyCategory == true}">   
-                <h1>Nessun articolo disponibile</h1>
-            </c:if>
-           
             <c:forEach var="Notizia" items="${newsList}">
                 <div class="post">
                     <a href="notizia.html?nid=${Notizia.getId()}">

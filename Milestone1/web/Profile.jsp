@@ -10,18 +10,14 @@
 <html>  
     <head>
         <title>${user.getName()} ${user.getSurname()} - Fast Press Writer</title>
-       <jsp:include page="res/fixed_code/head.jsp" /> 
-        
-        
+        <jsp:include page="res/fixed_code/head.jsp" />         
         <link rel="stylesheet" type="text/css" href="res/css/Profiles.css" media="screen"/>
-       
     </head>
     <body>
         <jsp:include page="res/fixed_code/header.jsp" />  
         <jsp:include page="res/fixed_code/categories.jsp"/>
         <jsp:include page="res/fixed_code/authors.jsp"/>
         <div id="content">
-            <jsp:include page="res/fixed_code/SearchBox.jsp" />  
 
             <div id="profile_section">
                 <h3>Il tuo profilo, ${user.getName()} ${user.getSurname()}</h3>
