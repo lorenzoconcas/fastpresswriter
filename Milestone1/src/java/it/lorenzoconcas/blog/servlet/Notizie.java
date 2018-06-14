@@ -36,11 +36,9 @@ public class Notizie extends HttpServlet {
         HttpSession session = request.getSession();
         UsersFactory uf = UsersFactory.getIstance();
         session.setAttribute("users", uf.getUsers());
-        //non più necessari, gestiti da JavaScript
+        
         //session.setAttribute("authors", uf.getAuthors());
-        //session.setAttribute("categories", Categories.getIstance().getCategories());
-        
-        
+        session.setAttribute("categories", Categories.getIstance().getCategories());
         
         ///questo codice gestisce la richiesta JSON da parte di javascript, il codice vecchio è stato riutilizzato
         

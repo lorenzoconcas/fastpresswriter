@@ -1,6 +1,16 @@
+@font-face {
+    font-family: 'old_english_text_mtregular';
+    src: url('old-webfont.woff2') format('woff2'),
+         url('old-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 body{
     background-color:white;
     font-family: "Segoe UI", sans-serif;
+    
     cursor: pointer;
     -webkit-transition:all 0.5s ease-out;
     -moz-transition:all 0.5s ease-out;
@@ -53,7 +63,7 @@ a:hover{
     top: 8px;
     left : 32px;
     color : #333333;
-    font-family: "Old English Text MT";
+    font-family: 'old_english_text_mtregular';
     
     
     

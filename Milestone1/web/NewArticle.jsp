@@ -22,7 +22,6 @@
         <jsp:include page="res/fixed_code/authors.jsp"/>
         
         <div id="content">
-             <jsp:include page="res/fixed_code/SearchBox.jsp" />  
             
             <div id="new_article_section">
                 <form action="scriviArticolo.html?send=true">

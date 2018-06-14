@@ -20,7 +20,7 @@
     <jsp:include page="res/fixed_code/categories.jsp"/>
     <jsp:include page="res/fixed_code/authors.jsp"/>
     <div id="content">
-        <jsp:include page="res/fixed_code/SearchBox.jsp" />  
+       
 
         <c:if test="${authorNewsList.size() > 0}">          
 

@@ -20,7 +20,7 @@ public class NewsFactory {
     private ArrayList<News> newsList = new ArrayList<>();
 
     NewsFactory() {
-        
+
     }
 
     public static NewsFactory getIstance() {
@@ -38,13 +38,12 @@ public class NewsFactory {
 
     private void getNewsFromServer() {
         newsList.clear();
-     //   otteniamo gli utenti dal server
+        //   otteniamo gli utenti dal server
         try {
             Connection conn = DatabaseManager.getIstance().getConnection();
             if (conn == null) {
                 System.out.println("Problema di connessione");
-            }
-            else {
+            } else {
 
                 Statement stmt = conn.createStatement();
                 String sql = "select * from notizia";
@@ -74,17 +73,44 @@ public class NewsFactory {
         }
 
     }
+    private News getByData(String m, int p){
+        News tempNews = new News();
+        UsersFactory u = UsersFactory.getIstance();
+        //beta
+        try {
+            Connection conn = DatabaseManager.getIstance().getConnection();
+            if (conn == null) {
+                System.out.println("Problema di connessione");
+            } else {
 
-    public News getNewsById(int id) {
+                Statement stmt = conn.createStatement();
+                String sql = "select * from notizia where "+m+" = " + p;
+                ResultSet set = stmt.executeQuery(sql);
 
-        getNewsFromServer();
+                while (set.next()) {
 
-        for (News n : newsList) {
-            if (n.getId() == id) {
-                return n;
+                    tempNews.setId(set.getInt("id"));
+                    tempNews.setTitle(set.getString("titolo"));
+                    tempNews.setContent(set.getString("content"));
+                    tempNews.setDate(set.getString("dataC"));
+                    tempNews.setCategory(set.getString("category"));
+                    tempNews.setImageDescription(set.getString("imgDesc"));
+                    tempNews.setAuthor(u.getAuthorByID(set.getInt("autore")));
+                    tempNews.setImageUrl(set.getString("img"));
+
+                }
+                stmt.close();
+                conn.close();
+
             }
+        } catch (SQLException ex) {
+            Logger.getLogger(NewsFactory.class.getName()).
+                    log(Level.SEVERE, null, ex);
         }
-        return null;
+        return tempNews;
+    }
+    public News getNewsById(int id) {
+        return getByData("id", id);
     }
 
     public ArrayList<News> getNewsByAuthor(int authorID, int order) {
@@ -207,7 +233,6 @@ public class NewsFactory {
         }
         return insert_OK;
 
-        
     }
 
     public boolean deleteNews(int newsID) {
@@ -242,11 +267,13 @@ public class NewsFactory {
         }
 
     }
-    public ArrayList<News> searchNews(String param){
+
+    public ArrayList<News> searchNews(String param) {
         ArrayList<News> foundNews = new ArrayList<>();
-        for(News n : newsList){
-            if(n.getContent().contains(param) || n.getTitle().contains(param))
+        for (News n : newsList) {
+            if (n.getContent().contains(param) || n.getTitle().contains(param)) {
                 foundNews.add(n);
+            }
         }
         return foundNews;
     }
