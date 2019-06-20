@@ -7,6 +7,7 @@ This is the final project of the course "Fundamentals of Web Programming" (Unive
 **How to open it?**
 
 Just download the zip file, extract it and open the folder with NetBeans
+
 Alternatively use the git tools of NetBeans itself
 
 **Prerequisites**
