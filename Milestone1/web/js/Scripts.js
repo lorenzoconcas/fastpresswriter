@@ -50,9 +50,6 @@ function populateCategories() {
             console.log("Qualcosa andò storto");
         }
     });
-
-
-
 }
 function populateAuthors() {
     $.ajax({
@@ -74,19 +71,17 @@ function populateAuthors() {
         }
     });
 }
-function insertAuthLI(item) {
-   
-    var auths = $("<label onClick='loadNewsByAuth(" + item.authID + ", \"" + (item.authName + " " + item.authSurname) + "\")'>").html(item.authName + " " + item.authSurname);
 
+function insertAuthLI(item) {   
+    var auths = $("<label onClick='loadNewsByAuth(" + item.authID + ", \"" + (item.authName + " " + item.authSurname) + "\")'>").html(item.authName + " " + item.authSurname);
     return $("<li>").append(auths);
 }
-function insertCatLI(item) {
-   
+
+function insertCatLI(item) {   
     var cat = $("<label onClick='loadNewsByCat(\"" + item.catName + "\")'>").html(item.catName);
-
     return $("<li>").append(cat);
-
 }
+
 function loadNewsByAuth(filter, authName) {
     $("#content").empty();
 
@@ -106,8 +101,8 @@ function loadNewsByAuth(filter, authName) {
             console.log("Qualcosa andò storto nelle notizie");
         }
     });
-
 }
+
 function loadNewsByCat(filter) {
     $("#content").empty();
     if(filter !== "Tutte")
@@ -127,6 +122,5 @@ function loadNewsByCat(filter) {
             console.log("Qualcosa andò storto nelle notizie");
         }
     });
-
 }
 
